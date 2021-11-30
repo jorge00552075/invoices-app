@@ -1,8 +1,14 @@
-import './App.css';
+import React from 'react';
+
+import Invoices from './pages/Invoices';
+import styles from './App.module.css';
 
 function App() {
-  console.log('Jorge');
-  return <h1>INVOICES APP</h1>;
+  return (
+    <React.Fragment>
+      <Invoices />
+    </React.Fragment>
+  );
 }
 
 export default App;

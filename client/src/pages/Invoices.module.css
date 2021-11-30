@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+
+  height: 100vh;
+}
+
+.aside {
+  flex: 0 0 10.3rem;
+
+  border-top-right-radius: 2.4rem;
+  border-bottom-right-radius: 2.4rem;
+
+  background: hsl(231, 20%, 27%);
+
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+
+  background: hsl(240, 27%, 98%);
+}
+
+.main_container {
+  width: 73rem;
+  margin: 7.2rem auto 0;
+}
