@@ -1,0 +1,58 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+bold: 700
+- Line heights
+- Letter spacing
+-0.25px
+-0.50px
+-1px
+--- 02 COLORS
+hsl(252, 94%, 67%)
+hsl(252, 100%, 73%)
+hsl(233, 31%, 17%)
+hsl(233, 30%, 21%)
+hsl(232, 20%, 36%) - rectangle
+hsl(231, 73%, 93%)
+hsl(231, 20%, 61%) - text
+hsl(231, 37%, 63%)
+hsl(228, 29%, 7%) - h1
+hsl(0, 80%, 63%)
+hsl(0, 100%, 80%)
+hsl(240, 27%, 98%)
+hsl(233, 30%, 11%)
+hsl(231, 20%, 27%) - aside bg
+hsl(0, 0%, 100%) - button bg / text
+--- 05 SHADOWS
+rg: box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+md: box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+lg: box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+--- 06 BORDER-RADIUS
+md: border-radius: 6px;
+2xl: border-radius: 24px;
+full: border-radius: 50% / border-radius: 9999px;
+--- 07 WHITESPACE
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
