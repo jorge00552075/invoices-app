@@ -1,20 +1,26 @@
+import { useState } from 'react';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Moon } from '../assets/icon-moon.svg';
-// import { ReactComponent as Sun } from '../assets/icon-sun.svg';
+import { ReactComponent as Sun } from '../assets/icon-sun.svg';
 import avatar from '../assets/image-avatar.jpg';
 
 import styles from './Sidebar.module.css';
 
 function Sidebar() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  function handleClick() {
+    setDarkMode((prev) => !prev);
+  }
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo_wrapper}>
         <Logo />
       </div>
-
       <div className={styles.container}>
-        <button className={styles.btn}>
-          <Moon />
+        <button className={styles.btn} onClick={handleClick}>
+          {darkMode ? <Sun /> : <Moon />}
         </button>
         <div className={styles.line} />
         <button className={styles.btn}>

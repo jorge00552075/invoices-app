@@ -1,0 +1,35 @@
+.invoices_list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+
+  margin-top: 6.4rem;
+}
+
+/* IF NO INVOICES */
+.container {
+  width: 24.2rem;
+  margin: 9.6rem auto 0;
+
+  text-align: center;
+}
+
+.illustration {
+  margin-bottom: 4.8rem;
+}
+
+.text h2 {
+  margin-bottom: 2.4rem;
+
+  font-size: 2rem;
+
+  color: hsl(228, 29%, 7%);
+  letter-spacing: -0.5px;
+}
+
+.text h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  color: hsl(231, 20%, 61%);
+}

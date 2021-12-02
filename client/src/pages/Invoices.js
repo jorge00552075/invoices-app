@@ -1,4 +1,5 @@
 import Sidebar from '../components/Sidebar';
+import InvoicesList from '../components/InvoicesList';
 
 import styles from './Invoices.module.css';
 
@@ -11,7 +12,7 @@ function Invoices() {
       <main className={styles.main}>
         <div className={styles.container_main}>
           <header>HEADER</header>
-          <ul>INVOICES LIST</ul>
+          <InvoicesList />
         </div>
       </main>
     </div>
