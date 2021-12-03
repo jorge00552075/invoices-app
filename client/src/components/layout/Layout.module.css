@@ -1,0 +1,14 @@
+.layout {
+  display: flex;
+
+  height: 100vh;
+}
+
+.aside {
+  flex: 0 0 10.3rem;
+}
+
+.main {
+  flex: 1;
+  background: hsl(240, 27%, 98%);
+}

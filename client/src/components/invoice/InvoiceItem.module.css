@@ -18,11 +18,12 @@
 } */
 
 .invoice:hover,
-.invoice:active {
+.invoice:active,
+.invoice:focus {
   outline: none;
   border-radius: 6px;
 
-  box-shadow: 0 0 0 10px hsla(252, 94%, 67%, 0.5);
+  box-shadow: 0 0 0 8px hsla(252, 94%, 67%, 0.5);
 }
 
 .id {

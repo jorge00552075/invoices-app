@@ -1,17 +1,15 @@
 import React from 'react';
 
-import DATA from '../data.json';
-import Invoice from './Invoice';
-import { ReactComponent as Illustration } from '../assets/illustration-empty.svg';
+import DATA from '../../data.json';
+import InvoiceItem from './InvoiceItem';
+import { ReactComponent as Illustration } from '../../assets/illustration-empty.svg';
 
 import styles from './InvoicesList.module.css';
 
 function InvoicesList() {
   const invoices = DATA.map((invoice, i) => (
-    <Invoice key={invoice.id} invoice={invoice} />
+    <InvoiceItem key={invoice.id} invoice={invoice} />
   ));
-
-  // const invoices = undefined;
 
   return (
     <React.Fragment>

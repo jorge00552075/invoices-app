@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as Moon } from '../assets/icon-moon.svg';
-import { ReactComponent as Sun } from '../assets/icon-sun.svg';
-import avatar from '../assets/image-avatar.jpg';
+
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { ReactComponent as Moon } from '../../assets/icon-moon.svg';
+import { ReactComponent as Sun } from '../../assets/icon-sun.svg';
+import avatar from '../../assets/image-avatar.jpg';
 
 import styles from './Sidebar.module.css';
 

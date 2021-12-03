@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 
-import separator from '../utils/numberFormat';
-import { ReactComponent as Rarr } from '../assets/icon-arrow-right.svg';
+import separator from '../../utils/numberFormat';
+import { ReactComponent as RightArrow } from '../../assets/icon-arrow-right.svg';
 
-import styles from './Invoice.module.css';
+import styles from './InvoiceItem.module.css';
 
-function Invoice({ invoice }) {
+function InvoiceItem({ invoice }) {
   let color;
   if (invoice.status === 'Pending') {
     color = 'orange';
@@ -18,7 +19,7 @@ function Invoice({ invoice }) {
   }
 
   return (
-    <a href="/" className={styles.invoice}>
+    <Link to={`/invoice/${invoice.id}`} className={styles.invoice}>
       <h2 className={styles.id}>
         <span>#</span>
         {invoice.id}
@@ -38,10 +39,10 @@ function Invoice({ invoice }) {
             {invoice.status}
           </span>
         </div>
-        <Rarr />
+        <RightArrow />
       </div>
-    </a>
+    </Link>
   );
 }
 
-export default Invoice;
+export default InvoiceItem;

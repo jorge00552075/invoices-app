@@ -3,7 +3,8 @@
   grid-template-columns: 1fr;
   gap: 1.6rem;
 
-  margin-top: 6.4rem;
+  width: 73rem;
+  margin: 6.4rem auto 0;
 }
 
 /* IF NO INVOICES */
