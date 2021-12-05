@@ -1,0 +1,53 @@
+.status {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+
+  width: 10.4rem;
+  height: 4rem;
+  border-radius: 6px;
+}
+
+.status--orange {
+  background: hsla(34, 100%, 50%, 0.06);
+}
+.status--green {
+  background: hsla(160, 67%, 52%, 0.06);
+}
+.status--purple {
+  background: hsla(231, 20%, 27%, 0.06);
+}
+
+.list_style {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.list_style--orange {
+  background: hsl(34, 100%, 50%);
+}
+.list_style--green {
+  background: hsl(160, 67%, 52%);
+}
+.list_style--purple {
+  background: hsl(231, 20%, 27%);
+}
+
+.text {
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  letter-spacing: -0.25px;
+}
+
+.text--orange {
+  color: hsl(34, 100%, 50%);
+}
+.text--green {
+  color: hsl(160, 67%, 52%);
+}
+.text--purple {
+  color: hsl(231, 20%, 27%);
+}

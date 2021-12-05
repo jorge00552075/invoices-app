@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 
-import styles from './PageNotFound.module.css';
+import styles from './NotFound.module.css';
 
-function PageNotFound() {
+function NotFound() {
   return (
     <Layout>
       <div className={styles.container}>
@@ -16,4 +16,4 @@ function PageNotFound() {
     </Layout>
   );
 }
-export default PageNotFound;
+export default NotFound;

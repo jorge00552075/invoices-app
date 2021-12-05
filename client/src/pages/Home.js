@@ -12,3 +12,5 @@ function Invoices() {
 }
 
 export default Invoices;
+// Home
+// Details

@@ -1,0 +1,189 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 73rem;
+  min-height: 63rem;
+  margin: 1.6rem auto 0;
+  padding: 4.8rem;
+  border-radius: 9px;
+
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  color: hsl(231, 37%, 63%);
+}
+
+.id {
+  margin-bottom: 1.2rem;
+
+  font-size: 1.6rem;
+
+  color: hsl(228, 29%, 7%);
+  letter-spacing: -0.8px;
+  line-height: 2.4rem;
+}
+
+.id span {
+  color: hsl(231, 37%, 63%);
+}
+
+.description {
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  letter-spacing: -0.25px;
+}
+
+.sender_address {
+  grid-column: 3 / -1;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  font-weight: 500;
+  font-size: 1.1rem;
+
+  letter-spacing: -0.25px;
+}
+
+.dates {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.date-heading {
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  letter-spacing: -0.25px;
+}
+
+.date {
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: hsl(228, 29%, 7%);
+  letter-spacing: -0.25px;
+  line-height: 2rem;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  letter-spacing: -0.25px;
+}
+
+.client-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: hsl(228, 29%, 7%);
+}
+
+.client-email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  letter-spacing: -0.25px;
+}
+
+.client-email a {
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: hsl(228, 29%, 7%);
+  letter-spacing: -0.25px;
+  line-height: 2rem;
+  text-decoration: none;
+}
+/* ITEMS TABLE */
+.wrapper {
+  border-radius: 9px;
+  overflow: hidden;
+  grid-column: 1 / -1;
+  margin: auto 0;
+}
+
+table {
+  width: 100%;
+
+  background: hsl(240, 27%, 98%);
+
+  border-collapse: collapse;
+}
+
+tr {
+  height: 6rem;
+}
+
+th {
+  font-weight: 500;
+  font-size: 1.1rem;
+
+  letter-spacing: -0.25px;
+}
+
+td {
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  color: hsl(228, 29%, 7%);
+}
+
+tfoot {
+  height: 8rem;
+
+  background: hsl(231, 20%, 27%);
+
+  color: hsl(0, 0%, 100%);
+}
+
+.qty,
+.price {
+  color: hsl(231, 37%, 63%);
+}
+
+.items-total {
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: -0.5px;
+  color: hsl(0, 0%, 100%);
+
+  text-align: right;
+  padding-right: 3.2rem;
+}
+
+.first-col {
+  padding-left: 3.2rem;
+
+  text-align: left;
+}
+
+.second-col,
+.third-col {
+  text-align: center;
+}
+
+.fourth-col {
+  padding-right: 3.2rem;
+
+  text-align: right;
+}

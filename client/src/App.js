@@ -1,17 +1,17 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Invoices from './pages/Invoices';
-import InvoiceDetail from './pages/InvoiceDetail';
-import PageNotFound from './pages/PageNotFound';
+import Home from './pages/Home';
+import DetailPage from './pages/DetailPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
     <React.Fragment>
       <Routes>
-        <Route exact path="/" element={<Invoices />} />
-        <Route path="/invoice/:id" element={<InvoiceDetail />} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/invoice/:id" element={<DetailPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </React.Fragment>
   );
