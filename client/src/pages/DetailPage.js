@@ -1,23 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router';
 
-import DATA from '../data.json';
+import InvoiceContext from '../context/invoices-context';
 import Layout from '../components/layout/Layout';
 import DetailHeader from '../components/detail/DetailHeader';
 import DetailBody from '../components/detail/DetailBody';
 
 function DetailPage() {
-  const [invoice, setInvoice] = useState(undefined);
+  const context = useContext(InvoiceContext);
 
-  let { id } = useParams();
-
-  useEffect(() => {
-    setInvoice(DATA.find((invoice) => invoice.id === id));
-  }, [id]);
-
-  if (invoice === undefined) {
-    return <Layout>Loading ...</Layout>;
-  }
+  const { id } = useParams();
+  const invoice = context.find((invoice) => invoice.id === id);
 
   return (
     <Layout>

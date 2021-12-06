@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import DATA from '../../data.json';
 import InvoiceItem from './InvoiceItem';
+import InvoiceContext from '../../context/invoices-context';
 import { ReactComponent as Illustration } from '../../assets/illustration-empty.svg';
 
 import styles from './InvoicesList.module.css';
 
 function InvoicesList() {
-  const invoices = DATA.map((invoice, i) => (
+  const invoicesContext = useContext(InvoiceContext);
+
+  const invoices = invoicesContext.map((invoice) => (
     <InvoiceItem key={invoice.id} invoice={invoice} />
   ));
 

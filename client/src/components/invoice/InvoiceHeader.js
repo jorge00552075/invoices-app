@@ -1,19 +1,13 @@
-import { useState } from 'react';
-
-import { ReactComponent as DownArrow } from '../../assets/icon-arrow-down.svg';
+import { useContext } from 'react';
+import InvoiceContext from '../../context/invoices-context';
 import { ReactComponent as Plus } from '../../assets/icon-plus.svg';
 
 import styles from './InvoiceHeader.module.css';
 
 function InvoiceHeader() {
-  const [showOptions, setShowOptions] = useState(false);
+  const invoicesContext = useContext(InvoiceContext);
 
   function handleClick() {
-    console.log('click');
-    setShowOptions((prev) => !showOptions);
-  }
-
-  function handleChange() {
     // ...
   }
 
@@ -21,38 +15,15 @@ function InvoiceHeader() {
     <header className={styles.header}>
       <div>
         <h1 className={styles.title}>Invoices</h1>
-        <p className={styles.text}>There are 7 total invoices</p>
+        <p className={styles.text}>
+          There are {invoicesContext.length} total invoices
+        </p>
       </div>
 
-      <div className={styles.container}>
-        <div>
-          <button className={styles.filter_btn} onClick={handleClick}>
-            Filter by status <DownArrow />
-          </button>
-
-          {showOptions && (
-            <div className={styles.select} onChange={handleChange}>
-              <div className={styles.select_group}>
-                <input type="radio" name="select" value="paid" />
-                <label htmlFor="paid">Paid</label>
-              </div>
-              <div className={styles.select_group}>
-                <input type="radio" name="select" value="pending" />
-                <label htmlFor="pending">Pending</label>
-              </div>
-              <div className={styles.select_group}>
-                <input type="radio" name="select" value="draft" />
-                <label htmlFor="draft">Draft</label>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <button className={styles.new_btn}>
-          <Plus />
-          New Invoice
-        </button>
-      </div>
+      <button className={styles['new-invoice']} onClick={handleClick}>
+        <Plus />
+        New Invoice
+      </button>
     </header>
   );
 }
