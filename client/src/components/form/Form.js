@@ -1,11 +1,22 @@
+import { ReactComponent as Delete } from '../../assets/icon-delete.svg';
+
 import styles from './Form.module.css';
 
 function Form() {
+  function handleClick(e) {
+    console.log(e.target.innerText);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('FORM SUBMITTED');
+  }
+
   return (
     <div className={styles['form-wrapper']}>
-      <form>
-        <h2>New Invoice</h2>
-        <div>
+      <form onSubmit={handleSubmit}>
+        <h2 className={styles['form-heading']}>New Invoice</h2>
+        <div className={styles['fieldset-wrapper']}>
           <fieldset>
             <legend>Bill From</legend>
             <div className={styles['form-group']}>
@@ -16,7 +27,7 @@ function Form() {
                 className={styles['form-control']}
               />
             </div>
-            <div className={`${styles['form-row']} ${styles['col-3']}`}>
+            <div className={styles['form-row']}>
               <div className={styles['form-group']}>
                 <label htmlFor="senderAddress.city">City</label>
                 <input
@@ -70,7 +81,7 @@ function Form() {
                 className={styles['form-control']}
               />
             </div>
-            <div className={`${styles['form-row']} ${styles['col-3']}`}>
+            <div className={styles['form-row']}>
               <div className={styles['form-group']}>
                 <label htmlFor="clientAddress.city">City</label>
                 <input
@@ -132,8 +143,8 @@ function Form() {
             </div>
           </fieldset>
           <fieldset>
-            <legend>ItemList</legend>
-            <div className={`${styles['form-row']} ${styles['col-4']}`}>
+            <legend className={styles['items-heading']}>ItemList</legend>
+            <div className={`${styles['form-row']} ${styles['col-5']}`}>
               <div className={styles['form-group']}>
                 <label htmlFor="items[0].name">Item Name</label>
                 <input
@@ -164,10 +175,40 @@ function Form() {
                   id="items[0].total"
                   name="items[0].total"
                   className={styles['form-control']}
+                  disabled
                 />
               </div>
+              <button type="button" className={styles['btn-del']}>
+                <Delete />
+              </button>
             </div>
+            <button type="button" className={styles.btn}>
+              + Add New item
+            </button>
           </fieldset>
+        </div>
+        <div className={styles.buttons}>
+          <button
+            type="button"
+            onClick={handleClick}
+            className={`${styles.btn} ${styles.discard}`}
+          >
+            Discard
+          </button>
+          <button
+            type="button"
+            onClick={handleClick}
+            className={`${styles.btn} ${styles.draft}`}
+          >
+            Save as Draft
+          </button>
+          <button
+            type="submit"
+            onClick={() => console.log()}
+            className={`${styles.btn} ${styles.send}`}
+          >
+            Save & Send
+          </button>
         </div>
       </form>
     </div>

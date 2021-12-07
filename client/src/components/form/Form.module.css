@@ -1,14 +1,20 @@
-/* FORM LAYOUT */
 .form-wrapper {
   width: 50.4rem;
+  /* DELETE */
+  margin: 6.4rem 0 2.4rem 10.3rem;
 }
 
-form h2 {
-  /* NEW */
+.form-heading {
   margin-bottom: 4.8rem;
+
   font-size: 2.4rem;
-  line-height: 3.2rem;
+
   letter-spacing: -0.25px;
+  line-height: 3.2rem;
+}
+
+.fieldset-wrapper {
+  margin-bottom: 4.8rem;
 }
 
 fieldset {
@@ -33,11 +39,12 @@ label {
   display: inline-block;
 
   width: 100%;
-  /* NEW */
-  color: hsl(231, 37%, 63%);
   margin-bottom: 1.2rem;
-  font-size: 1.2rem;
+
   font-weight: 500;
+  font-size: 1.2rem;
+
+  color: hsl(231, 37%, 63%);
   letter-spacing: -0.25px;
 }
 
@@ -45,24 +52,113 @@ label {
   display: block;
 
   width: 100%;
-  /* NEW */
-  border: 1px solid hsl(231, 73%, 93%);
   padding: 1.5rem;
+  border: 1px solid hsl(231, 73%, 93%);
   border-radius: 4px;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  color: hsl(228, 29%, 7%);
+  letter-spacing: -0.25px;
+  /* DELETE */
+  height: 47px;
+}
+
+.form-control:focus {
+  outline: 1px solid hsl(252, 100%, 73%);
 }
 
 .form-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-.col-3 {
-  grid-template-columns: repeat(3, 1fr);
+.col-2 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.col-4 {
-  grid-template-columns: 215px 45px 100px 1fr;
+.col-5 {
+  grid-template-columns: 215px 45px 100px 1fr 15px;
 }
 
-/* FORM STYLES */
+.items-heading {
+  font-weight: 700;
+  font-size: 1.8rem;
+
+  color: hsl(225, 14%, 53%);
+  letter-spacing: -0.25px;
+  line-height: 32px;
+}
+
+.btn {
+  width: 100%;
+  padding: 1.6rem 2.4rem;
+  border: none;
+  border-radius: 9999px;
+
+  background: hsl(240, 27%, 98%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  color: hsl(231, 37%, 63%);
+  letter-spacing: -0.25px;
+
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: hsl(231, 73%, 93%);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.discard {
+  width: auto;
+
+  margin-right: auto;
+
+  background: hsl(228, 71%, 99%);
+
+  color: hsl(231, 37%, 63%);
+}
+.draft {
+  width: auto;
+
+  background: hsl(231, 20%, 27%);
+
+  color: hsl(231, 20%, 61%);
+}
+.send {
+  width: auto;
+
+  background: hsl(252, 94%, 67%);
+
+  color: hsl(0, 0%, 100%);
+}
+
+.btn-del {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  outline: none;
+
+  background: none;
+
+  cursor: pointer;
+}
+
+.btn-del:hover svg path {
+  fill: hsl(0, 80%, 63%);
+}
