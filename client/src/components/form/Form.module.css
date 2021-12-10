@@ -14,7 +14,7 @@
 }
 
 .fieldset-wrapper {
-  margin-bottom: 4.8rem;
+  margin-bottom: 2.4rem;
 }
 
 fieldset {
@@ -51,6 +51,7 @@ label {
 .form-control {
   display: block;
 
+  height: 47px;
   width: 100%;
   padding: 1.5rem;
   border: 1px solid hsl(231, 73%, 93%);
@@ -62,18 +63,17 @@ label {
 
   color: hsl(228, 29%, 7%);
   letter-spacing: -0.25px;
-  /* DELETE */
-  height: 47px;
 }
 
 .form-control:focus {
-  outline: 1px solid hsl(252, 100%, 73%);
+  /* outline: 1px solid hsl(252, 100%, 73%); */
+  outline: none;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 1.6rem;
 }
 
 .col-2 {
@@ -117,9 +117,25 @@ label {
   background: hsl(231, 73%, 93%);
 }
 
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  margin-bottom: 2.4rem;
+}
+
+small {
+  font-weight: 600;
+  font-size: 1rem;
+
+  color: hsl(0, 80%, 63%);
+  letter-spacing: -0.25px;
+}
+
 .buttons {
   display: flex;
-  gap: 10px;
+  gap: 1.2rem;
 }
 
 .discard {
@@ -159,6 +175,11 @@ label {
   cursor: pointer;
 }
 
-.btn-del:hover svg path {
+.btn-del:hover path {
   fill: hsl(0, 80%, 63%);
+}
+
+/* ERROR MESSAGE */
+.border-red {
+  border-color: hsl(0, 80%, 63%);
 }

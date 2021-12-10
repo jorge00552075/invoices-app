@@ -7,6 +7,7 @@ Default: 400
 Medium: 500
 Semi-bold: 600
 bold: 700
+
 - Line heights
 - Letter spacing
 -0.25px
@@ -18,17 +19,17 @@ hsl(252, 94%, 67%)
 hsl(252, 100%, 73%)
 hsl(233, 31%, 17%)
 hsl(233, 30%, 21%)
-hsl(232, 20%, 36%) - rectangle
+hsl(232, 20%, 36%)
 hsl(231, 73%, 93%)
-hsl(231, 20%, 61%) - text
+hsl(231, 20%, 61%)
 hsl(231, 37%, 63%)
-hsl(228, 29%, 7%) - h1
+hsl(228, 29%, 7%)
 hsl(0, 80%, 63%)
 hsl(0, 100%, 80%)
 hsl(240, 27%, 98%)
 hsl(233, 30%, 11%)
-hsl(231, 20%, 27%) - aside bg
-hsl(0, 0%, 100%) - button bg / text
+hsl(231, 20%, 27%)
+hsl(0, 0%, 100%)
 
 --- 05 SHADOWS
 rg: box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
