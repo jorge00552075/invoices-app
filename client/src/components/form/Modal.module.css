@@ -1,0 +1,25 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  width: 100%;
+  height: 100vh;
+
+  background: hsla(0, 0%, 0%, 0.5);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+
+  width: 72rem;
+  height: 100vh;
+
+  background: hsl(0, 0%, 100%);
+
+  overflow: hidden;
+}

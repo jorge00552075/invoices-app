@@ -40,7 +40,7 @@
   background: hsl(252, 100%, 73%);
 }
 
-svg {
+.logo_wrapper svg {
   z-index: 10;
 }
 

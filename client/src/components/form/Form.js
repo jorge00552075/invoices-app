@@ -1,17 +1,22 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import dayjs from 'dayjs';
 
 import { ReactComponent as Delete } from '../../assets/icon-delete.svg';
 
 import styles from './Form.module.css';
 
 function Form() {
+  const [items, setItems] = useState([1]);
+
   const {
     register,
     handleSubmit,
     formState: { isSubmitted, isValid, errors },
   } = useForm({ mode: 'onBlur' });
 
-  console.log('errors', errors);
+  // default value date input
+  const todaysDate = dayjs(new Date()).format('YYYY-MM-DD');
 
   function handleClick(e) {
     console.log(e.target.innerText);
@@ -20,7 +25,7 @@ function Form() {
   function onSubmit(data) {
     console.log(data);
   }
-
+  // error class
   const formControl = styles['form-control'];
   const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
 
@@ -99,7 +104,10 @@ function Form() {
               <label htmlFor="clientEmail">Client's Email</label>
               <input
                 id="clientEmail"
-                {...register('clientEmail', { required: true, pattern: /^\S+@\S+$/i })}
+                {...register('clientEmail', {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
                 className={
                   errors.clientEmail ? formControlBorderRed : formControl
                 }
@@ -161,6 +169,7 @@ function Form() {
               <div className={styles['form-group']}>
                 <label htmlFor="createdAt">Invoice Date</label>
                 <input
+                  defaultValue={todaysDate}
                   type="date"
                   id="createdAt"
                   {...register('createdAt', { required: true })}
@@ -183,7 +192,6 @@ function Form() {
                   <option value="7">Net 7 Day</option>
                   <option value="14">Net 14 Day</option>
                   <option value="30">Net 30 Day</option>
-                  {/* ADD DEFAULT OF 30 */}
                 </select>
               </div>
             </div>
@@ -201,45 +209,62 @@ function Form() {
           {/* Item List */}
           <fieldset>
             <legend className={styles['items-heading']}>Item List</legend>
-            <div className={`${styles['form-row']} ${styles['col-5']}`}>
-              <div className={styles['form-group']}>
-                <label htmlFor="items.0.name">Item Name</label>
-                <input
-                  id="items.0.name"
-                  {...register('items.0.name', { required: true })}
-                  className={styles['form-control']}
-                />
+            {/* START OF ITEM */}
+            {items.map((item, i) => (
+              <div className={`${styles['form-row']} ${styles['col-5']}`}>
+                <div className={styles['form-group']}>
+                  <label htmlFor={`items[${i}].name`}>Item Name</label>
+                  <input
+                    id={`"items[${i}].name"`}
+                    {...register(`items[${i}].name`, { required: true })}
+                    className={
+                      errors.items?.[i].name
+                        ? formControlBorderRed
+                        : formControl
+                    }
+                  />
+                </div>
+                <div className={styles['form-group']}>
+                  <label htmlFor={`items[${i}].quantity`}>Qty.</label>
+                  <input
+                    id={`items[${i}].quantity`}
+                    {...register(`items[${i}].quantity`, { required: true })}
+                    className={
+                      errors.items?.[i].quantity
+                        ? formControlBorderRed
+                        : formControl
+                    }
+                  />
+                </div>
+                <div className={styles['form-group']}>
+                  <label htmlFor={`items[${i}].price`}>Price</label>
+                  <input
+                    id={`items[${i}].price`}
+                    {...register(`items[${i}].price`, { required: true })}
+                    className={
+                      errors.items?.[i].price
+                        ? formControlBorderRed
+                        : formControl
+                    }
+                  />
+                </div>
+                <div className={styles['form-group']}>
+                  <label htmlFor={`items[${i}].total`}>Total</label>
+                  <input
+                    value={0}
+                    id={`items[${i}].total`}
+                    {...register(`items[${i}].total`)}
+                    className={styles['form-control']}
+                    disabled
+                  />
+                </div>
+                <button type="button" className={styles['btn-del']}>
+                  <Delete />
+                </button>
               </div>
-              <div className={styles['form-group']}>
-                <label htmlFor="items.0.quantity">Qty.</label>
-                <input
-                  id="items.0.quantity"
-                  name="items.0.quantity"
-                  {...register('items.0.quantity', { required: true })}
-                  className={styles['form-control']}
-                />
-              </div>
-              <div className={styles['form-group']}>
-                <label htmlFor="items.0.price">Price</label>
-                <input
-                  id="items[0].price"
-                  {...register('items.0.price', { required: true })}
-                  className={styles['form-control']}
-                />
-              </div>
-              <div className={styles['form-group']}>
-                <label htmlFor="items.0.total">Total</label>
-                <input
-                  id="items.0.total"
-                  name="items.0.total"
-                  className={styles['form-control']}
-                  disabled
-                />
-              </div>
-              <button type="button" className={styles['btn-del']}>
-                <Delete />
-              </button>
-            </div>
+            ))}
+
+            {/* END OF ITEM */}
             <button type="button" className={styles.btn}>
               + Add New item
             </button>
@@ -248,7 +273,9 @@ function Form() {
         {/* Error Messages */}
         <div className={styles.messages}>
           {errors.clientEmail && <small>- Please enter a valid email</small>}
-          {isSubmitted && !isValid && (<small>- All fields must be added.</small>)}
+          {isSubmitted && !isValid && (
+            <small>- All fields must be added.</small>
+          )}
         </div>
 
         {/* Buttons */}

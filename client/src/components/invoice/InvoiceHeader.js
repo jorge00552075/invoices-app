@@ -4,11 +4,11 @@ import { ReactComponent as Plus } from '../../assets/icon-plus.svg';
 
 import styles from './InvoiceHeader.module.css';
 
-function InvoiceHeader() {
+function InvoiceHeader({ openModal }) {
   const invoicesContext = useContext(InvoiceContext);
 
   function handleClick() {
-    // ...
+    openModal();
   }
 
   return (
