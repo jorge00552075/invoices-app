@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const invoiceSchema = new mongoose.Schema({
+  uid: String,
   createdAt: Date,
   paymentDue: Date,
   description: String,

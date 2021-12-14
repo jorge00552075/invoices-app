@@ -10,7 +10,7 @@ function DetailPage() {
   const context = useContext(InvoiceContext);
 
   const { id } = useParams();
-  const invoice = context.find((invoice) => invoice.id === id);
+  const invoice = context.find((invoice) => invoice.uid === id);
 
   return (
     <Layout>

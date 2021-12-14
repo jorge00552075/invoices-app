@@ -9,16 +9,19 @@ import styles from './InvoiceItem.module.css';
 
 function InvoiceItem({ invoice }) {
   return (
-    <Link to={`/invoice/${invoice.id}`} className={styles.invoice}>
+    <Link to={`/invoice/${invoice.uid}`} className={styles.invoice}>
       <h2 className={styles.id}>
         <span>#</span>
-        {invoice.id}
+        {invoice.uid}
       </h2>
       <span className={styles.payment_due}>
         Due {dayjs(invoice.paymentDue).format('DD MMM YYYY')}
       </span>
       <span className={styles.client_name}>{invoice.clientName}</span>
-      <span className={styles.total}>$ {separator(invoice.total)}</span>
+      {/* <span className={styles.total}>$ {separator(invoice.total)}</span> */}
+      <span className={styles.total}>
+        $ {invoice.total ? separator(invoice.total) : 0}
+      </span>
 
       <div className={styles.container}>
         <InvoiceStatus status={invoice.status} />

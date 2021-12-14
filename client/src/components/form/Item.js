@@ -1,68 +1,71 @@
+import { useState, useEffect } from 'react';
 import { ReactComponent as Delete } from '../../assets/icon-delete.svg';
 
 import styles from './Form.module.css';
 
-function Item({ id, i, register, errors, update, remove }) {
-  // const total = ((items[i].quantity || 0) * (items[i].price || 0))
+function Item({ index, remove, register, errors, setValue }) {
+  const [quantity, setQuantity] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    setTotal(quantity * price);
+    setValue(`items[${index}].total`, total, { shouldValidate: true });
+  }, [quantity, price, index, setValue, total]);
 
   // error class
   const formControl = styles['form-control'];
   const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
 
+  // prettier-ignore
   return (
-    <div key={id} className={`${styles['form-row']} ${styles['col-5']}`}>
+    <div className={`${styles['form-row']} ${styles['col-5']}`}>
       <div className={styles['form-group']}>
-        <label htmlFor={`items[${i}].name`}>Item Name</label>
+        <label htmlFor={`items[${index}].name`}>Item Name</label>
         <input
-          {...register(`items[${i}].name`, { required: true })}
-          id={`items[${i}].name`}
+          {...register(`items[${index}].name`, { required: true })}
+          id={`items[${index}].name`}
           className={
-            errors.items?.[i]?.name ? formControlBorderRed : formControl
+            errors.items?.[index]?.name ? formControlBorderRed : formControl
           }
-          onChange={(e) => update(`items[${i}].name`, +e.target.value)}
         />
       </div>
       <div className={styles['form-group']}>
-        <label htmlFor={`items[${i}].quantity`}>Qty.</label>
+        <label htmlFor={`items[${index}].quantity`}>Qty.</label>
         <input
-          {...register(`items[${i}].quantity`, {
-            required: true,
-            valueAsNumber: true,
-          })}
-          id={`items[${i}].quantity`}
+          {...register(`items[${index}].quantity`, { required: true, valueAsNumber: true })}
+          id={`items[${index}].quantity`}
           className={
-            errors.items?.[i]?.quantity ? formControlBorderRed : formControl
+            errors.items?.[index]?.quantity ? formControlBorderRed : formControl
           }
-          onChange={(e) => update(`items[${i}].quantity`, +e.target.value)}
+          onChange={(e) => setQuantity(+e.target.value)}
         />
       </div>
       <div className={styles['form-group']}>
-        <label htmlFor={`items[${i}].price`}>Price</label>
+        <label htmlFor={`items[${index}].price`}>Price</label>
         <input
-          {...register(`items[${i}].price`, {
-            required: true,
-            valueAsNumber: true,
-          })}
-          id={`items[${i}].price`}
+          {...register(`items[${index}].price`, { required: true, valueAsNumber: true })}
+          id={`items[${index}].price`}
           className={
-            errors.items?.[i]?.price ? formControlBorderRed : formControl
+            errors.items?.[index]?.price ? formControlBorderRed : formControl
           }
-          onChange={(e) => update(`items[${i}].price`, +e.target.value)}
+          onChange={(e) => setPrice(+e.target.value)}
         />
       </div>
       <div className={styles['form-group']}>
-        <label htmlFor={`items[${i}].total`}>Total</label>
+        <label htmlFor={`items[${index}].total`}>Total</label>
         <input
           disabled
-          {...register(`items[${i}].total`)}
-          id={`items[${i}].total`}
+          {...register(`items[${index}].total`)}
+          value={total}
+          id={`items[${index}].total`}
           className={styles['form-control']}
         />
       </div>
       <button
         type="button"
         className={styles['btn-del']}
-        onClick={() => remove(i)}
+        onClick={() => remove(index)}
       >
         <Delete />
       </button>

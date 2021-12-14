@@ -2,13 +2,13 @@ import styles from './InvoiceStatus.module.css';
 
 function InvoiceStatus(props) {
   let color;
-  if (props.status === 'Pending') {
+  if (props.status === 'pending') {
     color = 'orange';
   }
-  if (props.status === 'Paid') {
+  if (props.status === 'paid') {
     color = 'green';
   }
-  if (props.status === 'Draft') {
+  if (props.status === 'draft') {
     color = 'purple';
   }
 

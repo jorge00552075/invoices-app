@@ -5,20 +5,19 @@ import Item from './Item';
 
 import styles from './Form.module.css';
 // prettier-ignore
-function ItemsList({ control, register, errors }) {
-  const { fields, append, update, remove } = useFieldArray({ control, name: 'items' });
+function ItemsList({ register, errors, setValue, control }) {
+  const { fields, append, remove } = useFieldArray({ control, name: 'items' });
 
-  // id, index, register, errors, update, remove
   return (
     <React.Fragment>
-      {fields.map((field, index) => (
+      {fields.map(({ id }, index) => (
         <Item
-          id={field.id}
-          i={index}
+          key={id}
+          index={index}
+          remove={remove}
           register={register}
           errors={errors}
-          update={update}
-          remove={remove}
+          setValue={setValue}
         />
       ))}
       <button

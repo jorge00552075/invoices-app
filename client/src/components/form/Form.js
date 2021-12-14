@@ -1,30 +1,56 @@
 import { useForm } from 'react-hook-form';
 import dayjs from 'dayjs';
 
+import createUID from '../../utils/createId';
+
 import ItemsList from './ItemsList';
 
 import styles from './Form.module.css';
 
 function Form() {
   const {
-    control,
     register,
-    handleSubmit,
     formState: { isSubmitted, isValid, errors },
+    handleSubmit,
+    setValue,
+    control,
   } = useForm({ mode: 'onBlur' });
 
   // default value for date input
   const todaysDate = dayjs(new Date()).format('YYYY-MM-DD');
 
-  const handleClick = () => console.log();
-
   // error class
   const formControl = styles['form-control'];
   const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
+
+  function onSubmit(data) {
+    const uid = createUID();
+    const newInvoice = { ...data, uid };
+
+    async function createInvoice() {
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/invoices', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newInvoice),
+        });
+        if (response.ok !== true) throw Error('Oops something went wrong!');
+
+        const status = await response.json();
+        console.log(status);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    createInvoice();
+  }
+
   // prettier-ignore
   return (
     <div className={styles['form-wrapper']}>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h2 className={styles['form-heading']}>New Invoice</h2>
         <div className={styles['fieldset-wrapper']}>
           <fieldset>
@@ -182,7 +208,7 @@ function Form() {
           {/* Items list */}
           <fieldset>
             <legend className={styles['items-heading']}>Item List</legend>
-            <ItemsList control={control} register={register} errors={errors} />
+            <ItemsList register={register} errors={errors} setValue={setValue} control={control} />
           </fieldset>
         </div>
         {/* Validation errors */}
@@ -197,21 +223,18 @@ function Form() {
           <button
             type="button"
             className={`${styles.btn} ${styles.discard}`}
-            onClick={handleClick}
           >
             Discard
           </button>
           <button
             type="button"
             className={`${styles.btn} ${styles.draft}`}
-            onClick={handleClick}
           >
             Save as Draft
           </button>
           <button
             type="submit"
             className={`${styles.btn} ${styles.send}`}
-            onClick={() => console.log()}
           >
             Save & Send
           </button>

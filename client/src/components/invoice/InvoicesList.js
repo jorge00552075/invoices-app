@@ -10,7 +10,7 @@ function InvoicesList() {
   const invoicesContext = useContext(InvoiceContext);
 
   const invoices = invoicesContext.map((invoice) => (
-    <InvoiceItem key={invoice.id} invoice={invoice} />
+    <InvoiceItem key={invoice.uid} invoice={invoice} />
   ));
 
   return (

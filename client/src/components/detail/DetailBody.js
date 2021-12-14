@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 import styles from './DetailBody.module.css';
 
 function DetailBody({ invoice }) {
@@ -6,7 +8,7 @@ function DetailBody({ invoice }) {
       <div>
         <h1 className={styles.id}>
           <span>#</span>
-          {invoice.id}
+          {invoice.uid}
         </h1>
         <span className={styles.description}>{invoice.description}</span>
       </div>
@@ -21,12 +23,16 @@ function DetailBody({ invoice }) {
       <div className={styles.dates}>
         <div className={styles['date-item']}>
           <span className={styles['date-heading']}>Invoice Date</span>
-          <span className={styles.date}>{invoice.createdAt}</span>
+          <span className={styles.date}>
+            {dayjs(invoice.createdAt).format('DD MMM YYYY')}
+          </span>
         </div>
 
         <div className={styles['date-item']}>
           <span className={styles['date-heading']}>Payment Due</span>
-          <span className={styles.date}>{invoice.paymentDue}</span>
+          <span className={styles.date}>
+            {dayjs(invoice.paymentDue).format('DD MMM YYYY')}
+          </span>
         </div>
       </div>
 
@@ -43,7 +49,6 @@ function DetailBody({ invoice }) {
         <span>Sent To</span>
         <a href={`mailto:${invoice.clientEmail}`}>{invoice.clientEmail}</a>
       </address>
-      {/* TABLE */}
       <div className={styles.wrapper}>
         <table>
           <thead>
