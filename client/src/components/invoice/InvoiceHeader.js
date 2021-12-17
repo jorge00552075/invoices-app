@@ -5,7 +5,7 @@ import { ReactComponent as Plus } from '../../assets/icon-plus.svg';
 import styles from './InvoiceHeader.module.css';
 
 function InvoiceHeader({ openModal }) {
-  const invoicesContext = useContext(InvoiceContext);
+  const { invoices } = useContext(InvoiceContext);
 
   function handleClick() {
     openModal();
@@ -16,10 +16,9 @@ function InvoiceHeader({ openModal }) {
       <div>
         <h1 className={styles.title}>Invoices</h1>
         <p className={styles.text}>
-          There are {invoicesContext.length} total invoices
+          There are {invoices.length} total invoices
         </p>
       </div>
-
       <button className={styles['new-invoice']} onClick={handleClick}>
         <Plus />
         New Invoice

@@ -12,6 +12,10 @@
   line-height: 3.2rem;
 }
 
+.form-heading span {
+  color: hsl(231, 20%, 61%);
+}
+
 .fieldset-wrapper {
   margin-bottom: 2.4rem;
 }
@@ -98,7 +102,7 @@ label {
   border: none;
   border-radius: 9999px;
 
-  background: hsl(240, 27%, 98%);
+  background: hsl(228, 71%, 99%);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   font-family: inherit;
@@ -146,6 +150,11 @@ small {
 
   color: hsl(231, 37%, 63%);
 }
+
+.discard:hover {
+  background: hsl(231, 73%, 93%);
+}
+
 .draft {
   width: auto;
 
@@ -153,12 +162,23 @@ small {
 
   color: hsl(231, 20%, 61%);
 }
+
+.draft:hover {
+  background: hsl(228, 29%, 7%);
+
+  color: hsl(231, 20%, 61%);
+}
+
 .send {
   width: auto;
 
   background: hsl(252, 94%, 67%);
 
   color: hsl(0, 0%, 100%);
+}
+
+.send:hover {
+  background: hsl(252, 100%, 73%);
 }
 
 .btn-del {

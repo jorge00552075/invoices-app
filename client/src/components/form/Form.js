@@ -1,20 +1,24 @@
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import dayjs from 'dayjs';
 
+import InvoiceContext from '../../context/invoices-context';
 import createUID from '../../utils/createId';
 
 import ItemsList from './ItemsList';
 
 import styles from './Form.module.css';
 
-function Form() {
+function Form({ invoice, closeModal }) {
+  const context = useContext(InvoiceContext);
+
   const {
     register,
     formState: { isSubmitted, isValid, errors },
     handleSubmit,
     setValue,
     control,
-  } = useForm({ mode: 'onBlur' });
+  } = useForm({ mode: 'onBlur', defaultValues: invoice });
 
   // default value for date input
   const todaysDate = dayjs(new Date()).format('YYYY-MM-DD');
@@ -24,30 +28,17 @@ function Form() {
   const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
 
   function onSubmit(data) {
-    const uid = createUID();
-    const newInvoice = { ...data, uid };
-
-    async function createInvoice() {
-      try {
-        const response = await fetch('http://localhost:3000/api/v1/invoices', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newInvoice),
-        });
-        if (response.ok !== true) throw Error('Oops something went wrong!');
-
-        const status = await response.json();
-        console.log(status);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    createInvoice();
+    // CREATE INVOICE
+    // const newInvoice = { ...data, uid: createUID() };
+    // context.createInvoice(newInvoice);
+    // closeModal();
+    // SAVE AS DRAFT
+    // EDIT
+    // const updatedInvoice = data;
+    // context.updateInvoice(invoice._id, updatedInvoice);
+    // closeModal();
   }
 
-  // prettier-ignore
   return (
     <div className={styles['form-wrapper']}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,7 +52,9 @@ function Form() {
                 {...register('senderAddress.street', { required: true })}
                 id="senderAddress.street"
                 className={
-                  errors.senderAddress?.street ? formControlBorderRed : formControl
+                  errors.senderAddress?.street
+                    ? formControlBorderRed
+                    : formControl
                 }
               />
             </div>
@@ -72,7 +65,9 @@ function Form() {
                   {...register('senderAddress.city', { required: true })}
                   id="senderAddress.city"
                   className={
-                    errors.senderAddress?.city ? formControlBorderRed : formControl
+                    errors.senderAddress?.city
+                      ? formControlBorderRed
+                      : formControl
                   }
                 />
               </div>
@@ -82,7 +77,9 @@ function Form() {
                   {...register('senderAddress.postCode', { required: true })}
                   id="senderAddress.postCode"
                   className={
-                    errors.senderAddress?.postCode ? formControlBorderRed : formControl
+                    errors.senderAddress?.postCode
+                      ? formControlBorderRed
+                      : formControl
                   }
                 />
               </div>
@@ -92,7 +89,9 @@ function Form() {
                   {...register('senderAddress.country', { required: true })}
                   id="senderAddress.country"
                   className={
-                    errors.senderAddress?.country ? formControlBorderRed : formControl
+                    errors.senderAddress?.country
+                      ? formControlBorderRed
+                      : formControl
                   }
                 />
               </div>
@@ -112,6 +111,7 @@ function Form() {
             </div>
             <div className={styles['form-group']}>
               <label htmlFor="clientEmail">Client's Email</label>
+              {/* prettier-ignore */}
               <input
                 {...register('clientEmail', { required: true, pattern: /^\S+@\S+$/i })}
                 id="clientEmail"
@@ -126,7 +126,9 @@ function Form() {
                 {...register('clientAddress.street', { required: true })}
                 id="clientAddress.street"
                 className={
-                  errors.clientAddress?.street ? formControlBorderRed : formControl
+                  errors.clientAddress?.street
+                    ? formControlBorderRed
+                    : formControl
                 }
               />
             </div>
@@ -137,7 +139,9 @@ function Form() {
                   {...register('clientAddress.city', { required: true })}
                   id="clientAddress.city"
                   className={
-                    errors.clientAddress?.city ? formControlBorderRed : formControl
+                    errors.clientAddress?.city
+                      ? formControlBorderRed
+                      : formControl
                   }
                 />
               </div>
@@ -147,7 +151,9 @@ function Form() {
                   {...register('clientAddress.postCode', { required: true })}
                   id="clientAddress.postCode"
                   className={
-                    errors.clientAddress?.postCode ? formControlBorderRed : formControl
+                    errors.clientAddress?.postCode
+                      ? formControlBorderRed
+                      : formControl
                   }
                 />
               </div>
@@ -157,7 +163,9 @@ function Form() {
                   {...register('clientAddress.country', { required: true })}
                   id="clientAddress.country"
                   className={
-                    errors.clientAddress?.country ? formControlBorderRed : formControl
+                    errors.clientAddress?.country
+                      ? formControlBorderRed
+                      : formControl
                   }
                 />
               </div>
@@ -208,7 +216,12 @@ function Form() {
           {/* Items list */}
           <fieldset>
             <legend className={styles['items-heading']}>Item List</legend>
-            <ItemsList register={register} errors={errors} setValue={setValue} control={control} />
+            <ItemsList
+              register={register}
+              errors={errors}
+              setValue={setValue}
+              control={control}
+            />
           </fieldset>
         </div>
         {/* Validation errors */}
@@ -223,20 +236,17 @@ function Form() {
           <button
             type="button"
             className={`${styles.btn} ${styles.discard}`}
+            onClick={() => closeModal()}
           >
-            Discard
+            {invoice ? 'Cancel' : 'Discard'}
           </button>
-          <button
-            type="button"
-            className={`${styles.btn} ${styles.draft}`}
-          >
-            Save as Draft
-          </button>
-          <button
-            type="submit"
-            className={`${styles.btn} ${styles.send}`}
-          >
-            Save & Send
+          {!invoice && (
+            <button type="submit" className={`${styles.btn} ${styles.draft}`}>
+              Save as Draft
+            </button>
+          )}
+          <button type="submit" className={`${styles.btn} ${styles.send}`}>
+            {invoice ? 'Save Changes' : 'Save & Send'}
           </button>
         </div>
       </form>

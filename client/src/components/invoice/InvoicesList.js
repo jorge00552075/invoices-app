@@ -7,16 +7,16 @@ import { ReactComponent as Illustration } from '../../assets/illustration-empty.
 import styles from './InvoicesList.module.css';
 
 function InvoicesList() {
-  const invoicesContext = useContext(InvoiceContext);
+  const { invoices } = useContext(InvoiceContext);
 
-  const invoices = invoicesContext.map((invoice) => (
+  const invoicesList = invoices.map((invoice) => (
     <InvoiceItem key={invoice.uid} invoice={invoice} />
   ));
 
   return (
     <React.Fragment>
-      {invoices ? (
-        <div className={styles.invoices_list}>{invoices}</div>
+      {invoicesList.length > 0 ? (
+        <div className={styles.invoices_list}>{invoicesList}</div>
       ) : (
         <div className={styles.container}>
           <Illustration className={styles.illustration} />

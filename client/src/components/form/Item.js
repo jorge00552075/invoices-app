@@ -38,7 +38,10 @@ function Item({ index, remove, register, errors, setValue }) {
           className={
             errors.items?.[index]?.quantity ? formControlBorderRed : formControl
           }
-          onChange={(e) => setQuantity(+e.target.value)}
+          onChange={(e) => {
+            if (Number.isNaN(+e.target.value)) return;
+            setQuantity(+e.target.value);
+          }}
         />
       </div>
       <div className={styles['form-group']}>
@@ -49,7 +52,10 @@ function Item({ index, remove, register, errors, setValue }) {
           className={
             errors.items?.[index]?.price ? formControlBorderRed : formControl
           }
-          onChange={(e) => setPrice(+e.target.value)}
+          onChange={(e) => {
+            if(Number.isNaN(+e.target.value)) return;
+            setPrice(+e.target.value)
+          }}
         />
       </div>
       <div className={styles['form-group']}>

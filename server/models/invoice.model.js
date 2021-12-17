@@ -2,20 +2,30 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const invoiceSchema = new mongoose.Schema({
-  uid: String,
-  createdAt: Date,
+  uid: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+  },
   paymentDue: Date,
   description: String,
   paymentTerms: Number,
   clientName: String,
   clientEmail: {
     type: String,
-    required: true,
     unique: true,
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email.'],
+    // validate: [validator.isEmail, 'Please provide a valid email.'],
   },
-  status: String,
+  status: {
+    type: String,
+    enum: ['Draft', 'Pending', 'Paid'],
+    default: 'Pending',
+    required: true,
+  },
   senderAddress: {
     street: String,
     city: String,
@@ -37,6 +47,12 @@ const invoiceSchema = new mongoose.Schema({
     },
   ],
   total: Number,
+});
+
+// DOCUMENT MIDDLEWARE
+invoiceSchema.pre('save', function (next) {
+  this.total = this.items.reduce((total, item) => total + item.total, 0);
+  next();
 });
 
 const Invoice = mongoose.model('Invoice', invoiceSchema);
