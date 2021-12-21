@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
 import { useParams } from 'react-router';
 
-import InvoiceContext from '../context/invoices-context';
-import Layout from '../components/layout/Layout';
-import DetailHeader from '../components/detail/DetailHeader';
-import DetailBody from '../components/detail/DetailBody';
-import Modal from '../components/form/Modal';
+import InvoiceContext from '../context/invoices-context.jsx';
+import Layout from '../components/layout/Layout.jsx';
+import DetailHeader from '../components/detail/DetailHeader.jsx';
+import DetailBody from '../components/detail/DetailBody.jsx';
+import Modal from '../components/form/Modal.jsx';
 
-function DetailPage() {
+function InvoicesDetail() {
   const [showInvoiceForm, setShowInvoiceForm] = useState(false);
   const { invoices } = useContext(InvoiceContext);
 
@@ -27,4 +27,4 @@ function DetailPage() {
   );
 }
 
-export default DetailPage;
+export default InvoicesDetail;

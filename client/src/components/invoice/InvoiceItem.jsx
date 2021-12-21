@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 
 import separator from '../../utils/numberFormat';
-import InvoiceStatus from '../InvoiceStatus';
+import InvoiceStatus from './InvoiceStatus.jsx';
 import { ReactComponent as RightArrow } from '../../assets/icon-arrow-right.svg';
 
 import styles from './InvoiceItem.module.css';

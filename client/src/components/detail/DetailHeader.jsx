@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import InvoiceStatus from '../InvoiceStatus';
-import InvoiceContext from '../../context/invoices-context';
+import InvoiceStatus from '../invoice/InvoiceStatus.jsx';
+import InvoiceContext from '../../context/invoices-context.jsx';
 
 import styles from './DetailHeader.module.css';
 

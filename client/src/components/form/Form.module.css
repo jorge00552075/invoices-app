@@ -38,7 +38,7 @@ legend {
   margin-bottom: 2.4rem;
 }
 
-label {
+.form-group label {
   display: inline-block;
 
   width: 100%;

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import dayjs from 'dayjs';
 
-import InvoiceContext from '../../context/invoices-context';
+import InvoiceContext from '../../context/invoices-context.jsx';
 import createUID from '../../utils/createId';
 
 import ItemsList from './ItemsList';
@@ -17,26 +17,46 @@ function Form({ invoice, closeModal }) {
     formState: { isSubmitted, isValid, errors },
     handleSubmit,
     setValue,
+    getValues,
     control,
-  } = useForm({ mode: 'onBlur', defaultValues: invoice });
+  } = useForm({ defaultValues: invoice });
 
-  // default value for date input
+  // CREATE DEFAULT VALUE FOR DATE PICKER
   const todaysDate = dayjs(new Date()).format('YYYY-MM-DD');
 
-  // error class
+  // CALCULATE PAYMENTDUE FUNCTION
+  const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, 'day').$d;
+
+  // ERROR CLASSES
   const formControl = styles['form-control'];
   const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
 
   function onSubmit(data) {
-    // CREATE INVOICE
-    // const newInvoice = { ...data, uid: createUID() };
-    // context.createInvoice(newInvoice);
-    // closeModal();
-    // SAVE AS DRAFT
-    // EDIT
-    // const updatedInvoice = data;
-    // context.updateInvoice(invoice._id, updatedInvoice);
-    // closeModal();
+    if (!!invoice) {
+      const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
+      const updatedInvoice = { ...data, paymentDue };
+      context.updateInvoice(invoice._id, updatedInvoice);
+      closeModal();
+    } else {
+      const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
+      const newInvoice = { ...data, uid: createUID(), paymentDue };
+      context.createInvoice(newInvoice);
+      closeModal();
+    }
+  }
+  // SAVE AS DRAFT
+  function createDraft() {
+    const data = getValues();
+    const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
+    const invoiceDraft = {
+      ...data,
+      uid: createUID(),
+      paymentDue,
+      status: 'Draft',
+    };
+    console.log(invoiceDraft);
+    context.createInvoice(invoiceDraft);
+    closeModal();
   }
 
   return (
@@ -241,7 +261,11 @@ function Form({ invoice, closeModal }) {
             {invoice ? 'Cancel' : 'Discard'}
           </button>
           {!invoice && (
-            <button type="submit" className={`${styles.btn} ${styles.draft}`}>
+            <button
+              type="button"
+              className={`${styles.btn} ${styles.draft}`}
+              onClick={createDraft}
+            >
               Save as Draft
             </button>
           )}

@@ -63,18 +63,10 @@
 }
 
 .btn--edit:hover {
-  background: hsl(233, 30%, 21%);
+  background: hsl(231, 73%, 93%);
 
-  color: hsl(231, 73%, 93%);
+  color: hsl(231, 37%, 63%);
 }
-
-/* .btn--edit:focus,
-.btn--delete:focus,
-.btn--paid:focus {
-  outline: none;
-
-  box-shadow: 0 0 0 8px hsla(252, 94%, 67%, 0.5);
-} */
 
 .btn--delete {
   background: hsl(0, 80%, 63%);

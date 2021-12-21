@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Form from '../form/Form';
-import Layout from '../layout/Layout';
+import Form from './Form.jsx';
+import Layout from '../layout/Layout.jsx';
 import styles from './Modal.module.css';
 
 function Backdrop({ closeModal }) {
@@ -14,7 +14,7 @@ function Backdrop({ closeModal }) {
 function ModalOverlay({ invoice, closeModal }) {
   return (
     <div className={styles.modal}>
-      <Layout>
+      <Layout bgColor="hsl(0, 0%, 100%)">
         <Form invoice={invoice} closeModal={closeModal} />
       </Layout>
     </div>

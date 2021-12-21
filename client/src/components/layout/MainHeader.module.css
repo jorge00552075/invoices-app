@@ -26,6 +26,12 @@
   letter-spacing: -0.25px;
 }
 
+.wrapper {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
 .new-invoice {
   display: flex;
   gap: 0.8rem;

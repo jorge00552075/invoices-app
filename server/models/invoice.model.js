@@ -11,7 +11,10 @@ const invoiceSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  paymentDue: Date,
+  paymentDue: {
+    type: Date,
+    required: true,
+  },
   description: String,
   paymentTerms: Number,
   clientName: String,

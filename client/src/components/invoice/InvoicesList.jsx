@@ -1,13 +1,22 @@
 import React, { useContext } from 'react';
 
-import InvoiceItem from './InvoiceItem';
-import InvoiceContext from '../../context/invoices-context';
+import InvoiceItem from './InvoiceItem.jsx';
+import InvoiceContext from '../../context/invoices-context.jsx';
 import { ReactComponent as Illustration } from '../../assets/illustration-empty.svg';
 
 import styles from './InvoicesList.module.css';
 
-function InvoicesList() {
-  const { invoices } = useContext(InvoiceContext);
+function InvoicesList({ filterStatus }) {
+  const context = useContext(InvoiceContext);
+
+  let invoices;
+  if (filterStatus) {
+    invoices = context.invoices.filter(
+      (invoice) => invoice.status === filterStatus
+    );
+  } else {
+    invoices = context.invoices;
+  }
 
   const invoicesList = invoices.map((invoice) => (
     <InvoiceItem key={invoice.uid} invoice={invoice} />

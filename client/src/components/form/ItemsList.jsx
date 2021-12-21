@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFieldArray } from 'react-hook-form';
 
-import Item from './Item';
+import Item from './Item.jsx';
 
 import styles from './Form.module.css';
 // prettier-ignore
