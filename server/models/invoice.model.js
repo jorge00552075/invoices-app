@@ -20,8 +20,7 @@ const invoiceSchema = new mongoose.Schema({
   clientName: String,
   clientEmail: {
     type: String,
-    unique: true,
-    // validate: [validator.isEmail, 'Please provide a valid email.'],
+    unique: false,
   },
   status: {
     type: String,

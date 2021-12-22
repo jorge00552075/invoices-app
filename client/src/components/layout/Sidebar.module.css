@@ -9,6 +9,8 @@
   border-bottom-right-radius: 2.4rem;
 
   background: hsl(231, 20%, 27%);
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
 
   overflow: hidden;
 }

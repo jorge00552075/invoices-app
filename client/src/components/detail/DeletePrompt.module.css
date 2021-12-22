@@ -1,0 +1,110 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  width: 100%;
+  height: 100vh;
+
+  background: hsla(0, 0%, 0%, 0.5);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 30;
+
+  width: 48rem;
+  height: 25rem;
+  padding: 4.8rem;
+  border-radius: 9px;
+
+  background: hsl(0, 0%, 100%);
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
+
+  transform: translate(-50%, -50%);
+
+  overflow: hidden;
+}
+
+.heading {
+  margin-bottom: 1.6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+
+  color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
+  letter-spacing: -0.25px;
+  line-height: 3.2rem;
+}
+
+.text {
+  margin-bottom: 1.6rem;
+
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  color: hsl(231, 20%, 61%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
+  letter-spacing: -0.25px;
+  line-height: 2.2rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: right;
+  gap: 0.8rem;
+}
+
+.btn {
+  padding: 1.6rem 2.4rem;
+  border: none;
+  border-radius: 9999px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  color: hsl(0, 0%, 100%);
+  letter-spacing: -0.25px;
+
+  cursor: pointer;
+}
+
+.btnDelete {
+  background: hsl(0, 80%, 63%);
+
+  transition: all 0.3s;
+}
+
+.btnDelete:hover {
+  background: hsl(0, 100%, 80%);
+}
+
+.btnCancel {
+  background: hsl(240, 27%, 98%);
+  /* DARK MODE */
+  background: hsl(233, 30%, 21%);
+
+  color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
+
+  transition: all 0.3s;
+}
+
+.btnCancel:hover {
+  background: hsl(231, 73%, 93%);
+  /* DARK MODE */
+  background: hsl(0, 0%, 100%);
+
+  color: hsl(231, 37%, 63%);
+}

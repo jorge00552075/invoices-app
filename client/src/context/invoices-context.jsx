@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 const InvoiceContext = React.createContext({
   getAllInvoices: () => {},
-  createInvoice: () => {},
-  getInvoice: () => {},
-  updateInvoice: () => {},
-  deleteInvoice: () => {},
+  createInvoice: (data) => {},
+  getInvoice: (id) => {},
+  updateInvoice: (id, data) => {},
+  deleteInvoice: (id) => {},
 });
 
 export function InvoiceContextProvider(props) {
@@ -17,75 +17,70 @@ export function InvoiceContextProvider(props) {
 
   const getAllInvoices = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/invoices');
-      if (response.ok !== true) throw Error('Oops something went wrong!');
+      const res = await fetch('http://localhost:3000/api/v1/invoices');
+      // if (response.ok !== true) throw Error('Oops something went wrong!');
 
-      const { invoices } = await response.json();
+      const { invoices } = await res.json();
       setInvoices(invoices);
     } catch (err) {
       console.log(err);
     }
   };
-  const createInvoice = async (invoice) => {
+
+  const createInvoice = async (data) => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/invoices', {
+      const res = await fetch('http://localhost:3000/api/v1/invoices', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(invoice),
+        body: JSON.stringify(data),
       });
-      if (response.ok !== true) throw Error('Oops something went wrong!');
 
-      const status = await response.json();
+      const status = await res.json();
       console.log(status);
     } catch (err) {
       console.log(err);
     }
     getAllInvoices();
   };
-  // prettier-ignore
+
   const getInvoice = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/invoices/${id}`);
-      if (response.ok !== true) throw Error('Oops something went wrong!');
+      const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`);
 
-      const { invoices } = await response.json();
+      const { invoices } = await res.json();
       setInvoices(invoices);
     } catch (err) {
       console.log(err);
     }
   };
 
-  // prettier-ignore
   const updateInvoice = async (id, data) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/invoices/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
-      if (response.ok !== true) throw Error('Oops something went wrong!');
 
-      const status = await response.json();
+      const status = await res.json();
       console.log(status);
     } catch (err) {
       console.log(err);
     }
     getAllInvoices();
   };
-  // prettier-ignore
+
   const deleteInvoice = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/invoices/${id}`, {
-          method: 'DELETE',
-        }
-      );
-      if (response.ok !== true) throw Error('Oops something went wrong!');
+      const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`, {
+        method: 'DELETE',
+      });
 
-      const status = await response.json();
+      const status = await res.json();
       console.log(status);
     } catch (err) {
       console.log(err);

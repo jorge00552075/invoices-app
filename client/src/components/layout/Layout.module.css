@@ -1,7 +1,18 @@
+:root {
+  --main-bg-color: hsl(240, 20%, 98%);
+}
+
+[data-theme='dark'] {
+  --main-bg-color: hsl(233, 30%, 11%);
+}
+
 .layout {
   display: flex;
 
   height: 100vh;
+
+  /* DARK MODE */
+  background: hsl(233, 30%, 11%);
 }
 
 .aside {
@@ -10,7 +21,7 @@
 
 .main {
   flex: 1;
-  background: hsl(240, 20%, 98%);
+  background: var(--main-bg-color);
 
   overflow-y: scroll;
 }

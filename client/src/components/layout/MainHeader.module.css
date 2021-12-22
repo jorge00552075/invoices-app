@@ -12,6 +12,8 @@
   font-size: 3.2rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -1px;
   line-height: 3.6rem;
 }
@@ -23,6 +25,8 @@
   font-size: 1.2rem;
 
   color: hsl(231, 20%, 61%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
   letter-spacing: -0.25px;
 }
 

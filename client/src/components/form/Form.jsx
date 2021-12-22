@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 
 import InvoiceContext from '../../context/invoices-context.jsx';
 import createUID from '../../utils/createId';
-
 import ItemsList from './ItemsList';
 
 import styles from './Form.module.css';
@@ -32,6 +31,7 @@ function Form({ invoice, closeModal }) {
   const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
 
   function onSubmit(data) {
+    // UPDATE & CREATE
     if (!!invoice) {
       const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
       const updatedInvoice = { ...data, paymentDue };
@@ -54,11 +54,10 @@ function Form({ invoice, closeModal }) {
       paymentDue,
       status: 'Draft',
     };
-    console.log(invoiceDraft);
     context.createInvoice(invoiceDraft);
     closeModal();
   }
-
+  // prettier-ignore
   return (
     <div className={styles['form-wrapper']}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -72,9 +71,7 @@ function Form({ invoice, closeModal }) {
                 {...register('senderAddress.street', { required: true })}
                 id="senderAddress.street"
                 className={
-                  errors.senderAddress?.street
-                    ? formControlBorderRed
-                    : formControl
+                  errors.senderAddress?.street ? formControlBorderRed : formControl
                 }
               />
             </div>
@@ -85,9 +82,7 @@ function Form({ invoice, closeModal }) {
                   {...register('senderAddress.city', { required: true })}
                   id="senderAddress.city"
                   className={
-                    errors.senderAddress?.city
-                      ? formControlBorderRed
-                      : formControl
+                    errors.senderAddress?.city ? formControlBorderRed : formControl
                   }
                 />
               </div>
@@ -97,9 +92,7 @@ function Form({ invoice, closeModal }) {
                   {...register('senderAddress.postCode', { required: true })}
                   id="senderAddress.postCode"
                   className={
-                    errors.senderAddress?.postCode
-                      ? formControlBorderRed
-                      : formControl
+                    errors.senderAddress?.postCode ? formControlBorderRed : formControl
                   }
                 />
               </div>
@@ -109,9 +102,7 @@ function Form({ invoice, closeModal }) {
                   {...register('senderAddress.country', { required: true })}
                   id="senderAddress.country"
                   className={
-                    errors.senderAddress?.country
-                      ? formControlBorderRed
-                      : formControl
+                    errors.senderAddress?.country ? formControlBorderRed : formControl
                   }
                 />
               </div>
@@ -131,7 +122,6 @@ function Form({ invoice, closeModal }) {
             </div>
             <div className={styles['form-group']}>
               <label htmlFor="clientEmail">Client's Email</label>
-              {/* prettier-ignore */}
               <input
                 {...register('clientEmail', { required: true, pattern: /^\S+@\S+$/i })}
                 id="clientEmail"
@@ -146,9 +136,7 @@ function Form({ invoice, closeModal }) {
                 {...register('clientAddress.street', { required: true })}
                 id="clientAddress.street"
                 className={
-                  errors.clientAddress?.street
-                    ? formControlBorderRed
-                    : formControl
+                  errors.clientAddress?.street ? formControlBorderRed : formControl
                 }
               />
             </div>
@@ -159,9 +147,7 @@ function Form({ invoice, closeModal }) {
                   {...register('clientAddress.city', { required: true })}
                   id="clientAddress.city"
                   className={
-                    errors.clientAddress?.city
-                      ? formControlBorderRed
-                      : formControl
+                    errors.clientAddress?.city ? formControlBorderRed : formControl
                   }
                 />
               </div>
@@ -171,9 +157,7 @@ function Form({ invoice, closeModal }) {
                   {...register('clientAddress.postCode', { required: true })}
                   id="clientAddress.postCode"
                   className={
-                    errors.clientAddress?.postCode
-                      ? formControlBorderRed
-                      : formControl
+                    errors.clientAddress?.postCode ? formControlBorderRed : formControl
                   }
                 />
               </div>
@@ -183,9 +167,7 @@ function Form({ invoice, closeModal }) {
                   {...register('clientAddress.country', { required: true })}
                   id="clientAddress.country"
                   className={
-                    errors.clientAddress?.country
-                      ? formControlBorderRed
-                      : formControl
+                    errors.clientAddress?.country ? formControlBorderRed : formControl
                   }
                 />
               </div>
@@ -233,7 +215,7 @@ function Form({ invoice, closeModal }) {
               />
             </div>
           </fieldset>
-          {/* Items list */}
+          {/* ITEMS LIST */}
           <fieldset>
             <legend className={styles['items-heading']}>Item List</legend>
             <ItemsList
@@ -244,14 +226,14 @@ function Form({ invoice, closeModal }) {
             />
           </fieldset>
         </div>
-        {/* Validation errors */}
+        {/* ERRORS */}
         <div className={styles.messages}>
           {errors.clientEmail && <small>- Please enter a valid email</small>}
           {isSubmitted && !isValid && (
             <small>- All fields must be added.</small>
           )}
         </div>
-        {/* Form buttons */}
+        {/*BUTTONS */}
         <div className={styles.buttons}>
           <button
             type="button"

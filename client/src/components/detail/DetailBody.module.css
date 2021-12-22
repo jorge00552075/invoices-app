@@ -9,9 +9,13 @@
   border-radius: 9px;
 
   background: hsl(0, 0%, 100%);
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 72%, 93%);
 }
 
 .id {
@@ -20,12 +24,16 @@
   font-size: 1.6rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -0.8px;
   line-height: 2.4rem;
 }
 
 .id span {
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 20%, 61%);
 }
 
 .description {
@@ -72,6 +80,8 @@
   font-size: 1.5rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -0.25px;
   line-height: 2rem;
 }
@@ -92,6 +102,8 @@
   font-size: 1.5rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
 }
 
 .client-email {
@@ -110,6 +122,8 @@
   font-size: 1.5rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -0.25px;
   line-height: 2rem;
   text-decoration: none;
@@ -121,11 +135,13 @@
   grid-column: 1 / -1;
   margin: auto 0;
 }
-
+/* TABLE */
 table {
   width: 100%;
 
   background: hsl(240, 27%, 98%);
+  /* DARK MODE */
+  background: hsl(233, 30%, 21%);
 
   border-collapse: collapse;
 }
@@ -146,12 +162,16 @@ td {
   font-size: 1.2rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
 }
 
 tfoot {
   height: 8rem;
 
   background: hsl(231, 20%, 27%);
+  /* DARK MODE */
+  background: hsl(228, 29%, 7%);
 
   color: hsl(0, 0%, 100%);
 }
@@ -159,6 +179,8 @@ tfoot {
 .qty,
 .price {
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
 }
 
 .items-total {

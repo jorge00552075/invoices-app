@@ -19,7 +19,7 @@ function InvoicesHome() {
 
   return (
     <Layout>
-      {showInvoiceForm && <Modal closeModal={toggleModal} />}
+      {showInvoiceForm && <Modal closeModal={toggleModal}></Modal>}
       <MainHeader openModal={toggleModal} getFilterStatus={getFilterStatus} />
       <InvoicesList filterStatus={filterStatus} />
     </Layout>

@@ -7,13 +7,10 @@
   margin-bottom: 4.8rem;
 
   font-size: 2.4rem;
-
+  /* DARK MODE */
+  color: #fff;
   letter-spacing: -0.25px;
   line-height: 3.2rem;
-}
-
-.form-heading span {
-  color: hsl(231, 20%, 61%);
 }
 
 .fieldset-wrapper {
@@ -48,6 +45,8 @@ legend {
   font-size: 1.2rem;
 
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
   letter-spacing: -0.25px;
 }
 
@@ -58,13 +57,19 @@ legend {
   width: 100%;
   padding: 1.5rem;
   border: 1px solid hsl(231, 73%, 93%);
+  /* DARK MODE */
+  border: 1px solid hsl(233, 30%, 21%);
   border-radius: 4px;
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
 
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -0.25px;
 }
 
@@ -103,6 +108,8 @@ legend {
   border-radius: 9999px;
 
   background: hsl(228, 71%, 99%);
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   font-family: inherit;
@@ -110,6 +117,8 @@ legend {
   font-size: 1.2rem;
 
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
   letter-spacing: -0.25px;
 
   cursor: pointer;

@@ -15,6 +15,8 @@
   border-radius: 9px;
 
   background: hsl(0, 0%, 100%);
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -30,6 +32,8 @@
   font-size: 1.2rem;
   letter-spacing: -0.25px;
   color: hsl(232, 23%, 61%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
 }
 
 .buttons {
@@ -54,36 +58,42 @@
   cursor: pointer;
 }
 
-.btn--edit {
+.btnEdit {
   background: hsl(240, 27%, 98%);
+  /* DARK MODE */
+  background: hsl(233, 30%, 21%);
 
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
 
   transition: all 0.3s;
 }
 
-.btn--edit:hover {
+.btnEdit:hover {
   background: hsl(231, 73%, 93%);
+  /* DARK MODE */
+  background: hsl(0, 0%, 100%);
 
   color: hsl(231, 37%, 63%);
 }
 
-.btn--delete {
+.btnDelete {
   background: hsl(0, 80%, 63%);
 
   transition: all 0.3s;
 }
 
-.btn--delete:hover {
+.btnDelete:hover {
   background: hsl(0, 100%, 80%);
 }
 
-.btn--paid {
+.btnPaid {
   background: hsl(252, 94%, 67%);
 
   transition: all 0.3s;
 }
 
-.btn--paid:hover {
+.btnPaid:hover {
   background: hsl(252, 100%, 73%);
 }

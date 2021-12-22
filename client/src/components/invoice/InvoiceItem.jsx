@@ -14,14 +14,11 @@ function InvoiceItem({ invoice }) {
         <span>#</span>
         {invoice.uid}
       </h2>
-      <span className={styles.payment_due}>
+      <span className={styles.paymentDue}>
         Due {dayjs(invoice.paymentDue).format('DD MMM YYYY')}
       </span>
-      <span className={styles.client_name}>{invoice.clientName}</span>
-      {/* <span className={styles.total}>$ {separator(invoice.total)}</span> */}
-      <span className={styles.total}>
-        $ {invoice.total ? separator(invoice.total) : 0}
-      </span>
+      <span className={styles.clientName}>{invoice.clientName}</span>
+      <span className={styles.total}>$ {separator(invoice.total)}</span>
 
       <div className={styles.container}>
         <InvoiceStatus status={invoice.status} />

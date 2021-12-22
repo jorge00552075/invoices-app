@@ -1,15 +1,14 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import InvoiceStatus from '../invoice/InvoiceStatus.jsx';
 import InvoiceContext from '../../context/invoices-context.jsx';
 
 import styles from './DetailHeader.module.css';
 
-function DetailHeader({ invoice, openModal }) {
+function DetailHeader({ invoice, showForm, confirmDeletion }) {
   const context = useContext(InvoiceContext);
-  const navigate = useNavigate();
 
+  // prettier-ignore
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -17,29 +16,23 @@ function DetailHeader({ invoice, openModal }) {
           <span className={styles.status_text}>Status</span>
           <InvoiceStatus status={invoice.status} />
         </div>
-
         <div className={styles.buttons}>
           <button
-            className={`${styles.btn} ${styles['btn--edit']}`}
-            onClick={() => openModal()}
+            className={`${styles.btn} ${styles.btnEdit}`}
+            onClick={() => showForm()}
           >
             Edit
           </button>
           <button
-            className={`${styles.btn} ${styles['btn--delete']}`}
-            onClick={() => {
-              context.deleteInvoice(invoice._id);
-              navigate('/');
-            }}
+            className={`${styles.btn} ${styles.btnDelete}`}
+            onClick={() => confirmDeletion()}
           >
             Delete
           </button>
           {invoice.status !== 'Paid' && (
             <button
-              className={`${styles.btn} ${styles['btn--paid']}`}
-              onClick={() =>
-                context.updateInvoice(invoice._id, { status: 'Paid' })
-              }
+              className={`${styles.btn} ${styles.btnPaid}`}
+              onClick={() => context.updateInvoice(invoice._id, { status: 'Paid' })}
             >
               Mark as Paid
             </button>

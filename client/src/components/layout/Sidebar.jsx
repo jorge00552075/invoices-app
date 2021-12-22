@@ -7,11 +7,14 @@ import avatar from '../../assets/image-avatar.jpg';
 
 import styles from './Sidebar.module.css';
 
+const htmlEl = document.documentElement;
+
 function Sidebar() {
   const [darkMode, setDarkMode] = useState(false);
 
   function handleClick() {
     setDarkMode((prev) => !prev);
+    htmlEl.setAttribute('data-theme', 'dark');
   }
 
   return (

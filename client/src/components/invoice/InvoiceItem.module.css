@@ -8,14 +8,11 @@
   border-radius: 6px;
 
   background: hsl(0, 0%, 100%);
+  /* DARK MODE */
+  background: hsl(233, 31%, 17%);
 
   text-decoration: none;
 }
-
-/* .invoice:link,
-.invoice:visited {
-  text-decoration: none;
-} */
 
 .invoice:hover,
 .invoice:active,
@@ -31,6 +28,8 @@
   font-weight: 700;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
 }
 
 .id span {
@@ -40,12 +39,23 @@
   color: hsl(231, 37%, 63%);
 }
 
-.payment_due,
-.client_name {
+.paymentDue {
   font-weight: 500;
   font-size: 1.2rem;
 
   color: hsl(231, 37%, 63%);
+  /* DARK MODE */
+  color: hsl(231, 73%, 93%);
+  letter-spacing: -0.25px;
+}
+
+.clientName {
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  color: hsl(232, 23%, 61%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -0.25px;
 }
 
@@ -54,6 +64,8 @@
   font-size: 1.6rem;
 
   color: hsl(228, 29%, 7%);
+  /* DARK MODE */
+  color: hsl(0, 0%, 100%);
   letter-spacing: -0.8px;
 }
 
