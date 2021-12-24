@@ -1,12 +1,17 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import dayjs from 'dayjs';
-
 import InvoiceContext from '../../context/invoices-context.jsx';
-import createUID from '../../utils/createId';
+import createUID from '../../utils/createUID';
 import ItemsList from './ItemsList';
-
 import styles from './Form.module.css';
+
+const TODAYSDATE = dayjs(new Date()).format('YYYY-MM-DD');
+
+// FUNCTIONS
+const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, 'day').$d;
+const calculateTotal = (items) =>
+  items.reduce((total, item) => total + item.total, 0);
 
 function Form({ invoice, closeModal }) {
   const context = useContext(InvoiceContext);
@@ -20,89 +25,90 @@ function Form({ invoice, closeModal }) {
     control,
   } = useForm({ defaultValues: invoice });
 
-  // CREATE DEFAULT VALUE FOR DATE PICKER
-  const todaysDate = dayjs(new Date()).format('YYYY-MM-DD');
-
-  // CALCULATE PAYMENTDUE FUNCTION
-  const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, 'day').$d;
-
-  // ERROR CLASSES
-  const formControl = styles['form-control'];
-  const formControlBorderRed = `${styles['form-control']} ${styles['border-red']}`;
-
   function onSubmit(data) {
-    // UPDATE & CREATE
+    // EDIT INVOICE
     if (!!invoice) {
-      const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
-      const updatedInvoice = { ...data, paymentDue };
+      const updatedInvoice = {
+        ...data,
+        paymentDue: calculatePaymentDue(data.createdAt, data.paymentTerms),
+        total: calculateTotal(data.items),
+      };
       context.updateInvoice(invoice._id, updatedInvoice);
       closeModal();
     } else {
-      const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
-      const newInvoice = { ...data, uid: createUID(), paymentDue };
+      // NEW INVOICE
+      const newInvoice = {
+        ...data,
+        uid: createUID(),
+        paymentDue: calculatePaymentDue(data.createdAt, data.paymentTerms),
+        total: calculateTotal(data.items),
+      };
       context.createInvoice(newInvoice);
       closeModal();
     }
   }
   // SAVE AS DRAFT
-  function createDraft() {
-    const data = getValues();
-    const paymentDue = calculatePaymentDue(data.createdAt, data.paymentTerms);
+  function createDraft(data) {
     const invoiceDraft = {
       ...data,
       uid: createUID(),
-      paymentDue,
+      paymentDue: calculatePaymentDue(data.createdAt, data.paymentTerms),
       status: 'Draft',
     };
     context.createInvoice(invoiceDraft);
     closeModal();
   }
+
+  // FORM CONTROL CLASSES
+  const formControl = styles.formControl;
+  const formControlInvalid = `${styles.formControl} ${styles.invalid}`;
+
   // prettier-ignore
   return (
-    <div className={styles['form-wrapper']}>
+    <div className={styles.formWrapper}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={styles['form-heading']}>New Invoice</h2>
-        <div className={styles['fieldset-wrapper']}>
+        <h2 className={styles.formHeading}>New Invoice</h2>
+        <div className={styles.fieldsetWrapper}>
           <fieldset>
             <legend>Bill From</legend>
-            <div className={styles['form-group']}>
+            <div className={styles.formGroup}>
               <label htmlFor="senderAddress.street">Street Address</label>
               <input
                 {...register('senderAddress.street', { required: true })}
                 id="senderAddress.street"
                 className={
-                  errors.senderAddress?.street ? formControlBorderRed : formControl
+                  errors.senderAddress?.street ? formControlInvalid : formControl
                 }
               />
             </div>
-            <div className={styles['form-row']}>
-              <div className={styles['form-group']}>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
                 <label htmlFor="senderAddress.city">City</label>
                 <input
                   {...register('senderAddress.city', { required: true })}
                   id="senderAddress.city"
                   className={
-                    errors.senderAddress?.city ? formControlBorderRed : formControl
+                    errors.senderAddress?.city ? formControlInvalid : formControl
                   }
                 />
               </div>
-              <div className={styles['form-group']}>
+              <div className={styles.formGroup}>
                 <label htmlFor="senderAddress.postCode">Post Code</label>
                 <input
                   {...register('senderAddress.postCode', { required: true })}
                   id="senderAddress.postCode"
                   className={
-                    errors.senderAddress?.postCode ? formControlBorderRed : formControl
+                    errors.senderAddress?.postCode ? formControlInvalid : formControl
                   }
                 />
               </div>
-              <div className={styles['form-group']}>
+              <div className={styles.formGroup}>
                 <label htmlFor="senderAddress.country">Country</label>
                 <input
                   {...register('senderAddress.country', { required: true })}
                   id="senderAddress.country"
                   className={
-                    errors.senderAddress?.country ? formControlBorderRed : formControl
+                    errors.senderAddress?.country ? formControlInvalid : formControl
                   }
                 />
               </div>
@@ -110,91 +116,91 @@ function Form({ invoice, closeModal }) {
           </fieldset>
           <fieldset>
             <legend>Bill To</legend>
-            <div className={styles['form-group']}>
+            <div className={styles.formGroup}>
               <label htmlFor="clientName">Client's Name</label>
               <input
                 {...register('clientName', { required: true })}
                 id="clientName"
                 className={
-                  errors.clientName ? formControlBorderRed : formControl
+                  errors.clientName ? formControlInvalid : formControl
                 }
               />
             </div>
-            <div className={styles['form-group']}>
+            <div className={styles.formGroup}>
               <label htmlFor="clientEmail">Client's Email</label>
               <input
                 {...register('clientEmail', { required: true, pattern: /^\S+@\S+$/i })}
                 id="clientEmail"
                 className={
-                  errors.clientEmail ? formControlBorderRed : formControl
+                  errors.clientEmail ? formControlInvalid : formControl
                 }
               />
             </div>
-            <div className={styles['form-group']}>
+            <div className={styles.formGroup}>
               <label htmlFor="clientAddress.street">Street Address</label>
               <input
                 {...register('clientAddress.street', { required: true })}
                 id="clientAddress.street"
                 className={
-                  errors.clientAddress?.street ? formControlBorderRed : formControl
+                  errors.clientAddress?.street ? formControlInvalid : formControl
                 }
               />
             </div>
-            <div className={styles['form-row']}>
-              <div className={styles['form-group']}>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
                 <label htmlFor="clientAddress.city">City</label>
                 <input
                   {...register('clientAddress.city', { required: true })}
                   id="clientAddress.city"
                   className={
-                    errors.clientAddress?.city ? formControlBorderRed : formControl
+                    errors.clientAddress?.city ? formControlInvalid : formControl
                   }
                 />
               </div>
-              <div className={styles['form-group']}>
+              <div className={styles.formGroup}>
                 <label htmlFor="clientAddress.postCode">Post Code</label>
                 <input
                   {...register('clientAddress.postCode', { required: true })}
                   id="clientAddress.postCode"
                   className={
-                    errors.clientAddress?.postCode ? formControlBorderRed : formControl
+                    errors.clientAddress?.postCode ? formControlInvalid : formControl
                   }
                 />
               </div>
-              <div className={styles['form-group']}>
+              <div className={styles.formGroup}>
                 <label htmlFor="clientAddress.country">Country</label>
                 <input
                   {...register('clientAddress.country', { required: true })}
                   id="clientAddress.country"
                   className={
-                    errors.clientAddress?.country ? formControlBorderRed : formControl
+                    errors.clientAddress?.country ? formControlInvalid : formControl
                   }
                 />
               </div>
             </div>
           </fieldset>
           <fieldset>
-            <div className={`${styles['form-row']} ${styles['col-2']}`}>
-              <div className={styles['form-group']}>
+            <div className={`${styles.formRow} ${styles['col-2']}`}>
+              <div className={styles.formGroup}>
                 <label htmlFor="createdAt">Invoice Date</label>
                 <input
                   type="date"
                   {...register('createdAt', { required: true })}
-                  defaultValue={todaysDate}
+                  defaultValue={TODAYSDATE}
                   id="createdAt"
                   className={
-                    errors.createdAt ? formControlBorderRed : formControl
+                    errors.createdAt ? formControlInvalid : formControl
                   }
                 />
               </div>
-              <div className={styles['form-group']}>
+              <div className={styles.formGroup}>
                 <label htmlFor="paymentTerms">Payment Terms</label>
                 <select
                   {...register('paymentTerms', { required: true })}
                   defaultValue={30}
                   id="paymentTerms"
                   className={
-                    errors.paymentTerms ? formControlBorderRed : formControl
+                    errors.paymentTerms ? formControlInvalid : formControl
                   }
                 >
                   <option value="1">Net 1 Day</option>
@@ -204,20 +210,19 @@ function Form({ invoice, closeModal }) {
                 </select>
               </div>
             </div>
-            <div className={styles['form-group']}>
+            <div className={styles.formGroup}>
               <label htmlFor="description">Description</label>
               <input
                 {...register('description', { required: true })}
                 id="description"
                 className={
-                  errors.description ? formControlBorderRed : formControl
+                  errors.description ? formControlInvalid : formControl
                 }
               />
             </div>
           </fieldset>
-          {/* ITEMS LIST */}
           <fieldset>
-            <legend className={styles['items-heading']}>Item List</legend>
+            <legend className={styles.itemsHeading}>Item List</legend>
             <ItemsList
               register={register}
               errors={errors}
@@ -226,14 +231,10 @@ function Form({ invoice, closeModal }) {
             />
           </fieldset>
         </div>
-        {/* ERRORS */}
         <div className={styles.messages}>
           {errors.clientEmail && <small>- Please enter a valid email</small>}
-          {isSubmitted && !isValid && (
-            <small>- All fields must be added.</small>
-          )}
+          {isSubmitted && !isValid && (<small>- All fields must be added.</small>)}
         </div>
-        {/*BUTTONS */}
         <div className={styles.buttons}>
           <button
             type="button"
@@ -246,7 +247,7 @@ function Form({ invoice, closeModal }) {
             <button
               type="button"
               className={`${styles.btn} ${styles.draft}`}
-              onClick={createDraft}
+              onClick={() => createDraft(getValues())}
             >
               Save as Draft
             </button>

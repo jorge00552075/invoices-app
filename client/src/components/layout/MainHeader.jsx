@@ -65,7 +65,7 @@ function MainHeader({ openModal, getFilterStatus }) {
           styles={customStyles}
           onChange={({ value }) => getFilterStatus(value)}
         />
-        <button className={styles['new-invoice']} onClick={() => openModal()}>
+        <button className={styles.newInvoice} onClick={() => openModal()}>
           <Plus />
           New Invoice
         </button>

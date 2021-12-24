@@ -1,19 +1,39 @@
-.form-wrapper {
+:root {
+  --formHeading-color: hsl(228, 29%, 7%);
+  --formLabel-color: hsl(231, 37%, 63%);
+  --formControl-border: 1px solid hsl(231, 73%, 93%);
+  --formControl-background: hsl(0, 0%, 100%);
+  --formControl-color: hsl(228, 29%, 7%);
+  --form-btn-background: hsl(228, 71%, 99%);
+  --form-btn-color: hsl(231, 37%, 63%);
+}
+
+[data-theme='dark'] {
+  --formHeading-color: hsl(0, 0%, 100%);
+  --formLabel-color: hsl(231, 73%, 93%);
+  --formControl-border: 1px solid hsl(233, 30%, 21%);
+  --formControl-background: hsl(233, 31%, 17%);
+  --formControl-color: hsl(0, 0%, 100%);
+  --form-btn-background: hsl(233, 31%, 17%);
+  --form-btn-color: hsl(231, 73%, 93%);
+}
+
+.formWrapper {
   width: 50.4rem;
   margin: 4.8rem auto 0;
 }
 
-.form-heading {
+.formHeading {
   margin-bottom: 4.8rem;
 
   font-size: 2.4rem;
-  /* DARK MODE */
-  color: #fff;
+
+  color: var(--formHeading-color);
   letter-spacing: -0.25px;
   line-height: 3.2rem;
 }
 
-.fieldset-wrapper {
+.fieldsetWrapper {
   margin-bottom: 2.4rem;
 }
 
@@ -31,11 +51,11 @@ legend {
   letter-spacing: -0.25px;
 }
 
-.form-group {
+.formGroup {
   margin-bottom: 2.4rem;
 }
 
-.form-group label {
+.formGroup label {
   display: inline-block;
 
   width: 100%;
@@ -44,41 +64,38 @@ legend {
   font-weight: 500;
   font-size: 1.2rem;
 
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--formLabel-color);
   letter-spacing: -0.25px;
 }
 
-.form-control {
+.formControl {
   display: block;
 
   height: 47px;
   width: 100%;
   padding: 1.5rem;
-  border: 1px solid hsl(231, 73%, 93%);
-  /* DARK MODE */
-  border: 1px solid hsl(233, 30%, 21%);
+  border: var(--formControl-border);
   border-radius: 4px;
-  /* DARK MODE */
-  background: hsl(233, 31%, 17%);
+  background: var(--formControl-background);
 
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--formControl-color);
   letter-spacing: -0.25px;
 }
 
-.form-control:focus {
+.formControl.invalid {
+  border-color: hsl(0, 80%, 63%);
+}
+
+.formControl:focus {
   /* outline: 1px solid hsl(252, 100%, 73%); */
   outline: none;
 }
 
-.form-row {
+.formRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
@@ -92,7 +109,7 @@ legend {
   grid-template-columns: 215px 45px 100px 1fr 15px;
 }
 
-.items-heading {
+.itemsHeading {
   font-weight: 700;
   font-size: 1.8rem;
 
@@ -107,18 +124,14 @@ legend {
   border: none;
   border-radius: 9999px;
 
-  background: hsl(228, 71%, 99%);
-  /* DARK MODE */
-  background: hsl(233, 31%, 17%);
+  background: var(--form-btn-background);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
 
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--form-btn-color);
   letter-spacing: -0.25px;
 
   cursor: pointer;
@@ -190,7 +203,7 @@ small {
   background: hsl(252, 100%, 73%);
 }
 
-.btn-del {
+.btnDel {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,11 +216,6 @@ small {
   cursor: pointer;
 }
 
-.btn-del:hover path {
+.btnDel:hover path {
   fill: hsl(0, 80%, 63%);
-}
-
-/* ERROR MESSAGE */
-.border-red {
-  border-color: hsl(0, 80%, 63%);
 }

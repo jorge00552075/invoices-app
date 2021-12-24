@@ -10,21 +10,23 @@ import styles from './Sidebar.module.css';
 const htmlEl = document.documentElement;
 
 function Sidebar() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [theme, setTheme] = useState('light');
 
   function handleClick() {
-    setDarkMode((prev) => !prev);
-    htmlEl.setAttribute('data-theme', 'dark');
+    if (theme === 'light') setTheme('dark');
+    else setTheme('light');
+
+    htmlEl.setAttribute('data-theme', theme);
   }
 
   return (
     <div className={styles.sidebar}>
-      <div className={styles.logo_wrapper}>
+      <div className={styles.logoWrapper}>
         <Logo />
       </div>
       <div className={styles.container}>
         <button className={styles.btn} onClick={handleClick}>
-          {darkMode ? <Sun /> : <Moon />}
+          {theme ? <Sun /> : <Moon />}
         </button>
         <div className={styles.line} />
         <button className={styles.btn}>

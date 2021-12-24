@@ -19,19 +19,19 @@
   background: hsla(231, 20%, 27%, 0.06);
 }
 
-.list_style {
+.listStyle {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;
 }
 
-.list_style--orange {
+.listStyle--orange {
   background: hsl(34, 100%, 50%);
 }
-.list_style--green {
+.listStyle--green {
   background: hsl(160, 67%, 52%);
 }
-.list_style--purple {
+.listStyle--purple {
   background: hsl(231, 20%, 27%);
 }
 

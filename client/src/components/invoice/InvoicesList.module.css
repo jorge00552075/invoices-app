@@ -1,4 +1,14 @@
-.invoices_list {
+:root {
+  --invoicelist-color: hsl(228, 29%, 7%);
+  --invoicelist-color-secondary: hsl(231, 20%, 61%);
+}
+
+[data-theme='dark'] {
+  --invoicelist-color: hsl(0, 0%, 100%);
+  --invoicelist-color-secondary: hsl(231, 73%, 93%);
+}
+
+.invoicesList {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.6rem;
@@ -24,9 +34,7 @@
 
   font-size: 2rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--invoicelist-color);
   letter-spacing: -0.5px;
 }
 
@@ -34,7 +42,5 @@
   font-weight: 500;
   font-size: 1.2rem;
 
-  color: hsl(231, 20%, 61%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--invoicelist-color-secondary);
 }

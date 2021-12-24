@@ -10,13 +10,11 @@ function InvoicesList({ filterStatus }) {
   const context = useContext(InvoiceContext);
 
   let invoices;
-  if (filterStatus) {
+  if (filterStatus)
     invoices = context.invoices.filter(
       (invoice) => invoice.status === filterStatus
     );
-  } else {
-    invoices = context.invoices;
-  }
+  else invoices = context.invoices;
 
   const invoicesList = invoices.map((invoice) => (
     <InvoiceItem key={invoice.uid} invoice={invoice} />
@@ -25,7 +23,7 @@ function InvoicesList({ filterStatus }) {
   return (
     <React.Fragment>
       {invoicesList.length > 0 ? (
-        <div className={styles.invoices_list}>{invoicesList}</div>
+        <div className={styles.invoicesList}>{invoicesList}</div>
       ) : (
         <div className={styles.container}>
           <Illustration className={styles.illustration} />

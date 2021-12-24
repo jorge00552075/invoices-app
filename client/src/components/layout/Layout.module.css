@@ -1,9 +1,9 @@
 :root {
-  --main-bg-color: hsl(240, 20%, 98%);
+  --layout-background: hsl(240, 20%, 98%);
 }
 
 [data-theme='dark'] {
-  --main-bg-color: hsl(233, 30%, 11%);
+  --layout-background: hsl(233, 30%, 11%);
 }
 
 .layout {
@@ -11,8 +11,7 @@
 
   height: 100vh;
 
-  /* DARK MODE */
-  background: hsl(233, 30%, 11%);
+  background: var(--layout-background);
 }
 
 .aside {
@@ -21,7 +20,7 @@
 
 .main {
   flex: 1;
-  background: var(--main-bg-color);
+  background: var(--layout-background);
 
   overflow-y: scroll;
 }

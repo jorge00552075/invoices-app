@@ -18,6 +18,7 @@ function ItemsList({ register, errors, setValue, control }) {
           register={register}
           errors={errors}
           setValue={setValue}
+          fields={fields}
         />
       ))}
       <button

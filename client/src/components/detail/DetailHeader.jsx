@@ -12,8 +12,8 @@ function DetailHeader({ invoice, showForm, confirmDeletion }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.status_group}>
-          <span className={styles.status_text}>Status</span>
+        <div className={styles.statusGroup}>
+          <span className={styles.statusText}>Status</span>
           <InvoiceStatus status={invoice.status} />
         </div>
         <div className={styles.buttons}>

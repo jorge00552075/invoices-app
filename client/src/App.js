@@ -5,7 +5,6 @@ import InvoicesHome from './pages/InvoicesHome.jsx';
 import InvoicesDetail from './pages/InvoicesDetail.jsx';
 import NotFound from './pages/NotFound.jsx';
 import { InvoiceContextProvider } from './context/invoices-context.jsx';
-import DetailBody from './components/detail/DetailBody.jsx';
 
 function App() {
   return (
@@ -20,6 +19,16 @@ function App() {
 }
 
 export default App;
-// Toggle light and dark mode (CURRENT)
-// ADD total on update
+// LOOK FOR ANY SMALL ISSUES
+// - FILTER BACKGROUND COLOR
+// - DETAILPAGE ONLOAD ERROR
+// - DRAFT STATUS BACKGROUND DARK MODE
+// - FIX FORM BACKGROUND (WHITE)
+// - 404 PAGE BACKGROUND
+// - ITEM PRICE & TOTAL EQUAL WIDTH
+// - BACK LINK
+// - BEST REACT CSS ANIMATION LIBRARY
+// - BORDER RADIUS FORM
+// - ADD EDIT INVOICE ID TO FORM
+
 // View the optimal layout for the app depending on their device's screen size

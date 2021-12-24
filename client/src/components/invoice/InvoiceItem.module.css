@@ -1,3 +1,15 @@
+:root {
+  --invoice-background: hsl(0, 0%, 100%);
+  --invoice-color: hsl(228, 29%, 7%);
+  --invoice-color-secondary: hsl(231, 37%, 63%);
+}
+
+[data-theme='dark'] {
+  --invoice-background: hsl(233, 31%, 17%);
+  --invoice-color: hsl(0, 0%, 100%);
+  --invoice-color-secondary: hsl(231, 73%, 93%);
+}
+
 .invoice {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -7,9 +19,7 @@
   padding: 1.6rem 2.4rem;
   border-radius: 6px;
 
-  background: hsl(0, 0%, 100%);
-  /* DARK MODE */
-  background: hsl(233, 31%, 17%);
+  background: var(--invoice-background);
 
   text-decoration: none;
 }
@@ -27,9 +37,7 @@
   font-size: 1.2rem;
   font-weight: 700;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--invoice-color);
 }
 
 .id span {
@@ -43,9 +51,7 @@
   font-weight: 500;
   font-size: 1.2rem;
 
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--invoice-color-secondary);
   letter-spacing: -0.25px;
 }
 
@@ -53,9 +59,7 @@
   font-weight: 500;
   font-size: 1.2rem;
 
-  color: hsl(232, 23%, 61%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--invoice-color-secondary);
   letter-spacing: -0.25px;
 }
 
@@ -63,9 +67,7 @@
   font-weight: 700;
   font-size: 1.6rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--invoice-color);
   letter-spacing: -0.8px;
 }
 

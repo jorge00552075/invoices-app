@@ -51,12 +51,6 @@ const invoiceSchema = new mongoose.Schema({
   total: Number,
 });
 
-// DOCUMENT MIDDLEWARE
-invoiceSchema.pre('save', function (next) {
-  this.total = this.items.reduce((total, item) => total + item.total, 0);
-  next();
-});
-
 const Invoice = mongoose.model('Invoice', invoiceSchema);
 
 module.exports = Invoice;

@@ -1,4 +1,20 @@
-.grid-container {
+:root {
+  --detailbody-background: hsl(0, 0%, 100%);
+  --detailbody-color: hsl(231, 37%, 63%);
+  --detailbody-color-secondary: hsl(228, 29%, 7%);
+  --detailbody-table-background: hsl(240, 27%, 98%);
+  --detailbody-tfoot-background: hsl(231, 20%, 27%);
+}
+
+[data-theme='dark'] {
+  --detailbody-background: hsl(233, 31%, 17%);
+  --detailbody-color: hsl(231, 72%, 93%);
+  --detailbody-color-secondary: hsl(0, 0%, 100%);
+  --detailbody-table-background: hsl(233, 30%, 21%);
+  --detailbody-tfoot-background: hsl(228, 29%, 7%);
+}
+
+.gridContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
@@ -8,14 +24,10 @@
   padding: 4.8rem;
   border-radius: 9px;
 
-  background: hsl(0, 0%, 100%);
-  /* DARK MODE */
-  background: hsl(233, 31%, 17%);
+  background: var(--detailbody-background);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
-  color: hsl(231, 72%, 93%);
+  color: var(--detailbody-color);
 }
 
 .id {
@@ -23,16 +35,12 @@
 
   font-size: 1.6rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--detailbody-color-secondary);
   letter-spacing: -0.8px;
   line-height: 2.4rem;
 }
 
 .id span {
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
   color: hsl(231, 20%, 61%);
 }
 
@@ -43,7 +51,7 @@
   letter-spacing: -0.25px;
 }
 
-.sender_address {
+.senderAddress {
   grid-column: 3 / -1;
   align-items: flex-end;
   display: flex;
@@ -62,13 +70,13 @@
   gap: 2.4rem;
 }
 
-.date-item {
+.dateItem {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.date-heading {
+.dateHeading {
   font-weight: 500;
   font-size: 1.2rem;
 
@@ -79,14 +87,12 @@
   font-weight: 700;
   font-size: 1.5rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--detailbody-color-secondary);
   letter-spacing: -0.25px;
   line-height: 2rem;
 }
 
-.client-info {
+.clientInfo {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -97,16 +103,14 @@
   letter-spacing: -0.25px;
 }
 
-.client-name {
+.clientName {
   font-weight: 700;
   font-size: 1.5rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--detailbody-color-secondary);
 }
 
-.client-email {
+.clientEmail {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -117,13 +121,11 @@
   letter-spacing: -0.25px;
 }
 
-.client-email a {
+.clientEmail a {
   font-weight: 700;
   font-size: 1.5rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--detailbody-color-secondary);
   letter-spacing: -0.25px;
   line-height: 2rem;
   text-decoration: none;
@@ -139,9 +141,7 @@
 table {
   width: 100%;
 
-  background: hsl(240, 27%, 98%);
-  /* DARK MODE */
-  background: hsl(233, 30%, 21%);
+  background: var(--detailbody-table-background);
 
   border-collapse: collapse;
 }
@@ -161,29 +161,23 @@ td {
   font-weight: 700;
   font-size: 1.2rem;
 
-  color: hsl(228, 29%, 7%);
-  /* DARK MODE */
-  color: hsl(0, 0%, 100%);
+  color: var(--detailbody-color-secondary);
 }
 
 tfoot {
   height: 8rem;
 
-  background: hsl(231, 20%, 27%);
-  /* DARK MODE */
-  background: hsl(228, 29%, 7%);
+  background: var(--detailbody-tfoot-background);
 
   color: hsl(0, 0%, 100%);
 }
 
 .qty,
 .price {
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--detailbody-color);
 }
 
-.items-total {
+.itemsTotal {
   font-weight: 700;
   font-size: 2.4rem;
   letter-spacing: -0.5px;
@@ -193,18 +187,18 @@ tfoot {
   padding-right: 3.2rem;
 }
 
-.first-col {
+.firstCol {
   padding-left: 3.2rem;
 
   text-align: left;
 }
 
-.second-col,
-.third-col {
+.secondCol,
+.thirdCol {
   text-align: center;
 }
 
-.fourth-col {
+.fourthCol {
   padding-right: 3.2rem;
 
   text-align: right;

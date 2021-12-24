@@ -1,3 +1,11 @@
+:root {
+  --sidebar-background: hsl(231, 20%, 27%);
+}
+
+[data-theme='dark'] {
+  --sidebar-background: hsl(233, 31%, 17%);
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -8,14 +16,12 @@
   border-top-right-radius: 2.4rem;
   border-bottom-right-radius: 2.4rem;
 
-  background: hsl(231, 20%, 27%);
-  /* DARK MODE */
-  background: hsl(233, 31%, 17%);
+  background: var(--sidebar-background);
 
   overflow: hidden;
 }
 
-.logo_wrapper {
+.logoWrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -29,7 +35,7 @@
   overflow: hidden;
 }
 
-.logo_wrapper::after {
+.logoWrapper::after {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -42,7 +48,7 @@
   background: hsl(252, 100%, 73%);
 }
 
-.logo_wrapper svg {
+.logoWrapper svg {
   z-index: 10;
 }
 

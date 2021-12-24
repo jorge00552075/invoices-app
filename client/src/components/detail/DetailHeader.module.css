@@ -1,3 +1,19 @@
+:root {
+  --detailheader-background: hsl(0, 0%, 100%);
+  --detailheader-color: hsl(232, 23%, 61%);
+  --detailheader-btn-background: hsl(240, 27%, 98%);
+  --detailheader-btn-color: hsl(231, 37%, 63%);
+  --detailheader-btn-hover: hsl(231, 73%, 93%);
+}
+
+[data-theme='dark'] {
+  --detailheader-background: hsl(233, 31%, 17%);
+  --detailheader-color: hsl(231, 73%, 93%);
+  --detailheader-btn-background: hsl(233, 30%, 21%);
+  --detailheader-btn-color: hsl(231, 73%, 93%);
+  --detailheader-btn-hover: hsl(0, 0%, 100%);
+}
+
 .container {
   margin: 9.6rem auto 0;
 }
@@ -14,26 +30,22 @@
   padding: 3.2rem;
   border-radius: 9px;
 
-  background: hsl(0, 0%, 100%);
-  /* DARK MODE */
-  background: hsl(233, 31%, 17%);
+  background: var(--detailheader-background);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.status_group {
+.statusGroup {
   width: max-content;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.status_text {
+.statusText {
   font-weight: 500;
   font-size: 1.2rem;
   letter-spacing: -0.25px;
-  color: hsl(232, 23%, 61%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--detailheader-color);
 }
 
 .buttons {
@@ -59,21 +71,15 @@
 }
 
 .btnEdit {
-  background: hsl(240, 27%, 98%);
-  /* DARK MODE */
-  background: hsl(233, 30%, 21%);
+  background: var(--detailheader-btn-background);
 
-  color: hsl(231, 37%, 63%);
-  /* DARK MODE */
-  color: hsl(231, 73%, 93%);
+  color: var(--detailheader-btn-color);
 
   transition: all 0.3s;
 }
 
 .btnEdit:hover {
-  background: hsl(231, 73%, 93%);
-  /* DARK MODE */
-  background: hsl(0, 0%, 100%);
+  background: var(--detailheader-btn-hover);
 
   color: hsl(231, 37%, 63%);
 }
