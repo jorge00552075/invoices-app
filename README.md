@@ -21,11 +21,11 @@ Quickly create an invoice for any product or service in seconds. No signup or si
 - [React](https://reactjs.org/)
 - [React Hook Form](https://react-hook-form.com/)
 - [React Router](https://reactrouter.com/)
-- [Day.js](https://day.js.org/) -
+- [Day.js](https://day.js.org/)
 
 - [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/) - Node.js framework
-- [Mongodb](https://www.mongodb.com/) - NoSQL database
-- [Mongoose](https://mongoosejs.com/) -
+- [Express](https://expressjs.com/)
+- [Mongodb](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
 
 This is a solution to the [Invoice app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl).

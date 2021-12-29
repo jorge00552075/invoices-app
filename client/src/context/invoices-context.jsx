@@ -49,8 +49,9 @@ export function InvoiceContextProvider(props) {
     try {
       const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`);
 
-      const { invoices } = await res.json();
-      setInvoices(invoices);
+      const invoice = await res.json();
+      console.log('CONTEXT', invoice);
+      return invoice;
     } catch (err) {
       console.log(err);
     }

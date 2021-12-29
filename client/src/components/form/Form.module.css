@@ -106,7 +106,7 @@ legend {
 }
 
 .col-5 {
-  grid-template-columns: 215px 45px 100px 1fr 15px;
+  grid-template-columns: 215px 45px 1fr 1fr 15px;
 }
 
 .itemsHeading {
