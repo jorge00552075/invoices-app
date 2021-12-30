@@ -13,10 +13,13 @@ function Sidebar() {
   const [theme, setTheme] = useState('light');
 
   function handleClick() {
-    if (theme === 'light') setTheme('dark');
-    else setTheme('light');
-
-    htmlEl.setAttribute('data-theme', theme);
+    if (theme === 'light') {
+      htmlEl.setAttribute('data-theme', 'dark');
+      setTheme('dark');
+    } else {
+      htmlEl.setAttribute('data-theme', 'light');
+      setTheme('light');
+    }
   }
 
   return (
@@ -26,7 +29,7 @@ function Sidebar() {
       </div>
       <div className={styles.container}>
         <button className={styles.btn} onClick={handleClick}>
-          {theme ? <Sun /> : <Moon />}
+          {theme === 'light' ? <Sun /> : <Moon />}
         </button>
         <div className={styles.line} />
         <button className={styles.btn}>

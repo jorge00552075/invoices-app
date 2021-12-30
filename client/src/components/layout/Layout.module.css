@@ -1,9 +1,11 @@
 :root {
   --layout-background: hsl(240, 20%, 98%);
+  --Form-background: hsl(0, 0%, 100%);
 }
 
 [data-theme='dark'] {
   --layout-background: hsl(233, 30%, 11%);
+  --Form-background: hsl(233, 30%, 11%);
 }
 
 .layout {
@@ -20,7 +22,13 @@
 
 .main {
   flex: 1;
+
   background: var(--layout-background);
 
   overflow-y: scroll;
+}
+
+/* FORM LAYOUT BACKGROUND */
+.bgColor {
+  background: var(--Form-background);
 }

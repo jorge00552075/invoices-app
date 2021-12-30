@@ -13,7 +13,7 @@ function Backdrop(props) {
 function ModalOverlay(props) {
   return (
     <div className={styles.modal}>
-      <Layout>
+      <Layout form>
         <Form invoice={props.invoice} closeModal={props.closeModal} />
       </Layout>
     </div>

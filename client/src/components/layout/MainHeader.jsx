@@ -24,21 +24,19 @@ function MainHeader({ openModal, getFilterStatus }) {
       border: 'none',
       background: 'none',
     }),
-    dropdownIndicator: (provided) => ({
-      ...provided,
-      color: 'hsl(252, 94%, 67%)',
-    }),
-    menu: (provided) => ({
+    menuList: (provided) => ({
       ...provided,
       fontSize: '12px',
       fontWeight: 'bold',
-      color: 'hsl(0, 0%, 20%)',
+      // background: 'hsl(233, 31%, 17%)',
+      // color: 'hsl(0, 0%, 100%)',
     }),
     placeholder: (provided) => ({
       ...provided,
       fontSize: '12px',
       fontWeight: 'bold',
       color: 'hsl(0, 0%, 20%)',
+      // color: 'hsl(0, 0%, 100%)',
       textAlign: 'center',
     }),
     singleValue: (provided) => ({
@@ -46,6 +44,7 @@ function MainHeader({ openModal, getFilterStatus }) {
       fontSize: '12px',
       fontWeight: 'bold',
       color: 'hsl(233, 31%, 17%)',
+      // color: 'hsl(0, 0%, 100%)',
       textAlign: 'center',
     }),
   };

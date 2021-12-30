@@ -19,15 +19,11 @@ function App() {
 }
 
 export default App;
-// - ITEM PRICE & TOTAL EQUAL WIDTH
-// - BORDER RADIUS FORM
-// - ADD EDIT INVOICE ID TO FORM
 // - BACK LINK
 
+// - CHECK ALL FOCUS
 // - FILTER BACKGROUND COLOR
-// - DRAFT STATUS BACKGROUND DARK MODE
-// - FIX FORM BACKGROUND (WHITE)
-// - 404 PAGE BACKGROUND
+// -ADD NEW ITEM HOVER COLOR
 
 // - BEST REACT CSS ANIMATION LIBRARY
 // View the optimal layout for the app depending on their device's screen size

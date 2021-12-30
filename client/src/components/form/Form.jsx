@@ -63,11 +63,17 @@ function Form({ invoice, closeModal }) {
   const formControl = styles.formControl;
   const formControlInvalid = `${styles.formControl} ${styles.invalid}`;
 
-  // prettier-ignore
   return (
     <div className={styles.formWrapper}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={styles.formHeading}>New Invoice</h2>
+        {invoice ? (
+          <h2 className={styles.formHeading}>
+            Edit <span>#</span>
+            {invoice.uid}
+          </h2>
+        ) : (
+          <h2 className={styles.formHeading}>New Invoice</h2>
+        )}
         <div className={styles.fieldsetWrapper}>
           <fieldset>
             <legend>Bill From</legend>
@@ -77,7 +83,9 @@ function Form({ invoice, closeModal }) {
                 {...register('senderAddress.street', { required: true })}
                 id="senderAddress.street"
                 className={
-                  errors.senderAddress?.street ? formControlInvalid : formControl
+                  errors.senderAddress?.street
+                    ? formControlInvalid
+                    : formControl
                 }
               />
             </div>
@@ -88,7 +96,9 @@ function Form({ invoice, closeModal }) {
                   {...register('senderAddress.city', { required: true })}
                   id="senderAddress.city"
                   className={
-                    errors.senderAddress?.city ? formControlInvalid : formControl
+                    errors.senderAddress?.city
+                      ? formControlInvalid
+                      : formControl
                   }
                 />
               </div>
@@ -98,7 +108,9 @@ function Form({ invoice, closeModal }) {
                   {...register('senderAddress.postCode', { required: true })}
                   id="senderAddress.postCode"
                   className={
-                    errors.senderAddress?.postCode ? formControlInvalid : formControl
+                    errors.senderAddress?.postCode
+                      ? formControlInvalid
+                      : formControl
                   }
                 />
               </div>
@@ -108,7 +120,9 @@ function Form({ invoice, closeModal }) {
                   {...register('senderAddress.country', { required: true })}
                   id="senderAddress.country"
                   className={
-                    errors.senderAddress?.country ? formControlInvalid : formControl
+                    errors.senderAddress?.country
+                      ? formControlInvalid
+                      : formControl
                   }
                 />
               </div>
@@ -121,15 +135,16 @@ function Form({ invoice, closeModal }) {
               <input
                 {...register('clientName', { required: true })}
                 id="clientName"
-                className={
-                  errors.clientName ? formControlInvalid : formControl
-                }
+                className={errors.clientName ? formControlInvalid : formControl}
               />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="clientEmail">Client's Email</label>
               <input
-                {...register('clientEmail', { required: true, pattern: /^\S+@\S+$/i })}
+                {...register('clientEmail', {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
                 id="clientEmail"
                 className={
                   errors.clientEmail ? formControlInvalid : formControl
@@ -142,7 +157,9 @@ function Form({ invoice, closeModal }) {
                 {...register('clientAddress.street', { required: true })}
                 id="clientAddress.street"
                 className={
-                  errors.clientAddress?.street ? formControlInvalid : formControl
+                  errors.clientAddress?.street
+                    ? formControlInvalid
+                    : formControl
                 }
               />
             </div>
@@ -153,7 +170,9 @@ function Form({ invoice, closeModal }) {
                   {...register('clientAddress.city', { required: true })}
                   id="clientAddress.city"
                   className={
-                    errors.clientAddress?.city ? formControlInvalid : formControl
+                    errors.clientAddress?.city
+                      ? formControlInvalid
+                      : formControl
                   }
                 />
               </div>
@@ -163,7 +182,9 @@ function Form({ invoice, closeModal }) {
                   {...register('clientAddress.postCode', { required: true })}
                   id="clientAddress.postCode"
                   className={
-                    errors.clientAddress?.postCode ? formControlInvalid : formControl
+                    errors.clientAddress?.postCode
+                      ? formControlInvalid
+                      : formControl
                   }
                 />
               </div>
@@ -173,7 +194,9 @@ function Form({ invoice, closeModal }) {
                   {...register('clientAddress.country', { required: true })}
                   id="clientAddress.country"
                   className={
-                    errors.clientAddress?.country ? formControlInvalid : formControl
+                    errors.clientAddress?.country
+                      ? formControlInvalid
+                      : formControl
                   }
                 />
               </div>
@@ -233,7 +256,9 @@ function Form({ invoice, closeModal }) {
         </div>
         <div className={styles.messages}>
           {errors.clientEmail && <small>- Please enter a valid email</small>}
-          {isSubmitted && !isValid && (<small>- All fields must be added.</small>)}
+          {isSubmitted && !isValid && (
+            <small>- All fields must be added.</small>
+          )}
         </div>
         <div className={styles.buttons}>
           <button

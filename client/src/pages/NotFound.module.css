@@ -1,3 +1,11 @@
+:root {
+  --notfound-color: hsl(228, 29%, 7%);
+}
+
+[data-theme='dark'] {
+  --notfound-color: hsl(0, 0%, 100%);
+}
+
 .container {
   text-align: center;
 }
@@ -7,7 +15,7 @@
 
   font-size: 3.6rem;
 
-  color: hsl(228, 29%, 7%);
+  color: var(--notfound-color);
 }
 
 .text {
@@ -15,14 +23,14 @@
 
   font-size: 1.6rem;
 
-  color: hsl(228, 29%, 7%);
+  color: var(--notfound-color);
 }
 
 .link:link,
 .link:visited {
   font-size: 1.6rem;
 
-  color: hsl(228, 29%, 7%);
+  color: var(--notfound-color);
   text-decoration: none;
 }
 
