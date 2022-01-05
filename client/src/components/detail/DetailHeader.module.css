@@ -4,6 +4,8 @@
   --detailheader-btn-background: hsl(240, 27%, 98%);
   --detailheader-btn-color: hsl(231, 37%, 63%);
   --detailheader-btn-hover: hsl(231, 73%, 93%);
+  --detailheader-link: hsl(228, 29%, 7%);
+  --detailheader-link-hover: hsl(231, 37%, 63%);
 }
 
 [data-theme='dark'] {
@@ -12,10 +14,44 @@
   --detailheader-btn-background: hsl(233, 30%, 21%);
   --detailheader-btn-color: hsl(231, 73%, 93%);
   --detailheader-btn-hover: hsl(0, 0%, 100%);
+  --detailheader-link: hsl(0, 0%, 100%);
+  --detailheader-link-hover: hsl(231, 20%, 61%);
 }
 
 .container {
+  max-width: 73rem;
   margin: 9.6rem auto 0;
+}
+/* link visited */
+/* hover, active */
+.link:link,
+.link:visited {
+  display: inline-block;
+
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  color: hsl(228, 29%, 7%);
+  color: var(--detailheader-link);
+  letter-spacing: -0.25px;
+  text-decoration: none;
+
+  transform: translateY(-30px);
+}
+
+.link:hover,
+.link:active {
+  color: var(--detailheader-link-hover);
+}
+
+.link:focus-visible {
+  outline: none;
+
+  box-shadow: 0 0 0 8px hsla(252, 94%, 67%, 0.5);
+}
+
+.link span {
+  margin-left: 16px;
 }
 
 .header {
@@ -68,6 +104,17 @@
   letter-spacing: -0.25px;
 
   cursor: pointer;
+}
+
+/* btn:focus {
+  outline: none;
+
+  box-shadow: 0 0 0 4px hsla(252, 94%, 67%, 0.5);
+} */
+.btn:focus-visible {
+  outline: none;
+
+  box-shadow: 0 0 0 8px hsla(252, 94%, 67%, 0.5);
 }
 
 .btnEdit {

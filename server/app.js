@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 
+const AppError = require('./util/appError');
 const invoiceRouter = require('./routes/invoiceRoutes');
 
 const app = express();
@@ -28,8 +29,22 @@ app.use(express.json());
 // ROUTES
 app.use('/api/v1/invoices', invoiceRouter);
 
-app.use('*', (req, res, next) => {
-  throw Error(`Sorry, the page ${req.originalUrl} could not be found.`);
+// 404 PAGE NOT FOUND
+app.all('*', (req, res, next) => {
+  next(new AppError('Sorry, the page could not be found.', 404));
+});
+
+// ERROR HANDLING MIDDLEWARE
+app.use((err, req, res, next) => {
+  err.statusCode = err.statusCode || 500;
+  err.status = err.status || 'error';
+
+  res.status(err.statusCode).json({
+    status: err.status,
+    error: err,
+    message: err.message,
+    stack: err.stack,
+  });
 });
 
 module.exports = app;

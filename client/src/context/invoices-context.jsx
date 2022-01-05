@@ -18,7 +18,6 @@ export function InvoiceContextProvider(props) {
   const getAllInvoices = async () => {
     try {
       const res = await fetch('http://localhost:3000/api/v1/invoices');
-      // if (response.ok !== true) throw Error('Oops something went wrong!');
 
       const { invoices } = await res.json();
       setInvoices(invoices);
@@ -37,8 +36,7 @@ export function InvoiceContextProvider(props) {
         body: JSON.stringify(data),
       });
 
-      const status = await res.json();
-      console.log(status);
+      await res.json();
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +48,6 @@ export function InvoiceContextProvider(props) {
       const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`);
 
       const invoice = await res.json();
-      console.log('CONTEXT', invoice);
       return invoice;
     } catch (err) {
       console.log(err);
@@ -67,8 +64,7 @@ export function InvoiceContextProvider(props) {
         body: JSON.stringify(data),
       });
 
-      const status = await res.json();
-      console.log(status);
+      await res.json();
     } catch (err) {
       console.log(err);
     }
@@ -81,8 +77,7 @@ export function InvoiceContextProvider(props) {
         method: 'DELETE',
       });
 
-      const status = await res.json();
-      console.log(status);
+      await res.json();
     } catch (err) {
       console.log(err);
     }

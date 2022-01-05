@@ -19,11 +19,5 @@ function App() {
 }
 
 export default App;
-// - BACK LINK
-
-// - CHECK ALL FOCUS
-// - FILTER BACKGROUND COLOR
-// -ADD NEW ITEM HOVER COLOR
-
 // - BEST REACT CSS ANIMATION LIBRARY
 // View the optimal layout for the app depending on their device's screen size

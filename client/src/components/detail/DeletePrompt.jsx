@@ -14,7 +14,6 @@ function Backdrop({ cancelConfirm }) {
 }
 
 function ModalOverlay({ invoice, cancelConfirm }) {
-  console.log(invoice);
   const context = useContext(InvoiceContext);
   const navigate = useNavigate();
 
