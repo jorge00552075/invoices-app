@@ -87,3 +87,34 @@
   height: 4rem;
   border-radius: 50%;
 }
+/* ****************************** */
+@media (max-width: 800px) {
+  .sidebar {
+    /*
+    justify-content: space-between;
+  
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 2.4rem;
+    border-bottom-right-radius: 2.4rem;
+  
+    background: var(--sidebar-background);
+  
+    overflow: hidden;
+    */
+    height: 8rem;
+    flex-direction: row;
+  }
+
+  .container {
+    flex-direction: row;
+    /* justify-content: space-between;
+    align-items: center;
+
+    height: 11.7rem;
+    margin-bottom: 2.4rem; */
+    background: red;
+    height: 100%;
+    margin-bottom: 0;
+  }
+}

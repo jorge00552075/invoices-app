@@ -32,3 +32,14 @@
 .bgColor {
   background: var(--Form-background);
 }
+
+/* MOBILE STYLES */
+@media (max-width: 800px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .aside {
+    flex: 0 0 8rem;
+  }
+}

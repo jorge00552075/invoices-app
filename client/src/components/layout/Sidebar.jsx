@@ -29,7 +29,7 @@ function Sidebar() {
       </div>
       <div className={styles.container}>
         <button className={styles.btn} onClick={handleClick}>
-          {theme === 'light' ? <Sun /> : <Moon />}
+          {theme === 'light' ? <Moon /> : <Sun />}
         </button>
         <div className={styles.line} />
         <button className={styles.btn}>

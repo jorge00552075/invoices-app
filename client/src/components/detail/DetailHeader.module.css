@@ -106,11 +106,6 @@
   cursor: pointer;
 }
 
-/* btn:focus {
-  outline: none;
-
-  box-shadow: 0 0 0 4px hsla(252, 94%, 67%, 0.5);
-} */
 .btn:focus-visible {
   outline: none;
 
