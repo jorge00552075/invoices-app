@@ -21,3 +21,6 @@ function App() {
 export default App;
 // - BEST REACT CSS ANIMATION LIBRARY
 // View the optimal layout for the app depending on their device's screen size
+// SAVE THEME IN LOCAL STORAGE
+
+// LAYOUT, SIDEBAR, INVOICESLIST, MAINHEADER, INVOICEITEM

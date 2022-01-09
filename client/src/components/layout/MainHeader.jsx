@@ -54,7 +54,8 @@ function MainHeader({ openModal, getFilterStatus }) {
       <div>
         <h1 className={styles.title}>Invoices</h1>
         <p className={styles.text}>
-          There are {invoices.length} total invoices
+          {/* There are {invoices.length} total invoices */}
+          {invoices.length} invoices
         </p>
       </div>
       <div className={styles.wrapper}>
