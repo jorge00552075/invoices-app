@@ -25,7 +25,7 @@
 
   background: var(--layout-background);
 
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 
 /* FORM LAYOUT BACKGROUND */

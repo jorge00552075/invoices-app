@@ -22,8 +22,7 @@
   max-width: 73rem;
   margin: 9.6rem auto 0;
 }
-/* link visited */
-/* hover, active */
+
 .link:link,
 .link:visited {
   display: inline-block;
@@ -60,7 +59,6 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 73rem;
   height: 8.8rem;
   margin: 0 auto;
   padding: 3.2rem;
@@ -144,4 +142,11 @@
 
 .btnPaid:hover {
   background: hsl(252, 100%, 73%);
+}
+
+/* ****************************** */
+@media (max-width: 850px) {
+  .container {
+    max-width: 68.8rem;
+  }
 }

@@ -98,7 +98,18 @@
 
 @media (max-width: 640px) {
   .header {
-    max-width: 32.7rem;
-    background-color: teal;
+    width: 32.7rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .wrapper {
+    gap: 0;
+  }
+
+  .newInvoice {
+    padding: 0.8rem 1.2rem 0.8rem 0.8rem;
   }
 }

@@ -18,7 +18,7 @@ function MainHeader({ openModal, getFilterStatus }) {
   ];
 
   const customStyles = {
-    container: (provided) => ({ ...provided, width: '180px' }),
+    container: (provided) => ({ ...provided, width: '90px' }),
     control: (provided) => ({
       ...provided,
       border: 'none',
@@ -61,13 +61,13 @@ function MainHeader({ openModal, getFilterStatus }) {
       <div className={styles.wrapper}>
         <Select
           options={options}
-          placeholder="Filter by status"
+          placeholder="Filter"
           styles={customStyles}
           onChange={({ value }) => getFilterStatus(value)}
         />
         <button className={styles.newInvoice} onClick={() => openModal()}>
           <Plus />
-          New Invoice
+          New
         </button>
       </div>
     </header>
