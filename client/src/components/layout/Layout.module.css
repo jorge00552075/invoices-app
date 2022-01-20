@@ -17,6 +17,8 @@
 }
 
 .aside {
+  z-index: 50;
+
   flex: 0 0 10.3rem;
 }
 

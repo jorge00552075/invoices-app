@@ -24,3 +24,10 @@
 
   overflow: hidden;
 }
+
+/* ****************************** */
+@media (max-width: 850px) {
+  .modal {
+    width: 62rem;
+  }
+}

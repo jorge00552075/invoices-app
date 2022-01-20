@@ -1,20 +1,24 @@
 /*
---- 01 TYPOGRAPHY SYSTEM
-- Font sizes (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+--- Typegraphy
+
+-- Font sizes
+12px, 14px, 16px, 18px, 20px, 24px, 30px, 36px, 48px, 60px, 72px, 96px, 128px
+
 - Font weights
 Default: 400
 Medium: 500
 Semi-bold: 600
 bold: 700
 
-- Line heights
-- Letter spacing
+-- Line heights
+1.5px
+
+-- Letter spacing
 -0.25px
 -0.50px
 -1px
 
---- 02 COLORS
+--- Colors
 hsl(252, 94%, 67%)
 hsl(252, 100%, 73%)
 
@@ -36,20 +40,22 @@ hsl(231, 37%, 63%)
 hsl(0, 100%, 80%)
 hsl(0, 80%, 63%)
 
---- 05 SHADOWS
+--- Shadows
 rg: box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 md: box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 lg: box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
---- 06 BORDER-RADIUS
+--- Border-radius
 sm: border-radius: 6px;
 md: border-radius: 9px;
 2xl: border-radius: 24px;
 full: border-radius: 50% / border-radius: 9999px;
 
---- 07 WHITESPACE
-- Spacing system (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+--- Whitespace
+- Spacing system
+
+2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 20px, 24px, 28px, 32px, 36px, 40px, 44px, 48px, 56px, 64px, 80px, 96px, 112px, 128px, 144px, 160px, 176px, 192px, 208px, 224px, 240px, 256px, 288px, 320px, 384px
+
 */
 :root {
   --scrollbar-background: hsl(231, 73%, 93%);

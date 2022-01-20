@@ -20,9 +20,7 @@ app.options('*', cors()); // Enable CORS Pre-Flight
 
 app.use(helmet());
 
-if (process.env.NODE_ENV === 'DEVELOPMENT') {
-  app.use(morgan('dev'));
-}
+if (process.env.NODE_ENV === 'DEVELOPMENT') app.use(morgan('dev'));
 
 app.use(express.json());
 

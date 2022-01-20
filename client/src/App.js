@@ -19,8 +19,7 @@ function App() {
 }
 
 export default App;
-// View the optimal layout for the app depending on their device's screen size
+// fix detail page table & buttons
 
-// Set MainHeader JSX based on screen width
 // Save theme in local storage
 // Which css animation library to use ?

@@ -6,9 +6,11 @@ import styles from './Layout.module.css';
 const Layout = ({ form, children }) => {
   return (
     <div className={styles.layout}>
-      <aside className={styles.aside}>
-        <Sidebar />
-      </aside>
+      {!form && (
+        <aside className={styles.aside}>
+          <Sidebar />
+        </aside>
+      )}
       <main className={`${styles.main} ${form ? styles.bgColor : ''}`}>
         {children}
       </main>
