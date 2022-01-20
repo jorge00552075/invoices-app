@@ -17,10 +17,10 @@
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  row-gap: 3.6rem;
 
-  width: 73rem;
-  min-height: 63rem;
-  margin: 1.6rem auto 0;
+  max-width: 73rem;
+  margin: 2rem auto;
   padding: 4.8rem;
   border-radius: 9px;
 
@@ -130,6 +130,7 @@
   line-height: 2rem;
   text-decoration: none;
 }
+
 /* ITEMS TABLE */
 .wrapper {
   border-radius: 9px;
@@ -137,7 +138,7 @@
   grid-column: 1 / -1;
   margin: auto 0;
 }
-/* TABLE */
+
 table {
   width: 100%;
 
@@ -164,20 +165,13 @@ td {
   color: var(--detailbody-color-secondary);
 }
 
-tfoot {
-  height: 8rem;
-
-  background: var(--detailbody-tfoot-background);
-
-  color: hsl(0, 0%, 100%);
-}
-
 .qty,
 .price {
   color: var(--detailbody-color);
 }
 
-.itemsTotal {
+/* invoice total */
+.total {
   font-weight: 700;
   font-size: 2.4rem;
   letter-spacing: -0.5px;
@@ -187,18 +181,29 @@ tfoot {
   padding-right: 3.2rem;
 }
 
-.firstCol {
+.footer {
+  height: 8rem;
+  background: var(--detailbody-tfoot-background);
+  color: hsl(0, 0%, 100%);
+}
+
+.footer td:first-of-type {
+  color: white;
+}
+
+.col-1 {
   padding-left: 3.2rem;
 
+  font-weight: 500;
   text-align: left;
 }
 
-.secondCol,
-.thirdCol {
+.col-2,
+.col-3 {
   text-align: center;
 }
 
-.fourthCol {
+.col-4 {
   padding-right: 3.2rem;
 
   text-align: right;
@@ -208,5 +213,44 @@ tfoot {
 @media (max-width: 850px) {
   .gridContainer {
     width: 68.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    width: 32.7rem;
+    margin: 1.6rem auto;
+    padding: 2.4rem;
+  }
+
+  .senderAddress,
+  .dates {
+    grid-column: 1 / span 1;
+
+    align-items: flex-start;
+  }
+
+  .id {
+    font-size: 1.2rem;
+    letter-spacing: -0.25px;
+  }
+
+  .total {
+    font-size: 2rem;
+  }
+
+  /* Table */
+  .col-1 {
+    width: 50%;
+    padding-left: 2rem;
+  }
+  .col-2,
+  .col-3 {
+    display: none;
+  }
+  .col-4 {
+    padding-right: 2rem;
+    text-align: right;
   }
 }

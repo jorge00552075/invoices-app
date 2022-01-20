@@ -53,40 +53,40 @@ function DetailBody({ invoice }) {
         <table>
           <thead>
             <tr>
-              <th className={styles.firstCol}>Item Name</th>
-              <th className={styles.secondCol}>QTY</th>
-              <th className={styles.thirdCol}>Price</th>
-              <th className={styles.fourthCol}>Total</th>
+              <th className={styles['col-1']}>Item Name</th>
+              <th className={styles['col-2']}>QTY</th>
+              <th className={styles['col-3']}>Price</th>
+              <th className={styles['col-4']}>Total</th>
             </tr>
           </thead>
           <tbody>
             {invoice.items.map((item, i) => {
               return (
                 <tr key={i}>
-                  <td className={styles.firstCol}>{item.name}</td>
-                  <td className={`${styles.secondCol} ${styles.qty}`}>
+                  <td className={styles['col-1']}>{item.name}</td>
+                  <td className={`${styles['col-2']} ${styles.qty}`}>
                     {item.quantity}
                   </td>
-                  <td className={`${styles.thirdCol} ${styles.price}`}>
+                  <td className={`${styles['col-3']} ${styles.price}`}>
                     $ {separator(item.price || 0)}
                   </td>
-                  <td className={styles.fourthCol}>
+                  <td className={styles['col-4']}>
                     $ {separator(item.total || 0)}
                   </td>
                 </tr>
               );
             })}
+            {
+              <tr className={styles.footer}>
+                <td className={styles['col-1']}>Amount Due</td>
+                <td className={styles['col-2']}></td>
+                <td className={styles['col-3']}></td>
+                <td className={`${styles['col-4']} ${styles.total}`}>
+                  $ {separator(invoice.total || 0)}
+                </td>
+              </tr>
+            }
           </tbody>
-          <tfoot>
-            <tr>
-              <th className={styles.firstCol}>Amount Due</th>
-              <td></td>
-              <td></td>
-              <td className={styles.itemsTotal}>
-                $ {separator(invoice.total || 0)}
-              </td>
-            </tr>
-          </tfoot>
         </table>
       </div>
     </div>

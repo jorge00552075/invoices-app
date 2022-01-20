@@ -19,7 +19,7 @@ function App() {
 }
 
 export default App;
-// fix detail page table & buttons
-
+// fix detail page buttons
+// fix form on mobile
 // Save theme in local storage
 // Which css animation library to use ?
