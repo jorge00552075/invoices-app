@@ -31,3 +31,11 @@
     width: 62rem;
   }
 }
+
+@media (max-width: 640px) {
+  .modal {
+    border: 3px solid red;
+    /* +10px for scrollbar */
+    width: 385px;
+  }
+}

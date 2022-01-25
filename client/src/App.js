@@ -1,10 +1,10 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-import InvoicesHome from './pages/InvoicesHome.jsx';
-import InvoicesDetail from './pages/InvoicesDetail.jsx';
-import NotFound from './pages/NotFound.jsx';
-import { InvoiceContextProvider } from './context/invoices-context.jsx';
+import InvoicesHome from "./pages/InvoicesHome.jsx";
+import InvoicesDetail from "./pages/InvoicesDetail.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import { InvoiceContextProvider } from "./context/invoices-context.jsx";
 
 function App() {
   return (
@@ -23,3 +23,4 @@ export default App;
 // fix form on mobile
 // Save theme in local storage
 // Which css animation library to use ?
+// meta tags

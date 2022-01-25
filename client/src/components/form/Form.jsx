@@ -1,15 +1,15 @@
-import { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import dayjs from 'dayjs';
-import InvoiceContext from '../../context/invoices-context.jsx';
-import createUID from '../../utils/createUID';
-import ItemsList from './ItemsList';
-import styles from './Form.module.css';
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import dayjs from "dayjs";
+import InvoiceContext from "../../context/invoices-context.jsx";
+import createUID from "../../utils/createUID";
+import ItemsList from "./ItemsList";
+import styles from "./Form.module.css";
 
-const TODAYSDATE = dayjs(new Date()).format('YYYY-MM-DD');
+const TODAYSDATE = dayjs(new Date()).format("YYYY-MM-DD");
 
 // FUNCTIONS
-const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, 'day').$d;
+const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, "day").$d;
 const calculateTotal = (items) =>
   items.reduce((total, item) => total + item.total, 0);
 
@@ -53,7 +53,7 @@ function Form({ invoice, closeModal }) {
       ...data,
       uid: createUID(),
       paymentDue: calculatePaymentDue(data.createdAt, data.paymentTerms),
-      status: 'Draft',
+      status: "Draft",
     };
     context.createInvoice(invoiceDraft);
     closeModal();
@@ -80,7 +80,7 @@ function Form({ invoice, closeModal }) {
             <div className={styles.formGroup}>
               <label htmlFor="senderAddress.street">Street Address</label>
               <input
-                {...register('senderAddress.street', { required: true })}
+                {...register("senderAddress.street", { required: true })}
                 id="senderAddress.street"
                 className={
                   errors.senderAddress?.street
@@ -93,7 +93,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="senderAddress.city">City</label>
                 <input
-                  {...register('senderAddress.city', { required: true })}
+                  {...register("senderAddress.city", { required: true })}
                   id="senderAddress.city"
                   className={
                     errors.senderAddress?.city
@@ -105,7 +105,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="senderAddress.postCode">Post Code</label>
                 <input
-                  {...register('senderAddress.postCode', { required: true })}
+                  {...register("senderAddress.postCode", { required: true })}
                   id="senderAddress.postCode"
                   className={
                     errors.senderAddress?.postCode
@@ -117,7 +117,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="senderAddress.country">Country</label>
                 <input
-                  {...register('senderAddress.country', { required: true })}
+                  {...register("senderAddress.country", { required: true })}
                   id="senderAddress.country"
                   className={
                     errors.senderAddress?.country
@@ -133,7 +133,7 @@ function Form({ invoice, closeModal }) {
             <div className={styles.formGroup}>
               <label htmlFor="clientName">Client's Name</label>
               <input
-                {...register('clientName', { required: true })}
+                {...register("clientName", { required: true })}
                 id="clientName"
                 className={errors.clientName ? formControlInvalid : formControl}
               />
@@ -141,7 +141,7 @@ function Form({ invoice, closeModal }) {
             <div className={styles.formGroup}>
               <label htmlFor="clientEmail">Client's Email</label>
               <input
-                {...register('clientEmail', {
+                {...register("clientEmail", {
                   required: true,
                   pattern: /^\S+@\S+$/i,
                 })}
@@ -154,7 +154,7 @@ function Form({ invoice, closeModal }) {
             <div className={styles.formGroup}>
               <label htmlFor="clientAddress.street">Street Address</label>
               <input
-                {...register('clientAddress.street', { required: true })}
+                {...register("clientAddress.street", { required: true })}
                 id="clientAddress.street"
                 className={
                   errors.clientAddress?.street
@@ -167,7 +167,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="clientAddress.city">City</label>
                 <input
-                  {...register('clientAddress.city', { required: true })}
+                  {...register("clientAddress.city", { required: true })}
                   id="clientAddress.city"
                   className={
                     errors.clientAddress?.city
@@ -179,7 +179,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="clientAddress.postCode">Post Code</label>
                 <input
-                  {...register('clientAddress.postCode', { required: true })}
+                  {...register("clientAddress.postCode", { required: true })}
                   id="clientAddress.postCode"
                   className={
                     errors.clientAddress?.postCode
@@ -191,7 +191,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="clientAddress.country">Country</label>
                 <input
-                  {...register('clientAddress.country', { required: true })}
+                  {...register("clientAddress.country", { required: true })}
                   id="clientAddress.country"
                   className={
                     errors.clientAddress?.country
@@ -203,12 +203,12 @@ function Form({ invoice, closeModal }) {
             </div>
           </fieldset>
           <fieldset>
-            <div className={`${styles.formRow} ${styles['col-2']}`}>
+            <div className={`${styles.formRow} ${styles["col-2"]}`}>
               <div className={styles.formGroup}>
                 <label htmlFor="createdAt">Invoice Date</label>
                 <input
                   type="date"
-                  {...register('createdAt', { required: true })}
+                  {...register("createdAt", { required: true })}
                   defaultValue={TODAYSDATE}
                   id="createdAt"
                   className={
@@ -219,7 +219,7 @@ function Form({ invoice, closeModal }) {
               <div className={styles.formGroup}>
                 <label htmlFor="paymentTerms">Payment Terms</label>
                 <select
-                  {...register('paymentTerms', { required: true })}
+                  {...register("paymentTerms", { required: true })}
                   defaultValue={30}
                   id="paymentTerms"
                   className={
@@ -236,7 +236,7 @@ function Form({ invoice, closeModal }) {
             <div className={styles.formGroup}>
               <label htmlFor="description">Description</label>
               <input
-                {...register('description', { required: true })}
+                {...register("description", { required: true })}
                 id="description"
                 className={
                   errors.description ? formControlInvalid : formControl
@@ -266,7 +266,7 @@ function Form({ invoice, closeModal }) {
             className={`${styles.btn} ${styles.discard}`}
             onClick={() => closeModal()}
           >
-            {invoice ? 'Cancel' : 'Discard'}
+            {invoice ? "Cancel" : "Discard"}
           </button>
           {!invoice && (
             <button
@@ -278,7 +278,7 @@ function Form({ invoice, closeModal }) {
             </button>
           )}
           <button type="submit" className={`${styles.btn} ${styles.send}`}>
-            {invoice ? 'Save Changes' : 'Save & Send'}
+            {invoice ? "Save Changes" : "Save & Send"}
           </button>
         </div>
       </form>

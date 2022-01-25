@@ -3,7 +3,7 @@
   --invoicelist-color-secondary: hsl(231, 20%, 61%);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --invoicelist-color: hsl(0, 0%, 100%);
   --invoicelist-color-secondary: hsl(231, 73%, 93%);
 }
@@ -14,7 +14,7 @@
   gap: 1.6rem;
 
   max-width: 73rem;
-  margin: 6.4rem auto 0 auto;
+  margin: 6.4rem auto;
 }
 
 /* IF NO INVOICES */
