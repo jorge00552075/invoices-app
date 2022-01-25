@@ -7,7 +7,7 @@
   --modal-btn-hover: hsl(231, 73%, 93%);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --modal-background: hsl(233, 31%, 17%);
   --modal-color: hsl(0, 0%, 100%);
   --modal-color-secondary: hsl(231, 73%, 93%);
@@ -34,8 +34,8 @@
   left: 50%;
   z-index: 30;
 
-  width: 48rem;
-  height: 25rem;
+  max-width: 48rem;
+  min-width: 327px;
   padding: 4.8rem;
   border-radius: 9px;
 
@@ -113,4 +113,11 @@
   background: var(--modal-btn-hover);
 
   color: hsl(231, 37%, 63%);
+}
+
+/* ****************************** */
+@media (max-width: 640px) {
+  .modal {
+    padding: 3.6rem;
+  }
 }
