@@ -19,8 +19,15 @@ function App() {
 }
 
 export default App;
-// fix detail page buttons
-// fix form on mobile
-// Save theme in local storage
-// Which css animation library to use ?
-// meta tags
+// create a filtering component !
+// fix buttons to bottom of form on scroll
+
+// fix buttons to bottom of invoice detail on mobile !
+// re-size confirm deletion modal on mobile
+
+// save theme to local storage
+// add meta tags
+// which css animation library to use?
+
+// fixed numer
+// fixed title

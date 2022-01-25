@@ -233,15 +233,15 @@ small {
 @media (max-width: 850px) {
   .formWrapper {
     width: 50.4rem;
-    margin: 12.8rem auto 4.8rem;
+    margin: 12.8rem auto 2.4rem;
     padding-left: 0;
   }
 }
 
 @media (max-width: 640px) {
   .formWrapper {
-    width: 385px;
-    padding: 0 20px;
+    width: 375px;
+    padding: 2rem;
   }
 
   .formRow {
@@ -251,34 +251,42 @@ small {
   }
 
   .col-5 {
-    /* grid-template-columns: 1fr 50px 100px 100px 15px; */
-    /* grid-template-columns: 327px 50px 100px 100px 15px; */
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col-5 .formGroup:nth-child(1) {
+    /* item name */
+    width: 327px;
+  }
+  .col-5 .formGroup:nth-child(2) {
+    /* item quantity */
+    width: 65px;
+  }
+  .col-5 .formGroup:nth-child(3) {
+    /* item price */
+    width: 100px;
+  }
+  .col-5 .formGroup:nth-child(4) {
+    /* item total */
+    width: 100px;
+  }
+  .col-5 .formGroup:nth-child(5) {
+    /* item delete */
+    width: 15px;
   }
 
   .buttons {
-    display: flex;
-    gap: 1.2rem;
+    gap: 0px;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
   }
 
-  .discard {
-    /* w-84, h-48 */
-    background-color: blue;
-    padding: 1.8rem;
-    width: auto;
-    margin-right: 0px;
-  }
-
-  .draft {
-    /* w-117, h-48 */
-    padding: 1.8rem;
-    width: auto;
-  }
-
+  .discard,
+  .draft,
   .send {
-    /* w-112, h-48 */
+    margin-right: 0px;
     padding: 1.8rem;
-    width: auto;
   }
 }

@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import InvoiceStatus from '../invoice/InvoiceStatus.jsx';
-import InvoiceContext from '../../context/invoices-context.jsx';
+import InvoiceStatus from "../invoice/InvoiceStatus.jsx";
+import InvoiceContext from "../../context/invoices-context.jsx";
 
-import styles from './DetailHeader.module.css';
+import styles from "./DetailHeader.module.css";
 
 function DetailHeader({ invoice, showForm, confirmDeletion }) {
   const context = useContext(InvoiceContext);
@@ -28,6 +28,48 @@ function DetailHeader({ invoice, showForm, confirmDeletion }) {
           <span className={styles.statusText}>Status</span>
           <InvoiceStatus status={invoice.status} />
         </div>
+        <div className={`${styles.buttons} ${styles.hidden}`}>
+          <button
+            className={`${styles.btn} ${styles.btnEdit}`}
+            onClick={() => showForm()}
+          >
+            Edit
+          </button>
+          <button
+            className={`${styles.btn} ${styles.btnDelete}`}
+            onClick={() => confirmDeletion()}
+          >
+            Delete
+          </button>
+          {invoice.status !== "Paid" && (
+            <button
+              className={`${styles.btn} ${styles.btnPaid}`}
+              onClick={() =>
+                context.updateInvoice(invoice._id, { status: "Paid" })
+              }
+            >
+              Mark as Paid
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default DetailHeader;
+
+// //////////////////////////////////////
+
+export function DetailHeader2({ invoice, showForm, confirmDeletion }) {
+  const context = useContext(InvoiceContext);
+
+  return (
+    <div
+      className={`${styles.container} ${styles.hidden2}`}
+      style={{ margin: "48px auto" }}
+    >
+      <div className={styles.header}>
         <div className={styles.buttons}>
           <button
             className={`${styles.btn} ${styles.btnEdit}`}
@@ -41,11 +83,11 @@ function DetailHeader({ invoice, showForm, confirmDeletion }) {
           >
             Delete
           </button>
-          {invoice.status !== 'Paid' && (
+          {invoice.status !== "Paid" && (
             <button
               className={`${styles.btn} ${styles.btnPaid}`}
               onClick={() =>
-                context.updateInvoice(invoice._id, { status: 'Paid' })
+                context.updateInvoice(invoice._id, { status: "Paid" })
               }
             >
               Mark as Paid
@@ -56,5 +98,3 @@ function DetailHeader({ invoice, showForm, confirmDeletion }) {
     </div>
   );
 }
-
-export default DetailHeader;

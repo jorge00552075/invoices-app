@@ -1,51 +1,51 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import Select from 'react-select';
+import Select from "react-select";
 
-import InvoiceContext from '../../context/invoices-context.jsx';
-import { ReactComponent as Plus } from '../../assets/icon-plus.svg';
+import InvoiceContext from "../../context/invoices-context.jsx";
+import { ReactComponent as Plus } from "../../assets/icon-plus.svg";
 
-import styles from './MainHeader.module.css';
+import styles from "./MainHeader.module.css";
 
 function MainHeader({ openModal, getFilterStatus }) {
   const { invoices } = useContext(InvoiceContext);
 
   const options = [
-    { value: null, label: 'Show All Invoices' },
-    { value: 'Draft', label: 'Draft' },
-    { value: 'Pending', label: 'Pending' },
-    { value: 'Paid', label: 'Paid' },
+    { value: null, label: "Show All Invoices" },
+    { value: "Draft", label: "Draft" },
+    { value: "Pending", label: "Pending" },
+    { value: "Paid", label: "Paid" },
   ];
 
   const customStyles = {
-    container: (provided) => ({ ...provided, width: '90px' }),
+    container: (provided) => ({ ...provided, width: "90px" }),
     control: (provided) => ({
       ...provided,
-      border: 'none',
-      background: 'none',
+      border: "none",
+      background: "none",
     }),
     menuList: (provided) => ({
       ...provided,
-      fontSize: '12px',
-      fontWeight: 'bold',
+      fontSize: "12px",
+      fontWeight: "bold",
       // background: 'hsl(233, 31%, 17%)',
       // color: 'hsl(0, 0%, 100%)',
     }),
     placeholder: (provided) => ({
       ...provided,
-      fontSize: '12px',
-      fontWeight: 'bold',
-      color: 'hsl(0, 0%, 20%)',
+      fontSize: "12px",
+      fontWeight: "bold",
+      color: "hsl(0, 0%, 20%)",
       // color: 'hsl(0, 0%, 100%)',
-      textAlign: 'center',
+      textAlign: "center",
     }),
     singleValue: (provided) => ({
       ...provided,
-      fontSize: '12px',
-      fontWeight: 'bold',
-      color: 'hsl(233, 31%, 17%)',
+      fontSize: "12px",
+      fontWeight: "bold",
+      color: "hsl(233, 31%, 17%)",
       // color: 'hsl(0, 0%, 100%)',
-      textAlign: 'center',
+      textAlign: "center",
     }),
   };
 
@@ -55,19 +55,21 @@ function MainHeader({ openModal, getFilterStatus }) {
         <h1 className={styles.title}>Invoices</h1>
         <p className={styles.text}>
           {/* There are {invoices.length} total invoices */}
-          {invoices.length} invoices
+          <span>There are </span>
+          {invoices.length}
+          <span> total</span> invoices
         </p>
       </div>
       <div className={styles.wrapper}>
         <Select
           options={options}
-          placeholder="Filter"
+          placeholder="Filter by status"
           styles={customStyles}
           onChange={({ value }) => getFilterStatus(value)}
         />
         <button className={styles.newInvoice} onClick={() => openModal()}>
           <Plus />
-          New
+          New<span> Invoice</span>
         </button>
       </div>
     </header>

@@ -1,14 +1,15 @@
-import { useState, useContext } from 'react';
-import { useParams } from 'react-router';
+import { useState, useContext } from "react";
+import { useParams } from "react-router";
 
-import InvoiceContext from '../context/invoices-context.jsx';
-import Layout from '../components/layout/Layout.jsx';
-import DetailHeader from '../components/detail/DetailHeader.jsx';
-import DetailBody from '../components/detail/DetailBody.jsx';
-import Modal from '../components/form/Modal.jsx';
-import DeletePrompt from '../components/detail/DeletePrompt.jsx';
-import { useEffect } from 'react';
-import Loader from '../components/layout/Loader.jsx';
+import InvoiceContext from "../context/invoices-context.jsx";
+import Layout from "../components/layout/Layout.jsx";
+import DetailHeader from "../components/detail/DetailHeader.jsx";
+import { DetailHeader2 } from "../components/detail/DetailHeader.jsx";
+import DetailBody from "../components/detail/DetailBody.jsx";
+import Modal from "../components/form/Modal.jsx";
+import DeletePrompt from "../components/detail/DeletePrompt.jsx";
+import { useEffect } from "react";
+import Loader from "../components/layout/Loader.jsx";
 
 function InvoicesDetail() {
   const [showInvoiceForm, setShowInvoiceForm] = useState(false);
@@ -46,6 +47,11 @@ function InvoicesDetail() {
         confirmDeletion={confirmDeletion}
       />
       <DetailBody invoice={invoice} />
+      <DetailHeader2
+        invoice={invoice}
+        showForm={toggleModal}
+        confirmDeletion={confirmDeletion}
+      />
     </Layout>
   );
 }

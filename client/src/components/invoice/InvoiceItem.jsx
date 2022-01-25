@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import dayjs from 'dayjs';
-import separator from '../../utils/numberFormat';
-import InvoiceStatus from './InvoiceStatus.jsx';
-import { ReactComponent as RightArrow } from '../../assets/icon-arrow-right.svg';
+import { Link } from "react-router-dom";
+import dayjs from "dayjs";
+import separator from "../../utils/numberFormat";
+import InvoiceStatus from "./InvoiceStatus.jsx";
+import { ReactComponent as RightArrow } from "../../assets/icon-arrow-right.svg";
 
-import styles from './InvoiceItem.module.css';
+import styles from "./InvoiceItem.module.css";
 
-const formatDate = (date) => dayjs(date).format('DD MMM YYYY');
+const formatDate = (date) => dayjs(date).format("DD MMM YYYY");
 
 function InvoiceItem({ invoice }) {
   return (
@@ -19,11 +19,13 @@ function InvoiceItem({ invoice }) {
         Due {formatDate(invoice.paymentDue)}
       </span>
       <span className={styles.clientName}>{invoice.clientName}</span>
-      <span className={styles.total}>$ {separator(invoice.total || 0)}</span>
+      <span className={styles.total}>
+        $ {separator(Number(invoice.total).toFixed(2))}
+      </span>
 
       <div className={styles.container}>
         <InvoiceStatus status={invoice.status} />
-        <RightArrow />
+        <RightArrow className={styles.rarr} />
       </div>
     </Link>
   );

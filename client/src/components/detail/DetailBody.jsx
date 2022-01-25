@@ -1,10 +1,10 @@
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
-import separator from '../../utils/numberFormat';
+import separator from "../../utils/numberFormat";
 
-import styles from './DetailBody.module.css';
+import styles from "./DetailBody.module.css";
 
-const formatDate = (date) => dayjs(date).format('DD MMM YYYY');
+const formatDate = (date) => dayjs(date).format("DD MMM YYYY");
 
 function DetailBody({ invoice }) {
   return (
@@ -53,36 +53,36 @@ function DetailBody({ invoice }) {
         <table>
           <thead>
             <tr>
-              <th className={styles['col-1']}>Item Name</th>
-              <th className={styles['col-2']}>QTY</th>
-              <th className={styles['col-3']}>Price</th>
-              <th className={styles['col-4']}>Total</th>
+              <th className={styles["col-1"]}>Item Name</th>
+              <th className={styles["col-2"]}>QTY</th>
+              <th className={styles["col-3"]}>Price</th>
+              <th className={styles["col-4"]}>Total</th>
             </tr>
           </thead>
           <tbody>
             {invoice.items.map((item, i) => {
               return (
                 <tr key={i}>
-                  <td className={styles['col-1']}>{item.name}</td>
-                  <td className={`${styles['col-2']} ${styles.qty}`}>
+                  <td className={styles["col-1"]}>{item.name}</td>
+                  <td className={`${styles["col-2"]} ${styles.qty}`}>
                     {item.quantity}
                   </td>
-                  <td className={`${styles['col-3']} ${styles.price}`}>
-                    $ {separator(item.price || 0)}
+                  <td className={`${styles["col-3"]} ${styles.price}`}>
+                    $ {separator(Number(item.price).toFixed(2))}
                   </td>
-                  <td className={styles['col-4']}>
-                    $ {separator(item.total || 0)}
+                  <td className={styles["col-4"]}>
+                    $ {separator(Number(item.total).toFixed(2))}
                   </td>
                 </tr>
               );
             })}
             {
               <tr className={styles.footer}>
-                <td className={styles['col-1']}>Amount Due</td>
-                <td className={styles['col-2']}></td>
-                <td className={styles['col-3']}></td>
-                <td className={`${styles['col-4']} ${styles.total}`}>
-                  $ {separator(invoice.total || 0)}
+                <td className={styles["col-1"]}>Amount Due</td>
+                <td className={styles["col-2"]}></td>
+                <td className={styles["col-3"]}></td>
+                <td className={`${styles["col-4"]} ${styles.total}`}>
+                  $ {separator(Number(invoice.total).toFixed(2))}
                 </td>
               </tr>
             }

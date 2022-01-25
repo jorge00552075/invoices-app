@@ -34,8 +34,8 @@
 
 @media (max-width: 640px) {
   .modal {
-    border: 3px solid red;
-    /* +10px for scrollbar */
-    width: 385px;
+    /* width: 38.5rem; */
+    width: 100%;
+    border-radius: 0px;
   }
 }

@@ -6,7 +6,7 @@
   --detailbody-tfoot-background: hsl(231, 20%, 27%);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --detailbody-background: hsl(233, 31%, 17%);
   --detailbody-color: hsl(231, 72%, 93%);
   --detailbody-color-secondary: hsl(0, 0%, 100%);
