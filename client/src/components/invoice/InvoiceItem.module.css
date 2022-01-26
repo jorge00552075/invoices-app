@@ -65,13 +65,13 @@
 
 .total {
   justify-self: right;
-  margin-right: 4rem;
+  margin-right: 28px;
 
   font-weight: 700;
   font-size: 1.6rem;
 
   color: var(--invoice-color);
-  letter-spacing: -0.8px;
+  letter-spacing: -0.05em;
 }
 
 .container {
@@ -81,6 +81,12 @@
 }
 
 /* ****************************** */
+@media (max-width: 850px) {
+  .total {
+    margin-right: 16px;
+  }
+}
+
 /* prettier-ignore */
 @media (max-width: 640px) {
   .id { grid-area: uid }

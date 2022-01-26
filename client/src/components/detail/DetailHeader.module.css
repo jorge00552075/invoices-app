@@ -18,9 +18,21 @@
   --detailheader-link-hover: hsl(231, 20%, 61%);
 }
 
-.container {
+.header {
+  position: relative;
+  display: flex;
+  flex: 0 0 9.1rem;
+  justify-content: space-between;
+  align-items: center;
+
   max-width: 73rem;
-  margin: 9.6rem auto 0;
+  height: 9.1rem;
+  margin: 9.6rem auto 0 auto;
+  padding: 3.2rem;
+  border-radius: 9px;
+
+  background: var(--detailheader-background);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .link:link,
@@ -35,7 +47,9 @@
   letter-spacing: -0.25px;
   text-decoration: none;
 
-  transform: translateY(-30px);
+  position: absolute;
+  top: -32px;
+  left: 0;
 }
 
 .link:hover,
@@ -51,21 +65,6 @@
 
 .link span {
   margin-left: 16px;
-}
-
-.header {
-  display: flex;
-  flex: 0 0 8.8rem;
-  justify-content: space-between;
-  align-items: center;
-
-  height: 8.8rem;
-  margin: 0 auto;
-  padding: 3.2rem;
-  border-radius: 9px;
-
-  background: var(--detailheader-background);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .statusGroup {
@@ -87,11 +86,6 @@
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-}
-
-/* hide bottom buttons */
-.hidden2 {
-  display: none;
 }
 
 .btn {
@@ -154,53 +148,25 @@
 
 /* ****************************** */
 @media (max-width: 850px) {
-  .container {
+  .header {
     max-width: 68.8rem;
   }
 }
 
 @media (max-width: 640px) {
-  .container {
-    width: 327px;
-    outline: 1px solid red;
-  }
-
   .header {
-    /* display: flex;
-    flex: 0 0 8.8rem;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 8.8rem;
-    margin: 0 auto;
-    padding: 3.2rem;
-    border-radius: 9px;
-
-    background: var(--detailheader-background);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); */
-    justify-content: center;
-    background-color: teal;
-    width: 100%;
-    /* padding: 0px; */
-    width: 327px;
+    width: 32.7rem;
+    margin-top: 8rem;
   }
 
   .buttons {
-    /* display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between; */
-    gap: 20px;
-    background-color: tomato;
-    justify-content: space-between;
-  }
-
-  /* hide header buttons & show at bottom */
-  .hidden {
     display: none;
   }
 
-  .hidden2 {
-    display: flex;
+  .statusGroup {
+    gap: 0px;
+    justify-content: space-between;
+
+    width: 100%;
   }
 }

@@ -20,7 +20,6 @@ function App() {
 
 export default App;
 // create a filtering component !
-// fix buttons to bottom of invoice detail on mobile !
 
 // save theme to local storage
 // which css animation library to use?

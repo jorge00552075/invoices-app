@@ -4,8 +4,8 @@ import { useParams } from "react-router";
 import InvoiceContext from "../context/invoices-context.jsx";
 import Layout from "../components/layout/Layout.jsx";
 import DetailHeader from "../components/detail/DetailHeader.jsx";
-import { DetailHeader2 } from "../components/detail/DetailHeader.jsx";
 import DetailBody from "../components/detail/DetailBody.jsx";
+import DetailFooter from "../components/detail/DetailFooter.jsx";
 import Modal from "../components/form/Modal.jsx";
 import DeletePrompt from "../components/detail/DeletePrompt.jsx";
 import { useEffect } from "react";
@@ -47,7 +47,7 @@ function InvoicesDetail() {
         confirmDeletion={confirmDeletion}
       />
       <DetailBody invoice={invoice} />
-      <DetailHeader2
+      <DetailFooter
         invoice={invoice}
         showForm={toggleModal}
         confirmDeletion={confirmDeletion}
