@@ -10,7 +10,7 @@
   background: hsla(0, 0%, 0%, 0.5);
 }
 
-.modal {
+.drawer {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,13 +27,13 @@
 
 /* ****************************** */
 @media (max-width: 850px) {
-  .modal {
+  .drawer {
     width: 62rem;
   }
 }
 
 @media (max-width: 640px) {
-  .modal {
+  .drawer {
     /* width: 38.5rem; */
     width: 100%;
     border-radius: 0px;

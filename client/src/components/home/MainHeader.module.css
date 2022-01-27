@@ -1,11 +1,13 @@
 :root {
   --mainheader-color: hsl(228, 29%, 7%);
   --mainheader-color-secondary: hsl(231, 20%, 61%);
+  --mainheader-dropdown-bg: hsl(0, 0%, 100%);
 }
 
 [data-theme="dark"] {
   --mainheader-color: hsl(0, 0%, 100%);
   --mainheader-color-secondary: hsl(231, 73%, 93%);
+  --mainheader-dropdown-bg: hsl(233, 30%, 21%);
 }
 
 .header {
@@ -37,9 +39,73 @@
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   gap: 3.2rem;
   align-items: center;
+}
+
+/* SELECT BTN */
+.btn {
+  width: 12.8rem;
+  border: none;
+
+  background: transparent;
+
+  font-family: inherit;
+
+  color: var(--mainheader-color);
+  cursor: pointer;
+}
+
+.btnText {
+  margin-right: 1.4rem;
+
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: -0.25px;
+}
+
+/* SELECT DROPDOWN*/
+.selectEl {
+  position: absolute;
+  top: 64px;
+  left: -40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+
+  width: 20rem;
+  padding: 2rem;
+  border-radius: 9px;
+
+  background: var(--mainheader-dropdown-bg);
+
+  color: var(--mainheader-color);
+
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.formGroup label {
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  letter-spacing: -0.25px;
+}
+
+.formControl {
+  /* Radio btn */
+  display: inline-block;
+  accent-color: #7c5dfa;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .newInvoice {
@@ -107,6 +173,10 @@
 
   .wrapper {
     gap: 0px;
+  }
+
+  .hidden {
+    display: none;
   }
 
   .newInvoice {

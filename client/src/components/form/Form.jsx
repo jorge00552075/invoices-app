@@ -13,7 +13,7 @@ const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, "day").$d;
 const calculateTotal = (items) =>
   items.reduce((total, item) => total + item.total, 0);
 
-function Form({ invoice, closeModal }) {
+function Form({ invoice, closeDrawer }) {
   const context = useContext(InvoiceContext);
 
   const {
@@ -34,7 +34,7 @@ function Form({ invoice, closeModal }) {
         total: calculateTotal(data.items),
       };
       context.updateInvoice(invoice._id, updatedInvoice);
-      closeModal();
+      closeDrawer();
     } else {
       // NEW INVOICE
       const newInvoice = {
@@ -44,7 +44,7 @@ function Form({ invoice, closeModal }) {
         total: calculateTotal(data.items),
       };
       context.createInvoice(newInvoice);
-      closeModal();
+      closeDrawer();
     }
   }
   // SAVE AS DRAFT
@@ -56,7 +56,7 @@ function Form({ invoice, closeModal }) {
       status: "Draft",
     };
     context.createInvoice(invoiceDraft);
-    closeModal();
+    closeDrawer();
   }
 
   // FORM CONTROL CLASSES
@@ -264,7 +264,7 @@ function Form({ invoice, closeModal }) {
           <button
             type="button"
             className={`${styles.btn} ${styles.discard}`}
-            onClick={() => closeModal()}
+            onClick={() => closeDrawer()}
           >
             {invoice ? "Cancel" : "Discard"}
           </button>

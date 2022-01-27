@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 
 import InvoiceContext from "../context/invoices-context.jsx";
@@ -6,12 +6,11 @@ import Layout from "../components/layout/Layout.jsx";
 import DetailHeader from "../components/detail/DetailHeader.jsx";
 import DetailBody from "../components/detail/DetailBody.jsx";
 import DetailFooter from "../components/detail/DetailFooter.jsx";
-import Modal from "../components/form/Modal.jsx";
-import DeletePrompt from "../components/detail/DeletePrompt.jsx";
-import { useEffect } from "react";
-import Loader from "../components/layout/Loader.jsx";
+import Drawer from "../components/layout/Drawer.jsx";
+import ModalDelete from "../components/layout/ModalDelete.jsx";
+import Loader from "../components/other/Loader.jsx";
 
-function InvoicesDetail() {
+function DetailPage() {
   const [showInvoiceForm, setShowInvoiceForm] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
 
@@ -20,7 +19,7 @@ function InvoicesDetail() {
 
   const invoice = invoices.find((invoice) => invoice.uid === id);
 
-  const toggleModal = () => setShowInvoiceForm((previous) => !previous);
+  const toggleDrawer = () => setShowInvoiceForm((previous) => !previous);
   const confirmDeletion = () => setShowPrompt((previous) => !previous);
 
   useEffect(() => {
@@ -37,23 +36,25 @@ function InvoicesDetail() {
 
   return (
     <Layout>
-      {showInvoiceForm && <Modal invoice={invoice} closeModal={toggleModal} />}
+      {showInvoiceForm && (
+        <Drawer invoice={invoice} closeDrawer={toggleDrawer} />
+      )}
       {showPrompt && (
-        <DeletePrompt invoice={invoice} cancelConfirm={confirmDeletion} />
+        <ModalDelete invoice={invoice} cancelConfirm={confirmDeletion} />
       )}
       <DetailHeader
         invoice={invoice}
-        showForm={toggleModal}
+        showForm={toggleDrawer}
         confirmDeletion={confirmDeletion}
       />
       <DetailBody invoice={invoice} />
       <DetailFooter
         invoice={invoice}
-        showForm={toggleModal}
+        showForm={toggleDrawer}
         confirmDeletion={confirmDeletion}
       />
     </Layout>
   );
 }
 
-export default InvoicesDetail;
+export default DetailPage;

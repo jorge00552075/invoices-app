@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import InvoiceStatus from "../invoice/InvoiceStatus.jsx";
+import InvoiceStatus from "../home/InvoiceStatus.jsx";
 import InvoiceContext from "../../context/invoices-context.jsx";
 
 import styles from "./DetailHeader.module.css";

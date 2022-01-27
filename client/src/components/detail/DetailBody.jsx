@@ -82,7 +82,7 @@ function DetailBody({ invoice }) {
                 <td className={styles["col-2"]}></td>
                 <td className={styles["col-3"]}></td>
                 <td className={`${styles["col-4"]} ${styles.total}`}>
-                  $ {separator(Number(invoice.total).toFixed(2))}
+                  $ {separator(Number(invoice.total || 0).toFixed(2))}
                 </td>
               </tr>
             }

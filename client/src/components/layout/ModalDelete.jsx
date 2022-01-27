@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import ReactDOM from 'react-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext } from "react";
+import ReactDOM from "react-dom";
+import { useNavigate } from "react-router-dom";
 
-import InvoiceContext from '../../context/invoices-context';
+import InvoiceContext from "../../context/invoices-context";
 
-import styles from '../detail/DeletePrompt.module.css';
+import styles from "./ModalDelete.module.css";
 
 // prettier-ignore
 function Backdrop({ cancelConfirm }) {
@@ -35,7 +35,7 @@ function ModalOverlay({ invoice, cancelConfirm }) {
           className={`${styles.btn} ${styles.btnDelete}`}
           onClick={() => {
             context.deleteInvoice(invoice._id);
-            navigate('/');
+            navigate("/");
           }}
         >
           Delete
@@ -45,11 +45,11 @@ function ModalOverlay({ invoice, cancelConfirm }) {
   );
 }
 
-const backdropEl = document.getElementById('backdrop-root');
-const modalOverlaysEl = document.getElementById('modal-root');
+const backdropEl = document.getElementById("backdrop-root");
+const modalOverlaysEl = document.getElementById("modal-root");
 
 // prettier-ignore
-function DeletePrompt({ invoice, cancelConfirm }) {
+function ModalDelete({ invoice, cancelConfirm }) {
   return (
     <React.Fragment>
       {ReactDOM.createPortal(<Backdrop cancelConfirm={cancelConfirm} />, backdropEl)}
@@ -58,4 +58,4 @@ function DeletePrompt({ invoice, cancelConfirm }) {
   );
 }
 
-export default DeletePrompt;
+export default ModalDelete;

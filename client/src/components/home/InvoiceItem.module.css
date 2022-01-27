@@ -87,22 +87,33 @@
   }
 }
 
-/* prettier-ignore */
 @media (max-width: 640px) {
-  .id { grid-area: uid }
-  .paymentDue { grid-area: paymentDue }
-  .clientName { grid-area: clientName }
-  .total { grid-area: total }
-  .container { grid-area: status }
+  .id {
+    grid-area: uid;
+  }
+  .paymentDue {
+    grid-area: paymentDue;
+  }
+  .clientName {
+    grid-area: clientName;
+    justify-self: right;
+  }
+  .total {
+    grid-area: total;
+    justify-self: left;
+  }
+  .container {
+    grid-area: status;
+    justify-self: right;
+  }
 
   .invoice {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr min-content 1fr;
     grid-template-areas:
-      'uid clientName'
-      'paymentDue paymentDue'
-      'total status'
-    ;
+      "uid clientName"
+      "paymentDue paymentDue"
+      "total status";
 
     width: 32.7rem;
     height: 13.4rem;

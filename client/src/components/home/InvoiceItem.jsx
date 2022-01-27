@@ -20,7 +20,7 @@ function InvoiceItem({ invoice }) {
       </span>
       <span className={styles.clientName}>{invoice.clientName}</span>
       <span className={styles.total}>
-        $ {separator(Number(invoice.total).toFixed(2))}
+        $ {separator(Number(invoice.total || 0).toFixed(2))}
       </span>
 
       <div className={styles.container}>

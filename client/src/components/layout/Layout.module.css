@@ -3,7 +3,7 @@
   --Form-background: hsl(0, 0%, 100%);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --layout-background: hsl(233, 30%, 11%);
   --Form-background: hsl(233, 30%, 11%);
 }
