@@ -1,41 +1,36 @@
 :root {
-  --detailbody-background: hsl(0, 0%, 100%);
-  --detailbody-color: hsl(231, 37%, 63%);
-  --detailbody-color-secondary: hsl(228, 29%, 7%);
-  --detailbody-table-background: hsl(240, 27%, 98%);
-  --detailbody-tfoot-background: hsl(231, 20%, 27%);
+  --invoicebody-bg: hsl(0, 0%, 100%);
+  --invoicebody-text-clr: hsl(231, 37%, 63%);
+  --invoicebody-text-clr-secondary: hsl(228, 29%, 7%);
+  --invoicebody-table-bg: hsl(240, 27%, 98%);
+  --invoicebody-tfoot-bg: hsl(231, 20%, 27%);
 }
 
 [data-theme="dark"] {
-  --detailbody-background: hsl(233, 31%, 17%);
-  --detailbody-color: hsl(231, 72%, 93%);
-  --detailbody-color-secondary: hsl(0, 0%, 100%);
-  --detailbody-table-background: hsl(233, 30%, 21%);
-  --detailbody-tfoot-background: hsl(228, 29%, 7%);
+  --invoicebody-bg: hsl(233, 31%, 17%);
+  --invoicebody-text-clr: hsl(231, 72%, 93%);
+  --invoicebody-text-clr-secondary: hsl(0, 0%, 100%);
+  --invoicebody-table-bg: hsl(233, 30%, 21%);
+  --invoicebody-tfoot-bg: hsl(228, 29%, 7%);
 }
 
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 3.6rem;
-
   max-width: 73rem;
   margin: 2rem auto;
   padding: 4.8rem;
   border-radius: 9px;
-
-  background: var(--detailbody-background);
+  background: var(--invoicebody-bg);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-
-  color: var(--detailbody-color);
+  color: var(--invoicebody-text-clr);
 }
 
 .id {
   margin-bottom: 1.2rem;
-
   font-size: 1.6rem;
-
-  color: var(--detailbody-color-secondary);
+  color: var(--invoicebody-text-clr-secondary);
   letter-spacing: -0.8px;
   line-height: 2.4rem;
 }
@@ -47,7 +42,6 @@
 .description {
   font-weight: 500;
   font-size: 1.2rem;
-
   letter-spacing: -0.25px;
 }
 
@@ -57,10 +51,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
   font-weight: 500;
   font-size: 1.1rem;
-
   letter-spacing: -0.25px;
 }
 
@@ -79,15 +71,13 @@
 .dateHeading {
   font-weight: 500;
   font-size: 1.2rem;
-
   letter-spacing: -0.25px;
 }
 
 .date {
   font-weight: 700;
   font-size: 1.5rem;
-
-  color: var(--detailbody-color-secondary);
+  color: var(--invoicebody-text-clr-secondary);
   letter-spacing: -0.25px;
   line-height: 2rem;
 }
@@ -96,36 +86,30 @@
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-
   font-weight: 500;
   font-size: 1.2rem;
-
   letter-spacing: -0.25px;
 }
 
 .clientName {
   font-weight: 700;
   font-size: 1.5rem;
-
-  color: var(--detailbody-color-secondary);
+  color: var(--invoicebody-text-clr-secondary);
 }
 
 .clientEmail {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-
   font-weight: 500;
   font-size: 1.2rem;
-
   letter-spacing: -0.25px;
 }
 
 .clientEmail a {
   font-weight: 700;
   font-size: 1.5rem;
-
-  color: var(--detailbody-color-secondary);
+  color: var(--invoicebody-text-clr-secondary);
   letter-spacing: -0.25px;
   line-height: 2rem;
   text-decoration: none;
@@ -141,9 +125,7 @@
 
 table {
   width: 100%;
-
-  background: var(--detailbody-table-background);
-
+  background: var(--invoicebody-table-bg);
   border-collapse: collapse;
 }
 
@@ -154,20 +136,18 @@ tr {
 th {
   font-weight: 500;
   font-size: 1.1rem;
-
   letter-spacing: -0.25px;
 }
 
 td {
   font-weight: 700;
   font-size: 1.2rem;
-
-  color: var(--detailbody-color-secondary);
+  color: var(--invoicebody-text-clr-secondary);
 }
 
 .qty,
 .price {
-  color: var(--detailbody-color);
+  color: var(--invoicebody-text-clr);
 }
 
 /* invoice total */
@@ -176,24 +156,22 @@ td {
   font-size: 2.4rem;
   letter-spacing: -0.5px;
   color: hsl(0, 0%, 100%);
-
   text-align: right;
   padding-right: 3.2rem;
 }
 
 .footer {
   height: 8rem;
-  background: var(--detailbody-tfoot-background);
+  background: var(--invoicebody-tfoot-bg);
   color: hsl(0, 0%, 100%);
 }
 
 .footer td:first-of-type {
-  color: white;
+  color: hsl(0, 0%, 100%);
 }
 
 .col-1 {
   padding-left: 3.2rem;
-
   text-align: left;
 }
 
@@ -204,7 +182,6 @@ td {
 
 .col-4 {
   padding-right: 3.2rem;
-
   text-align: right;
 }
 
@@ -226,7 +203,6 @@ td {
   .senderAddress,
   .dates {
     grid-column: 1 / span 1;
-
     align-items: flex-start;
   }
 

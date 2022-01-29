@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import InvoiceStatus from "../home/InvoiceStatus.jsx";
 import InvoiceContext from "../../context/invoices-context.jsx";
 
-import styles from "./DetailHeader.module.css";
+import styles from "./InvoiceHeader.module.css";
 
-function DetailHeader({ invoice, showForm, confirmDeletion }) {
+function InvoiceHeader({ invoice, showForm, confirmDeletion }) {
   const context = useContext(InvoiceContext);
 
   return (
@@ -55,4 +55,4 @@ function DetailHeader({ invoice, showForm, confirmDeletion }) {
   );
 }
 
-export default DetailHeader;
+export default InvoiceHeader;

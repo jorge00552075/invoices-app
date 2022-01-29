@@ -1,9 +1,9 @@
 :root {
-  --notfound-color: hsl(228, 29%, 7%);
+  --notfound-text-clr: hsl(228, 29%, 7%);
 }
 
-[data-theme='dark'] {
-  --notfound-color: hsl(0, 0%, 100%);
+[data-theme="dark"] {
+  --notfound-text-clr: hsl(0, 0%, 100%);
 }
 
 .container {
@@ -12,25 +12,20 @@
 
 .heading {
   margin: 9.6rem 0 1.6rem;
-
   font-size: 3.6rem;
-
-  color: var(--notfound-color);
+  color: var(--notfound-text-clr);
 }
 
 .text {
   margin-bottom: 2.4rem;
-
   font-size: 1.6rem;
-
-  color: var(--notfound-color);
+  color: var(--notfound-text-clr);
 }
 
 .link:link,
 .link:visited {
   font-size: 1.6rem;
-
-  color: var(--notfound-color);
+  color: var(--notfound-text-clr);
   text-decoration: none;
 }
 

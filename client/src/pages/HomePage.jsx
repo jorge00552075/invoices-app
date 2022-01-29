@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Layout from "../components/layout/Layout.jsx";
-import MainHeader from "../components/home/MainHeader.jsx";
+import Header from "../components/home/Header.jsx";
 import InvoicesList from "../components/home/InvoicesList.jsx";
 import Drawer from "../components/layout/Drawer.jsx";
 
@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <Layout>
       {showInvoiceForm && <Drawer closeDrawer={toggleDrawer}></Drawer>}
-      <MainHeader openDrawer={toggleDrawer} getFilterStatus={getFilterStatus} />
+      <Header openDrawer={toggleDrawer} getFilterStatus={getFilterStatus} />
       <InvoicesList filterStatus={filterStatus} />
     </Layout>
   );

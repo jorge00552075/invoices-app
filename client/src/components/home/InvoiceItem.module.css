@@ -1,26 +1,23 @@
 :root {
-  --invoice-background: hsl(0, 0%, 100%);
-  --invoice-color: hsl(228, 29%, 7%);
-  --invoice-color-secondary: hsl(231, 37%, 63%);
+  --invoice-bg: hsl(0, 0%, 100%);
+  --invoice-text-clr: hsl(228, 29%, 7%);
+  --invoice-text-clr-secondary: hsl(231, 37%, 63%);
 }
 
 [data-theme="dark"] {
-  --invoice-background: hsl(233, 31%, 17%);
-  --invoice-color: hsl(0, 0%, 100%);
-  --invoice-color-secondary: hsl(231, 73%, 93%);
+  --invoice-bg: hsl(233, 31%, 17%);
+  --invoice-text-clr: hsl(0, 0%, 100%);
+  --invoice-text-clr-secondary: hsl(231, 73%, 93%);
 }
 
 .invoice {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
-
   height: 7.2rem;
   padding: 1.6rem 2.4rem;
   border-radius: 6px;
-
-  background: var(--invoice-background);
-
+  background: var(--invoice-bg);
   text-decoration: none;
 }
 
@@ -29,48 +26,41 @@
 .invoice:focus {
   outline: none;
   border-radius: 6px;
-
   box-shadow: 0 0 0 4px hsla(252, 94%, 67%, 0.5);
 }
 
 .id {
   font-size: 1.2rem;
   font-weight: 700;
-
-  color: var(--invoice-color);
+  color: var(--invoice-text-clr);
 }
 
 .id span {
   font-size: 1.2rem;
   font-weight: 700;
-
   color: hsl(231, 37%, 63%);
 }
 
 .paymentDue {
   font-weight: 500;
   font-size: 1.2rem;
-
-  color: var(--invoice-color-secondary);
+  color: var(--invoice-text-clr-secondary);
   letter-spacing: -0.25px;
 }
 
 .clientName {
   font-weight: 500;
   font-size: 1.2rem;
-
-  color: var(--invoice-color-secondary);
+  color: var(--invoice-text-clr-secondary);
   letter-spacing: -0.25px;
 }
 
 .total {
   justify-self: right;
   margin-right: 28px;
-
   font-weight: 700;
   font-size: 1.6rem;
-
-  color: var(--invoice-color);
+  color: var(--invoice-text-clr);
   letter-spacing: -0.05em;
 }
 

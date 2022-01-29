@@ -8,7 +8,7 @@ import styles from "./Form.module.css";
 
 const TODAYSDATE = dayjs(new Date()).format("YYYY-MM-DD");
 
-// FUNCTIONS
+// functions
 const calculatePaymentDue = (date, terms) => dayjs(date).add(terms, "day").$d;
 const calculateTotal = (items) =>
   items.reduce((total, item) => total + item.total, 0);
@@ -26,7 +26,7 @@ function Form({ invoice, closeDrawer }) {
   } = useForm({ defaultValues: invoice });
 
   function onSubmit(data) {
-    // EDIT INVOICE
+    // edit invoice
     if (!!invoice) {
       const updatedInvoice = {
         ...data,
@@ -36,7 +36,7 @@ function Form({ invoice, closeDrawer }) {
       context.updateInvoice(invoice._id, updatedInvoice);
       closeDrawer();
     } else {
-      // NEW INVOICE
+      // new invoice
       const newInvoice = {
         ...data,
         uid: createUID(),
@@ -47,7 +47,7 @@ function Form({ invoice, closeDrawer }) {
       closeDrawer();
     }
   }
-  // SAVE AS DRAFT
+  // save as draft
   function createDraft(data) {
     const invoiceDraft = {
       ...data,
@@ -59,7 +59,7 @@ function Form({ invoice, closeDrawer }) {
     closeDrawer();
   }
 
-  // FORM CONTROL CLASSES
+  // form control classes
   const formControl = styles.formControl;
   const formControlInvalid = `${styles.formControl} ${styles.invalid}`;
 

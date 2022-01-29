@@ -1,13 +1,13 @@
 :root {
-  --mainheader-color: hsl(228, 29%, 7%);
-  --mainheader-color-secondary: hsl(231, 20%, 61%);
-  --mainheader-dropdown-bg: hsl(0, 0%, 100%);
+  --header-text-clr: hsl(228, 29%, 7%);
+  --header-text-clr-secondary: hsl(231, 20%, 61%);
+  --header-select-bg: hsl(0, 0%, 100%);
 }
 
 [data-theme="dark"] {
-  --mainheader-color: hsl(0, 0%, 100%);
-  --mainheader-color-secondary: hsl(231, 73%, 93%);
-  --mainheader-dropdown-bg: hsl(233, 30%, 21%);
+  --header-text-clr: hsl(0, 0%, 100%);
+  --header-text-clr-secondary: hsl(231, 73%, 93%);
+  --header-select-bg: hsl(233, 30%, 21%);
 }
 
 .header {
@@ -22,19 +22,16 @@
 
 .title {
   font-size: 3.2rem;
-
-  color: var(--mainheader-color);
+  color: var(--header-text-clr);
   letter-spacing: -1px;
   line-height: 3.6rem;
 }
 
 .text {
   margin-top: 0.8rem;
-
   font-weight: 600;
   font-size: 1.2rem;
-
-  color: var(--mainheader-color-secondary);
+  color: var(--header-text-clr-secondary);
   letter-spacing: -0.25px;
 }
 
@@ -49,18 +46,14 @@
 .btn {
   width: 12.8rem;
   border: none;
-
   background: transparent;
-
   font-family: inherit;
-
-  color: var(--mainheader-color);
+  color: var(--header-text-clr);
   cursor: pointer;
 }
 
 .btnText {
   margin-right: 1.4rem;
-
   font-weight: 700;
   font-size: 12px;
   letter-spacing: -0.25px;
@@ -75,15 +68,11 @@
   flex-direction: column;
   justify-content: center;
   gap: 1.6rem;
-
   width: 20rem;
   padding: 2rem;
   border-radius: 9px;
-
-  background: var(--mainheader-dropdown-bg);
-
-  color: var(--mainheader-color);
-
+  background: var(--header-select-bg);
+  color: var(--header-text-clr);
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -96,7 +85,6 @@
 .formGroup label {
   font-weight: 700;
   font-size: 1.2rem;
-
   letter-spacing: -0.25px;
 }
 
@@ -112,28 +100,22 @@
   display: flex;
   gap: 0.8rem;
   align-items: center;
-
   padding: 0.8rem 2.4rem 0.8rem 0.8rem;
   border: none;
   border-radius: 9999px;
-
   background: hsl(252, 94%, 67%);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
-
   color: hsl(0, 0%, 100%);
   letter-spacing: -0.25px;
-
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .newInvoice:focus-visible {
   outline: none;
-
   box-shadow: 0 0 0 8px hsla(252, 94%, 67%, 0.5);
 }
 
@@ -150,7 +132,6 @@
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
-
   background: hsl(0, 0%, 100%);
 }
 

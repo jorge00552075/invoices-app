@@ -1,21 +1,21 @@
 :root {
-  --detailheader-background: hsl(0, 0%, 100%);
-  --detailheader-color: hsl(232, 23%, 61%);
-  --detailheader-btn-background: hsl(240, 27%, 98%);
-  --detailheader-btn-color: hsl(231, 37%, 63%);
-  --detailheader-btn-hover: hsl(231, 73%, 93%);
-  --detailheader-link: hsl(228, 29%, 7%);
-  --detailheader-link-hover: hsl(231, 37%, 63%);
+  --invoiceheader-bg: hsl(0, 0%, 100%);
+  --invoiceheader-text-clr: hsl(232, 23%, 61%);
+  --invoiceheader-btn-bg: hsl(240, 27%, 98%);
+  --invoiceheader-btn-clr: hsl(231, 37%, 63%);
+  --invoiceheader-btn-clr-secondary: hsl(231, 73%, 93%);
+  --invoiceheader-link-clr: hsl(228, 29%, 7%);
+  --invoiceheader-link-clr-secondary: hsl(231, 37%, 63%);
 }
 
 [data-theme="dark"] {
-  --detailheader-background: hsl(233, 31%, 17%);
-  --detailheader-color: hsl(231, 73%, 93%);
-  --detailheader-btn-background: hsl(233, 30%, 21%);
-  --detailheader-btn-color: hsl(231, 73%, 93%);
-  --detailheader-btn-hover: hsl(0, 0%, 100%);
-  --detailheader-link: hsl(0, 0%, 100%);
-  --detailheader-link-hover: hsl(231, 20%, 61%);
+  --invoiceheader-bg: hsl(233, 31%, 17%);
+  --invoiceheader-text-clr: hsl(231, 73%, 93%);
+  --invoiceheader-btn-bg: hsl(233, 30%, 21%);
+  --invoiceheader-btn-clr: hsl(231, 73%, 93%);
+  --invoiceheader-btn-clr-secondary: hsl(0, 0%, 100%);
+  --invoiceheader-link-clr: hsl(0, 0%, 100%);
+  --invoiceheader-link-clr-secondary: hsl(231, 20%, 61%);
 }
 
 .header {
@@ -24,29 +24,23 @@
   flex: 0 0 9.1rem;
   justify-content: space-between;
   align-items: center;
-
   max-width: 73rem;
   height: 9.1rem;
   margin: 9.6rem auto 0 auto;
   padding: 3.2rem;
   border-radius: 9px;
-
-  background: var(--detailheader-background);
+  background: var(--invoiceheader-bg);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .link:link,
 .link:visited {
   display: inline-block;
-
   font-weight: 700;
   font-size: 1.2rem;
-
-  color: hsl(228, 29%, 7%);
-  color: var(--detailheader-link);
+  color: var(--invoiceheader-link-clr);
   letter-spacing: -0.25px;
   text-decoration: none;
-
   position: absolute;
   top: -32px;
   left: 0;
@@ -54,7 +48,7 @@
 
 .link:hover,
 .link:active {
-  color: var(--detailheader-link-hover);
+  color: var(--invoiceheader-link-clr-secondary);
 }
 
 .link:focus-visible {
@@ -78,7 +72,7 @@
   font-weight: 500;
   font-size: 1.2rem;
   letter-spacing: -0.25px;
-  color: var(--detailheader-color);
+  color: var(--invoiceheader-text-clr);
 }
 
 .buttons {
@@ -93,42 +87,33 @@
   padding: 1.6rem 2.4rem;
   border: none;
   border-radius: 9999px;
-
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
-
   color: hsl(0, 0%, 100%);
   letter-spacing: -0.25px;
-
   cursor: pointer;
 }
 
 .btn:focus-visible {
   outline: none;
-
   box-shadow: 0 0 0 8px hsla(252, 94%, 67%, 0.5);
 }
 
 .btnEdit {
-  background: var(--detailheader-btn-background);
-
-  color: var(--detailheader-btn-color);
-
+  background: var(--invoiceheader-btn-bg);
+  color: var(--invoiceheader-btn-clr);
   transition: all 0.3s;
 }
 
 .btnEdit:hover {
-  background: var(--detailheader-btn-hover);
-
+  background: var(--invoiceheader-btn-clr-secondary);
   color: hsl(231, 37%, 63%);
 }
 
 .btnDelete {
   background: hsl(0, 80%, 63%);
-
   transition: all 0.3s;
 }
 
@@ -138,7 +123,6 @@
 
 .btnPaid {
   background: hsl(252, 94%, 67%);
-
   transition: all 0.3s;
 }
 
@@ -166,7 +150,6 @@
   .statusGroup {
     gap: 0px;
     justify-content: space-between;
-
     width: 100%;
   }
 }

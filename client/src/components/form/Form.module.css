@@ -1,21 +1,19 @@
 :root {
-  --formHeading-color: hsl(228, 29%, 7%);
-  --formLabel-color: hsl(231, 37%, 63%);
-  --formControl-border: 1px solid hsl(231, 73%, 93%);
-  --formControl-background: hsl(0, 0%, 100%);
-  --formControl-color: hsl(228, 29%, 7%);
-  --form-btn-background: hsl(228, 71%, 99%);
-  --form-btn-color: hsl(231, 37%, 63%);
+  --form-text-clr: hsl(228, 29%, 7%);
+  --form-label-clr: hsl(231, 37%, 63%);
+  --form-input-border: 1px solid hsl(231, 73%, 93%);
+  --form-input-bg: hsl(0, 0%, 100%);
+  --form-btn-bg: hsl(228, 71%, 99%);
+  --form-btn-clr: hsl(231, 37%, 63%);
 }
 
 [data-theme="dark"] {
-  --formHeading-color: hsl(0, 0%, 100%);
-  --formLabel-color: hsl(231, 73%, 93%);
-  --formControl-border: 1px solid hsl(233, 30%, 21%);
-  --formControl-background: hsl(233, 31%, 17%);
-  --formControl-color: hsl(0, 0%, 100%);
-  --form-btn-background: hsl(233, 31%, 17%);
-  --form-btn-color: hsl(231, 37%, 63%);
+  --form-text-clr: hsl(0, 0%, 100%);
+  --form-label-clr: hsl(231, 73%, 93%);
+  --form-input-border: 1px solid hsl(233, 30%, 21%);
+  --form-input-bg: hsl(233, 31%, 17%);
+  --form-btn-bg: hsl(233, 31%, 17%);
+  --form-btn-clr: hsl(231, 37%, 63%);
 }
 
 .formWrapper {
@@ -27,17 +25,14 @@
 
 .formHeading {
   margin-bottom: 4.8rem;
-
   font-size: 2.4rem;
-
-  color: var(--formHeading-color);
+  color: var(--form-text-clr);
   letter-spacing: -0.25px;
   line-height: 3.2rem;
 }
 
 .formHeading span {
   font-weight: 700;
-
   color: hsl(231, 20%, 61%);
 }
 
@@ -51,10 +46,8 @@ fieldset {
 
 legend {
   margin-bottom: 2.4rem;
-
   font-weight: 700;
   font-size: 1.2rem;
-
   color: hsl(252, 94%, 67%);
   letter-spacing: -0.25px;
 }
@@ -65,32 +58,26 @@ legend {
 
 .formGroup label {
   display: inline-block;
-
   width: 100%;
   margin-bottom: 1.2rem;
-
   font-weight: 500;
   font-size: 1.2rem;
-
-  color: var(--formLabel-color);
+  color: var(--form-label-clr);
   letter-spacing: -0.25px;
 }
 
 .formControl {
   display: block;
-
   height: 47px;
   width: 100%;
   padding: 1.5rem;
-  border: var(--formControl-border);
+  border: var(--form-input-border);
   border-radius: 4px;
-  background: var(--formControl-background);
-
+  background: var(--form-input-bg);
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
-
-  color: var(--formControl-color);
+  color: var(--form-text-clr);
   letter-spacing: -0.25px;
 }
 
@@ -120,7 +107,6 @@ legend {
 .itemsHeading {
   font-weight: 700;
   font-size: 1.8rem;
-
   color: hsl(225, 14%, 53%);
   letter-spacing: -0.25px;
   line-height: 32px;
@@ -132,17 +118,13 @@ legend {
   padding: 1.6rem 2.4rem;
   border: none;
   border-radius: 9999px;
-
-  background: var(--form-btn-background);
+  background: var(--form-btn-bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-
   font-family: inherit;
   font-weight: 700;
   font-size: 1.2rem;
-
-  color: var(--form-btn-color);
+  color: var(--form-btn-clr);
   letter-spacing: -0.25px;
-
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -155,14 +137,12 @@ legend {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-
   margin-bottom: 2.4rem;
 }
 
 small {
   font-weight: 600;
   font-size: 1rem;
-
   color: hsl(0, 80%, 63%);
   letter-spacing: -0.25px;
 }
@@ -174,11 +154,8 @@ small {
 
 .discard {
   width: auto;
-
   margin-right: auto;
-
   background: hsl(228, 71%, 99%);
-
   color: hsl(231, 37%, 63%);
 }
 
@@ -188,23 +165,18 @@ small {
 
 .draft {
   width: auto;
-
   background: hsl(231, 20%, 27%);
-
   color: hsl(231, 20%, 61%);
 }
 
 .draft:hover {
   background: hsl(228, 29%, 7%);
-
   color: hsl(231, 20%, 61%);
 }
 
 .send {
   width: auto;
-
   background: hsl(252, 94%, 67%);
-
   color: hsl(0, 0%, 100%);
 }
 
@@ -216,12 +188,9 @@ small {
   display: flex;
   justify-content: center;
   align-items: center;
-
   border: none;
   outline: none;
-
   background: none;
-
   cursor: pointer;
 }
 

@@ -4,9 +4,9 @@ import InvoiceContext from "../../context/invoices-context.jsx";
 import { ReactComponent as Plus } from "../../assets/icon-plus.svg";
 import { ReactComponent as Darr } from "../../assets/icon-arrow-down.svg";
 
-import styles from "./MainHeader.module.css";
+import styles from "./Header.module.css";
 
-function MainHeader({ openDrawer, getFilterStatus }) {
+function Header({ openDrawer, getFilterStatus }) {
   const [showOptions, setShowOptions] = useState(false);
   const { invoices } = useContext(InvoiceContext);
   // Show filter options
@@ -88,4 +88,4 @@ function MainHeader({ openDrawer, getFilterStatus }) {
   );
 }
 
-export default MainHeader;
+export default Header;

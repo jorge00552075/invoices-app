@@ -1,27 +1,25 @@
 :root {
-  --invoicelist-color: hsl(228, 29%, 7%);
-  --invoicelist-color-secondary: hsl(231, 20%, 61%);
+  --invoicelist-text-clr: hsl(228, 29%, 7%);
+  --invoicelist-text-clr-secondary: hsl(231, 20%, 61%);
 }
 
 [data-theme="dark"] {
-  --invoicelist-color: hsl(0, 0%, 100%);
-  --invoicelist-color-secondary: hsl(231, 73%, 93%);
+  --invoicelist-text-clr: hsl(0, 0%, 100%);
+  --invoicelist-text-clr-secondary: hsl(231, 73%, 93%);
 }
 
 .invoicesList {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.6rem;
-
   max-width: 73rem;
   margin: 6.4rem auto;
 }
 
-/* IF NO INVOICES */
+/* If no invoices */
 .container {
   width: 24.2rem;
   margin: 9.6rem auto 0;
-
   text-align: center;
 }
 
@@ -31,25 +29,21 @@
 
 .text h2 {
   margin-bottom: 2.4rem;
-
   font-size: 2rem;
-
-  color: var(--invoicelist-color);
+  color: var(--invoicelist-text-clr);
   letter-spacing: -0.5px;
 }
 
 .text h3 {
   font-weight: 500;
   font-size: 1.2rem;
-
-  color: var(--invoicelist-color-secondary);
+  color: var(--invoicelist-text-clr-secondary);
 }
 
 /* ****************************** */
 @media (max-width: 850px) {
   .invoicesList {
     justify-items: center;
-
     max-width: 67.2rem;
   }
 }

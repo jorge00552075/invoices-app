@@ -2,11 +2,11 @@ import dayjs from "dayjs";
 
 import separator from "../../utils/numberFormat";
 
-import styles from "./DetailBody.module.css";
+import styles from "./InvoiceBody.module.css";
 
 const formatDate = (date) => dayjs(date).format("DD MMM YYYY");
 
-function DetailBody({ invoice }) {
+function InvoiceBody({ invoice }) {
   return (
     <div className={styles.gridContainer}>
       <div>
@@ -93,4 +93,4 @@ function DetailBody({ invoice }) {
   );
 }
 
-export default DetailBody;
+export default InvoiceBody;

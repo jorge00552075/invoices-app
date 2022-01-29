@@ -1,38 +1,33 @@
 :root {
-  --layout-background: hsl(240, 20%, 98%);
-  --Form-background: hsl(0, 0%, 100%);
+  --layout-bg: hsl(240, 20%, 98%);
+  --form-bg: hsl(0, 0%, 100%);
 }
 
 [data-theme="dark"] {
-  --layout-background: hsl(233, 30%, 11%);
-  --Form-background: hsl(233, 30%, 11%);
+  --layout-bg: hsl(233, 30%, 11%);
+  --form-bg: hsl(233, 30%, 11%);
 }
 
 .layout {
   display: flex;
-
   height: 100vh;
-
-  background: var(--layout-background);
+  background: var(--layout-bg);
 }
 
 .aside {
   z-index: 50;
-
   flex: 0 0 10.3rem;
 }
 
 .main {
   flex: 1;
-
-  background: var(--layout-background);
-
+  background: var(--layout-bg);
   overflow-y: scroll;
 }
 
-/* FORM LAYOUT BACKGROUND */
+/* Form layout bg */
 .bgColor {
-  background: var(--Form-background);
+  background: var(--form-bg);
 }
 
 /* ****************************** */

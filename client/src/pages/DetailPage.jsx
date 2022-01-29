@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 
 import InvoiceContext from "../context/invoices-context.jsx";
 import Layout from "../components/layout/Layout.jsx";
-import DetailHeader from "../components/detail/DetailHeader.jsx";
-import DetailBody from "../components/detail/DetailBody.jsx";
-import DetailFooter from "../components/detail/DetailFooter.jsx";
+import DetailHeader from "../components/detail/InvoiceHeader.jsx";
+import DetailBody from "../components/detail/InvoiceBody.jsx";
+import DetailFooter from "../components/detail/InvoicesFooter.jsx";
 import Drawer from "../components/layout/Drawer.jsx";
 import ModalDelete from "../components/layout/ModalDelete.jsx";
 import Loader from "../components/other/Loader.jsx";

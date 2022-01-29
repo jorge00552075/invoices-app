@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 
 import InvoiceContext from "../../context/invoices-context.jsx";
 
-import styles from "./DetailFooter.module.css";
+import styles from "./InvoiceFooter.module.css";
 
-function DetailFooter({ invoice, showForm, confirmDeletion }) {
+function InvoiceFooter({ invoice, showForm, confirmDeletion }) {
   const context = useContext(InvoiceContext);
 
   return (
@@ -37,4 +37,4 @@ function DetailFooter({ invoice, showForm, confirmDeletion }) {
   );
 }
 
-export default DetailFooter;
+export default InvoiceFooter;
