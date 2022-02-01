@@ -2,11 +2,13 @@ const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
+const compression = require("compression");
 
 const AppError = require("./util/appError");
 const invoiceRouter = require("./routes/invoiceRoutes");
 
 const app = express();
+app.use(compression());
 
 app.use(cors()); // Enable All CORS Requests
 // {

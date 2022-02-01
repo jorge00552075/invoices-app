@@ -39,7 +39,7 @@
 }
 
 .btnEdit {
-  background: var(--invoiceheader-btn-bg-clr);
+  background: var(--invoiceheader-btn-bg);
   color: var(--invoiceheader-btn-clr);
   transition: all 0.3s;
 }
