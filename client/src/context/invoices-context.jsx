@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const InvoiceContext = React.createContext({
   getAllInvoices: () => {},
@@ -9,6 +9,8 @@ const InvoiceContext = React.createContext({
 });
 
 export function InvoiceContextProvider(props) {
+  const url = "https://invoice-api-00552075.herokuapp.com/api/v1/invoices";
+
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export function InvoiceContextProvider(props) {
 
   const getAllInvoices = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/v1/invoices');
+      const res = await fetch(url);
 
       const { invoices } = await res.json();
       setInvoices(invoices);
@@ -27,11 +29,12 @@ export function InvoiceContextProvider(props) {
   };
 
   const createInvoice = async (data) => {
+    console.log(data);
     try {
-      const res = await fetch('http://localhost:3000/api/v1/invoices', {
-        method: 'POST',
+      const res = await fetch(url, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -45,7 +48,7 @@ export function InvoiceContextProvider(props) {
 
   const getInvoice = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`);
+      const res = await fetch(`${url}/${id}`);
 
       const invoice = await res.json();
       return invoice;
@@ -56,10 +59,10 @@ export function InvoiceContextProvider(props) {
 
   const updateInvoice = async (id, data) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`, {
-        method: 'PATCH',
+      const res = await fetch(`${url}/${id}`, {
+        method: "PATCH",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -73,8 +76,8 @@ export function InvoiceContextProvider(props) {
 
   const deleteInvoice = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/invoices/${id}`, {
-        method: 'DELETE',
+      const res = await fetch(`${url}/${id}`, {
+        method: "DELETE",
       });
 
       await res.json();

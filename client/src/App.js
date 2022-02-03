@@ -19,3 +19,5 @@ function App() {
 }
 
 export default App;
+// add theme to local storage
+// add animations
