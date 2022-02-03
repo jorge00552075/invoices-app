@@ -14,7 +14,7 @@ Quickly create an invoice for any product or service in seconds. No signup or si
 
 ### Links
 
-- Live Site URL: [https://invoice-api-00552075.herokuapp.com/api/v1/invoices](https://your-live-site-url.com)
+- [https://invoice-api-00552075.herokuapp.com/api/v1/invoices](https://your-live-site-url.com)
 
 ### Built using
 
@@ -22,7 +22,6 @@ Quickly create an invoice for any product or service in seconds. No signup or si
 - [React Hook Form](https://react-hook-form.com/)
 - [React Router](https://reactrouter.com/)
 - [Day.js](https://day.js.org/)
-
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
 - [Mongodb](https://www.mongodb.com/)
