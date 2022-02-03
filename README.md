@@ -14,7 +14,7 @@ Quickly create an invoice for any product or service in seconds. No signup or si
 
 ### Links
 
-- [https://invoice-api-00552075.herokuapp.com/api/v1/invoices](https://your-live-site-url.com)
+- [invoices-app](https://invoice-api-00552075.herokuapp.com/api/v1/invoices)
 
 ### Built using
 
