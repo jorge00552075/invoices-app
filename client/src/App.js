@@ -1,10 +1,10 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import HomePage from "./pages/HomePage.jsx";
-import DetailPage from "./pages/DetailPage.jsx";
-import NotFoundPage from "./pages/NotFoundPage";
-import { InvoiceContextProvider } from "./context/invoices-context.jsx";
+import HomePage from './pages/HomePage.jsx';
+import DetailPage from './pages/DetailPage.jsx';
+import NotFoundPage from './pages/NotFoundPage';
+import { InvoiceContextProvider } from './context/invoices-context.jsx';
 
 function App() {
   return (
