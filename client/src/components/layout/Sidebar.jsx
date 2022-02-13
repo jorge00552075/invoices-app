@@ -13,13 +13,10 @@ function Sidebar() {
   const [theme, setTheme] = useState('light');
 
   function handleClick() {
-    if (theme === 'light') {
-      htmlEl.setAttribute('data-theme', 'dark');
-      setTheme('dark');
-    } else {
-      htmlEl.setAttribute('data-theme', 'light');
-      setTheme('light');
-    }
+    htmlEl.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
+    setTheme(theme === 'light' ? 'dark' : 'light');
+
+    localStorage.setItem('theme-color', theme === 'light' ? 'dark' : 'light');
   }
 
   return (
