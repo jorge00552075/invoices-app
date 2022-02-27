@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import HomePage from './pages/HomePage.jsx';
-import DetailPage from './pages/DetailPage.jsx';
-import NotFoundPage from './pages/NotFoundPage';
-import { InvoiceContextProvider } from './context/invoices-context.jsx';
+import HomePage from "./pages/HomePage.jsx";
+import DetailPage from "./pages/DetailPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage";
+import { InvoiceContextProvider } from "./context/invoices-context.jsx";
 
 const htmlEl = document.documentElement;
 function App() {
   useEffect(() => {
     // On load check for color-theme
-    const themeColor = localStorage.getItem('theme-color');
+    const themeColor = localStorage.getItem("theme-color");
 
     if (themeColor) {
-      htmlEl.setAttribute('data-theme', themeColor);
+      htmlEl.setAttribute("data-theme", themeColor);
     }
   }, []);
 
@@ -29,4 +29,3 @@ function App() {
 }
 
 export default App;
-// add css animations
